@@ -1,0 +1,28 @@
+C:\Users\Karin\Downloads\KOASampleCS\KOASampleCS\bin\Debug\KOASampleCS.exe.config
+C:\Users\Karin\Downloads\KOASampleCS\KOASampleCS\obj\Debug\Interop.KHOpenAPILib.dll
+C:\Users\Karin\Downloads\KOASampleCS\KOASampleCS\obj\Debug\AxInterop.KHOpenAPILib.dll
+C:\Users\Karin\Downloads\KOASampleCS\KOASampleCS\obj\Debug\KOASampleCS.csproj.ResolveComReference.cache
+C:\Users\Karin\Downloads\KOASampleCS\KOASampleCS\bin\Debug\KOASampleCS.exe
+C:\Users\Karin\Downloads\KOASampleCS\KOASampleCS\bin\Debug\KOASampleCS.pdb
+C:\Users\Karin\Downloads\KOASampleCS\KOASampleCS\bin\Debug\Interop.KHOpenAPILib.dll
+C:\Users\Karin\Downloads\KOASampleCS\KOASampleCS\bin\Debug\AxInterop.KHOpenAPILib.dll
+C:\Users\Karin\Downloads\KOASampleCS\KOASampleCS\obj\Debug\KOASampleCS.csprojResolveAssemblyReference.cache
+C:\Users\Karin\Downloads\KOASampleCS\KOASampleCS\obj\Debug\KOASampleCS.Form1.resources
+C:\Users\Karin\Downloads\KOASampleCS\KOASampleCS\obj\Debug\KOASampleCS.Properties.Resources.resources
+C:\Users\Karin\Downloads\KOASampleCS\KOASampleCS\obj\Debug\KOASampleCS.csproj.GenerateResource.Cache
+C:\Users\Karin\Downloads\KOASampleCS\KOASampleCS\obj\Debug\KOASampleCS.exe
+C:\Users\Karin\Downloads\KOASampleCS\KOASampleCS\obj\Debug\KOASampleCS.pdb
+C:\Qsync\SBCN\Trading\101. 키움 Open API\@키움고급강의\KOASampleCS\KOASampleCS\bin\Debug\KOASampleCS.exe.config
+C:\Qsync\SBCN\Trading\101. 키움 Open API\@키움고급강의\KOASampleCS\KOASampleCS\obj\Debug\Interop.KHOpenAPILib.dll
+C:\Qsync\SBCN\Trading\101. 키움 Open API\@키움고급강의\KOASampleCS\KOASampleCS\obj\Debug\AxInterop.KHOpenAPILib.dll
+C:\Qsync\SBCN\Trading\101. 키움 Open API\@키움고급강의\KOASampleCS\KOASampleCS\obj\Debug\KOASampleCS.csproj.ResolveComReference.cache
+C:\Qsync\SBCN\Trading\101. 키움 Open API\@키움고급강의\KOASampleCS\KOASampleCS\obj\Debug\KOASampleCS.exe
+C:\Qsync\SBCN\Trading\101. 키움 Open API\@키움고급강의\KOASampleCS\KOASampleCS\obj\Debug\KOASampleCS.pdb
+C:\Qsync\SBCN\Trading\101. 키움 Open API\@키움고급강의\KOASampleCS\KOASampleCS\bin\Debug\KOASampleCS.exe
+C:\Qsync\SBCN\Trading\101. 키움 Open API\@키움고급강의\KOASampleCS\KOASampleCS\bin\Debug\KOASampleCS.pdb
+C:\Qsync\SBCN\Trading\101. 키움 Open API\@키움고급강의\KOASampleCS\KOASampleCS\bin\Debug\Interop.KHOpenAPILib.dll
+C:\Qsync\SBCN\Trading\101. 키움 Open API\@키움고급강의\KOASampleCS\KOASampleCS\bin\Debug\AxInterop.KHOpenAPILib.dll
+C:\Qsync\SBCN\Trading\101. 키움 Open API\@키움고급강의\KOASampleCS\KOASampleCS\obj\Debug\KOASampleCS.csprojResolveAssemblyReference.cache
+C:\Qsync\SBCN\Trading\101. 키움 Open API\@키움고급강의\KOASampleCS\KOASampleCS\obj\Debug\KOASampleCS.Form1.resources
+C:\Qsync\SBCN\Trading\101. 키움 Open API\@키움고급강의\KOASampleCS\KOASampleCS\obj\Debug\KOASampleCS.Properties.Resources.resources
+C:\Qsync\SBCN\Trading\101. 키움 Open API\@키움고급강의\KOASampleCS\KOASampleCS\obj\Debug\KOASampleCS.csproj.GenerateResource.Cache
