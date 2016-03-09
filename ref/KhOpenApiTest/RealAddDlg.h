@@ -1,64 +1,64 @@
+ï»¿//******************************************************************/
 //******************************************************************/
-//******************************************************************/
-//! All Rights Reserved. Copyright(c)   2015 (ÁÖ)ÇÑ±¹¼Ò¸®¸¶Ä¡        /
+//! All Rights Reserved. Copyright(c)   2015 (ì£¼)í•œêµ­ì†Œë¦¬ë§ˆì¹˜        /
 //******************************************************************/
 //! File Name     : RealAddDlg.h
-//! Function      : ¸®¾óµî·Ï ´ÙÀÌ¾ó·Î±×
-//! System Name   : Å°¿ò ¿ÀÇÂAPI Å×½ºÆ®
+//! Function      : ë¦¬ì–¼ë“±ë¡ ë‹¤ì´ì–¼ë¡œê·¸
+//! System Name   : í‚¤ì›€ ì˜¤í”ˆAPI í…ŒìŠ¤íŠ¸
 //! Create        : , 2015/04/01
 //! Update        : 
 //! Comment       : 
 //******************************************************************/
-// RealAddDlg.h : Çì´õ ÆÄÀÏ
+// RealAddDlg.h : í—¤ë” íŒŒì¼
 //
 
 #pragma once
 
-// CRealAddDlg ´ëÈ­ »óÀÚ
+// CRealAddDlg ëŒ€í™” ìƒì
 class CRealAddDlg : public CDialogEx
 {
-// »ı¼ºÀÔ´Ï´Ù.
+// ìƒì„±ì…ë‹ˆë‹¤.
 public:
-	CRealAddDlg(CWnd* pParent = NULL);	// Ç¥ÁØ »ı¼ºÀÚÀÔ´Ï´Ù.
+	CRealAddDlg(CWnd* pParent = NULL);	// í‘œì¤€ ìƒì„±ìì…ë‹ˆë‹¤.
 
-// ´ëÈ­ »óÀÚ µ¥ÀÌÅÍÀÔ´Ï´Ù.
+// ëŒ€í™” ìƒì ë°ì´í„°ì…ë‹ˆë‹¤.
 	enum { IDD = IDD_CON_SET };
 
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV Áö¿øÀÔ´Ï´Ù.
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ì§€ì›ì…ë‹ˆë‹¤.
 
 public:
 	CWnd*					m_pParent;
 	CString					m_strScrNo;
-	CString					m_strConditionName;			//ÇöÀç Á¶°Ç¸í
-	int							m_nConditionIndex;			//ÇöÀç Á¶°Ç¸í ÀÎµ¦½º
-	CString					m_strPreConditionName;		//ÀÌÀü Á¶°Ç¸í
-	int							m_nPreConditionIndex;		//ÀÌÀü Á¶°Ç¸í ÀÎµ¦½º
-	CMapStringToString		m_mapJongCode;		// ¸®¾óµî·Ï Á¾¸ñ
-	CMapStringToString		m_mapNameList;			// Á¶°Ç°Ë»ö¸í¸®½ºÆ®
+	CString					m_strConditionName;			//í˜„ì¬ ì¡°ê±´ëª…
+	int							m_nConditionIndex;			//í˜„ì¬ ì¡°ê±´ëª… ì¸ë±ìŠ¤
+	CString					m_strPreConditionName;		//ì´ì „ ì¡°ê±´ëª…
+	int							m_nPreConditionIndex;		//ì´ì „ ì¡°ê±´ëª… ì¸ë±ìŠ¤
+	CMapStringToString		m_mapJongCode;		// ë¦¬ì–¼ë“±ë¡ ì¢…ëª©
+	CMapStringToString		m_mapNameList;			// ì¡°ê±´ê²€ìƒ‰ëª…ë¦¬ìŠ¤íŠ¸
 
-	CCellID					m_cellSelect;		// Á¾¸ñ ±×¸®µå ¼±ÅÃ Çà
-	CGridCtrl				m_grdRealAdd;		// Á¾¸ñ ±×¸®µå
-	CComboBox			m_cmbCon;		// Á¶°Ç°Ë»ö¸í ÄŞº¸
+	CCellID					m_cellSelect;		// ì¢…ëª© ê·¸ë¦¬ë“œ ì„ íƒ í–‰
+	CGridCtrl				m_grdRealAdd;		// ì¢…ëª© ê·¸ë¦¬ë“œ
+	CComboBox			m_cmbCon;		// ì¡°ê±´ê²€ìƒ‰ëª… ì½¤ë³´
 	CListBox m_listCtl_Insert;
 	CListBox m_listCtl_Delete;
-	void InitRealAddGrid();						// Á¾¸ñ ±×¸®µå ÃÊ±â Ã³¸®
+	void InitRealAddGrid();						// ì¢…ëª© ê·¸ë¦¬ë“œ ì´ˆê¸° ì²˜ë¦¬
 	void OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrcode, LPCTSTR sRecordName, LPCTSTR sPrevNext, long nDataLength, LPCTSTR sErrorCode, LPCTSTR sMessage, LPCTSTR sSplmMsg);
 	void OnReceiveRealDataKhopenapictrl(LPCTSTR sJongmokCode, LPCTSTR sRealType, LPCTSTR sRealData);
 	void OnReceiveMsgKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrCode, LPCTSTR sMsg);
 	void OnReceiveChejanData(LPCTSTR sGubun, LONG nItemCnt, LPCTSTR sFidList);
-	void OnReceiveRealCondition(LPCTSTR strCode, LPCTSTR strType, LPCTSTR strConditionName, LPCTSTR strConditionIndex);				//Á¶°Ç°Ë»ö ½Ç½Ã°£ »ğÀÔ,»èÁ¦µÇ´Â Á¾¸ñÀ» ¹Ş´Â´Ù
-	void OnReceiveTrCondition(LPCTSTR sScrNo, LPCTSTR strCodeList, LPCTSTR strConditionName, int nIndex, int nNext);	   //Á¶°Ç°Ë»ö Á¾¸ñ¸®½ºÆ®¸¦ ¹Ş´Â´Ù.
+	void OnReceiveRealCondition(LPCTSTR strCode, LPCTSTR strType, LPCTSTR strConditionName, LPCTSTR strConditionIndex);				//ì¡°ê±´ê²€ìƒ‰ ì‹¤ì‹œê°„ ì‚½ì…,ì‚­ì œë˜ëŠ” ì¢…ëª©ì„ ë°›ëŠ”ë‹¤
+	void OnReceiveTrCondition(LPCTSTR sScrNo, LPCTSTR strCodeList, LPCTSTR strConditionName, int nIndex, int nNext);	   //ì¡°ê±´ê²€ìƒ‰ ì¢…ëª©ë¦¬ìŠ¤íŠ¸ë¥¼ ë°›ëŠ”ë‹¤.
 	void OnReceiveConditionVer(long bRet, LPCTSTR sMsg);
 
-	// ±×¸®µå µ¥ÀÌÅ¸ ¼³Á¤(ÁÖ½Ä±âº»Á¤º¸ ¼³Á¤)
+	// ê·¸ë¦¬ë“œ ë°ì´íƒ€ ì„¤ì •(ì£¼ì‹ê¸°ë³¸ì •ë³´ ì„¤ì •)
 	void SetDataRealAddGrid(CStringArray &arrData, CString strRealType = "");
 
-// ±¸ÇöÀÔ´Ï´Ù.
+// êµ¬í˜„ì…ë‹ˆë‹¤.
 protected:
 	HICON m_hIcon;
 
-	// »ı¼ºµÈ ¸Ş½ÃÁö ¸Ê ÇÔ¼ö
+	// ìƒì„±ëœ ë©”ì‹œì§€ ë§µ í•¨ìˆ˜
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
 	afx_msg void OnClose();

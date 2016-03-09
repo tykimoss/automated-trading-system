@@ -1,32 +1,32 @@
+ï»¿//******************************************************************/
 //******************************************************************/
-//******************************************************************/
-//! All Rights Reserved. Copyright(c)   2014 (ÁÖ)ÇÑ±¹¼Ò¸®¸¶Ä¡        /
+//! All Rights Reserved. Copyright(c)   2014 (ì£¼)í•œêµ­ì†Œë¦¬ë§ˆì¹˜        /
 //******************************************************************/
 //! File Name     : OrderDlg.h
-//! Function      : ÁÖ¹® ´ÙÀÌ¾ó·Î±×
-//! System Name   : Å°¿ò ¿ÀÇÂAPI Å×½ºÆ®
+//! Function      : ì£¼ë¬¸ ë‹¤ì´ì–¼ë¡œê·¸
+//! System Name   : í‚¤ì›€ ì˜¤í”ˆAPI í…ŒìŠ¤íŠ¸
 //! Create        : , 2014/06/02
 //! Update        : 
 //! Comment       : 
 //******************************************************************/
-// OrderDlg.h : Çì´õ ÆÄÀÏ
+// OrderDlg.h : í—¤ë” íŒŒì¼
 //
 
 #pragma once
 #include "afxwin.h"
 
-// COrderDlg ´ëÈ­ »óÀÚ
+// COrderDlg ëŒ€í™” ìƒì
 class COrderDlg : public CDialogEx
 {
-// »ı¼ºÀÔ´Ï´Ù.
+// ìƒì„±ì…ë‹ˆë‹¤.
 public:
-	COrderDlg(CWnd* pParent = NULL);	// Ç¥ÁØ »ı¼ºÀÚÀÔ´Ï´Ù.
+	COrderDlg(CWnd* pParent = NULL);	// í‘œì¤€ ìƒì„±ìì…ë‹ˆë‹¤.
 
-// ´ëÈ­ »óÀÚ µ¥ÀÌÅÍÀÔ´Ï´Ù.
+// ëŒ€í™” ìƒì ë°ì´í„°ì…ë‹ˆë‹¤.
 	enum { IDD = IDD_ORDER_DLG };
 
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV Áö¿øÀÔ´Ï´Ù.
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ì§€ì›ì…ë‹ˆë‹¤.
 
 public:
 	CWnd*		m_pParent;
@@ -38,7 +38,7 @@ public:
 	void OnReceiveMsgKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrCode, LPCTSTR sMsg);
 	void OnReceiveChejanData(LPCTSTR sGubun, LONG nItemCnt, LPCTSTR sFidList);
 
-// ±¸ÇöÀÔ´Ï´Ù.
+// êµ¬í˜„ì…ë‹ˆë‹¤.
 protected:
 	CMapStringToString	m_mapFIDName;
 	void	InitFIDName();
@@ -46,9 +46,9 @@ protected:
 	void	SetCreditType(int nIndex);
 	void	SetCreditType(CString	strGubun);
 	void	EnableCreditOrderControl(BOOL bEnable);
-	CString	GetLoanType();/// ½Å¿ë±¸ºĞ°ªÀ» ¾ò¾î¿Â´Ù...
-	CString GetLoanDate();/// ´ëÃâÀÏ...
-	// »ı¼ºµÈ ¸Ş½ÃÁö ¸Ê ÇÔ¼ö
+	CString	GetLoanType();/// ì‹ ìš©êµ¬ë¶„ê°’ì„ ì–»ì–´ì˜¨ë‹¤...
+	CString GetLoanDate();/// ëŒ€ì¶œì¼...
+	// ìƒì„±ëœ ë©”ì‹œì§€ ë§µ í•¨ìˆ˜
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
 	afx_msg void OnClose();

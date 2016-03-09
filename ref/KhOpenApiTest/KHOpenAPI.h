@@ -1,4 +1,4 @@
-// KHOpenAPI.h  : Microsoft Visual C++·Î ¸¸µç ActiveX ÄÁÆ®·Ñ ·¡ÆÛ Å¬·¡½ºÀÇ ¼±¾ğÀÔ´Ï´Ù.
+ï»¿// KHOpenAPI.h  : Microsoft Visual C++ë¡œ ë§Œë“  ActiveX ì»¨íŠ¸ë¡¤ ë˜í¼ í´ë˜ìŠ¤ì˜ ì„ ì–¸ì…ë‹ˆë‹¤.
 
 #pragma once
 
@@ -31,10 +31,10 @@ public:
 		pPersist, bStorage, bstrLicKey); 
 	}
 
-// Æ¯¼ºÀÔ´Ï´Ù.
+// íŠ¹ì„±ì…ë‹ˆë‹¤.
 public:
 
-// ÀÛ¾÷ÀÔ´Ï´Ù.
+// ì‘ì—…ì…ë‹ˆë‹¤.
 public:
 
 	long CommConnect()

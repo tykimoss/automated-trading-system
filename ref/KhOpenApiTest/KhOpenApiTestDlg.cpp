@@ -1,15 +1,15 @@
+ï»¿//******************************************************************/
 //******************************************************************/
-//******************************************************************/
-//! All Rights Reserved. Copyright(c)   2014 (ÁÖ)ÇÑ±¹¼Ò¸®¸¶Ä¡        /
+//! All Rights Reserved. Copyright(c)   2014 (ì£¼)í•œêµ­ì†Œë¦¬ë§ˆì¹˜        /
 //******************************************************************/
 //! File Name     : KhOpenApiTestDlg.cpp
-//! Function      : Å°¿ò ¿ÀÇÂAPI Å×½ºÆ® ´ÙÀÌ¾ó·Î±×
-//! System Name   : Å°¿ò ¿ÀÇÂAPI Å×½ºÆ®
+//! Function      : í‚¤ì›€ ì˜¤í”ˆAPI í…ŒìŠ¤íŠ¸ ë‹¤ì´ì–¼ë¡œê·¸
+//! System Name   : í‚¤ì›€ ì˜¤í”ˆAPI í…ŒìŠ¤íŠ¸
 //! Create        : , 2014/06/02
 //! Update        : 
 //! Comment       : 
 //******************************************************************/
-// KhOpenApiTestDlg.cpp : ±¸Çö ÆÄÀÏ
+// KhOpenApiTestDlg.cpp : êµ¬í˜„ íŒŒì¼
 //
 
 #include "stdafx.h"
@@ -27,10 +27,10 @@
 #define new DEBUG_NEW
 #endif
 
-// CKhOpenApiTestDlg ´ëÈ­ »óÀÚ
+// CKhOpenApiTestDlg ëŒ€í™” ìƒì
 //*******************************************************************/
 //! Function Name : CKhOpenApiTestDlg::CKhOpenApiTestDlg(CWnd* pParent /*=NULL*/) : CDialogEx(CKhOpenApiTestDlg::IDD, pParent)
-//! Function      : »ı¼º ÃÊ±â Ã³¸®
+//! Function      : ìƒì„± ì´ˆê¸° ì²˜ë¦¬
 //! Param         : HANDLE hBitmap, int bits
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -46,13 +46,13 @@ CKhOpenApiTestDlg::CKhOpenApiTestDlg(CWnd* pParent /*=NULL*/)
 
 //*******************************************************************/
 // Function Name : DoDataExchange
-// Function      : DDX/DDV¿¡ °ü·Ã µÈ ÇÔ¼ö È£Ãâ
+// Function      : DDX/DDVì— ê´€ë ¨ ëœ í•¨ìˆ˜ í˜¸ì¶œ
 // Param         : CDataExchange*	pDX
 // Return        : void
 // Create        : , 2014/06/02
-// Comment       : DDX - ÄÁÆ®·Ñ°ú ¸â¹öº¯¼ö»çÀÌ¿¡ Á¤º¸¸¦ ±³È¯ÇÏ´Â ¿ªÇÒ
-//				 : DDV - ¸â¹öº¯¼ö¿¡ ÀúÀå µÉ °ªÀÇ À¯È¿¼º Ã¼Å©
-//				 : UapdateData()ÇÔ¼ö·Î °£Á¢ È£Ãâ ÇÒ ¼ö ÀÖÀ½
+// Comment       : DDX - ì»¨íŠ¸ë¡¤ê³¼ ë©¤ë²„ë³€ìˆ˜ì‚¬ì´ì— ì •ë³´ë¥¼ êµí™˜í•˜ëŠ” ì—­í• 
+//				 : DDV - ë©¤ë²„ë³€ìˆ˜ì— ì €ì¥ ë  ê°’ì˜ ìœ íš¨ì„± ì²´í¬
+//				 : UapdateData()í•¨ìˆ˜ë¡œ ê°„ì ‘ í˜¸ì¶œ í•  ìˆ˜ ìˆìŒ
 //*******************************************************************/
 void CKhOpenApiTestDlg::DoDataExchange(CDataExchange* pDX)
 {
@@ -94,51 +94,51 @@ END_EVENTSINK_MAP()
 
 //*******************************************************************/
 //! Function Name : OnInitDialog
-//! Function      : »ı¼º ÃÊ±â Ã³¸®
+//! Function      : ìƒì„± ì´ˆê¸° ì²˜ë¦¬
 //! Param         : void
 //! Return        : BOOL
 //! Create        : , 2014/06/02
-//! Comment       : CKhOpenApiTestDlg ¸Ş½ÃÁö Ã³¸®±â
+//! Comment       : CKhOpenApiTestDlg ë©”ì‹œì§€ ì²˜ë¦¬ê¸°
 //******************************************************************/
 BOOL CKhOpenApiTestDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	// ÀÌ ´ëÈ­ »óÀÚÀÇ ¾ÆÀÌÄÜÀ» ¼³Á¤ÇÕ´Ï´Ù. ÀÀ¿ë ÇÁ·Î±×·¥ÀÇ ÁÖ Ã¢ÀÌ ´ëÈ­ »óÀÚ°¡ ¾Æ´Ò °æ¿ì¿¡´Â
-	//  ÇÁ·¹ÀÓ¿öÅ©°¡ ÀÌ ÀÛ¾÷À» ÀÚµ¿À¸·Î ¼öÇàÇÕ´Ï´Ù.
-	SetIcon(m_hIcon, TRUE);			// Å« ¾ÆÀÌÄÜÀ» ¼³Á¤ÇÕ´Ï´Ù.
-	SetIcon(m_hIcon, FALSE);		// ÀÛÀº ¾ÆÀÌÄÜÀ» ¼³Á¤ÇÕ´Ï´Ù.
+	// ì´ ëŒ€í™” ìƒìì˜ ì•„ì´ì½˜ì„ ì„¤ì •í•©ë‹ˆë‹¤. ì‘ìš© í”„ë¡œê·¸ë¨ì˜ ì£¼ ì°½ì´ ëŒ€í™” ìƒìê°€ ì•„ë‹ ê²½ìš°ì—ëŠ”
+	//  í”„ë ˆì„ì›Œí¬ê°€ ì´ ì‘ì—…ì„ ìë™ìœ¼ë¡œ ìˆ˜í–‰í•©ë‹ˆë‹¤.
+	SetIcon(m_hIcon, TRUE);			// í° ì•„ì´ì½˜ì„ ì„¤ì •í•©ë‹ˆë‹¤.
+	SetIcon(m_hIcon, FALSE);		// ì‘ì€ ì•„ì´ì½˜ì„ ì„¤ì •í•©ë‹ˆë‹¤.
 
 	CString		strTitle;
 	GetWindowText(strTitle);
 	strTitle += SAMPLE_VERSION;
 	SetWindowText(strTitle);
-	// TODO: ¿©±â¿¡ Ãß°¡ ÃÊ±âÈ­ ÀÛ¾÷À» Ãß°¡ÇÕ´Ï´Ù.
-	// OpenApi Á¢¼Ó Ã³¸®(·Î±×ÀÎ Ã¢ ½ÇÇà)
+	// TODO: ì—¬ê¸°ì— ì¶”ê°€ ì´ˆê¸°í™” ì‘ì—…ì„ ì¶”ê°€í•©ë‹ˆë‹¤.
+	// OpenApi ì ‘ì† ì²˜ë¦¬(ë¡œê·¸ì¸ ì°½ ì‹¤í–‰)
 	theApp.m_khOpenApi.CommConnect();
 
-	return TRUE;  // Æ÷Ä¿½º¸¦ ÄÁÆ®·Ñ¿¡ ¼³Á¤ÇÏÁö ¾ÊÀ¸¸é TRUE¸¦ ¹İÈ¯ÇÕ´Ï´Ù.
+	return TRUE;  // í¬ì»¤ìŠ¤ë¥¼ ì»¨íŠ¸ë¡¤ì— ì„¤ì •í•˜ì§€ ì•Šìœ¼ë©´ TRUEë¥¼ ë°˜í™˜í•©ë‹ˆë‹¤.
 }
 
 //*******************************************************************/
 //! Function Name : OnPaint
-//! Function      : ±×¸®±â Ã³¸®
+//! Function      : ê·¸ë¦¬ê¸° ì²˜ë¦¬
 //! Param         : void
 //! Return        : void
 //! Create        : , 2014/06/02
-//! Comment       : ´ëÈ­ »óÀÚ¿¡ ÃÖ¼ÒÈ­ ´ÜÃß¸¦ Ãß°¡ÇÒ °æ¿ì ¾ÆÀÌÄÜÀ» ±×¸®·Á¸é
-//!               : ¾Æ·¡ ÄÚµå°¡ ÇÊ¿äÇÕ´Ï´Ù. ¹®¼­/ºä ¸ğµ¨À» »ç¿ëÇÏ´Â MFC ÀÀ¿ë ÇÁ·Î±×·¥ÀÇ °æ¿ì¿¡´Â
-//!               : ÇÁ·¹ÀÓ¿öÅ©¿¡¼­ ÀÌ ÀÛ¾÷À» ÀÚµ¿À¸·Î ¼öÇàÇÕ´Ï´Ù.
+//! Comment       : ëŒ€í™” ìƒìì— ìµœì†Œí™” ë‹¨ì¶”ë¥¼ ì¶”ê°€í•  ê²½ìš° ì•„ì´ì½˜ì„ ê·¸ë¦¬ë ¤ë©´
+//!               : ì•„ë˜ ì½”ë“œê°€ í•„ìš”í•©ë‹ˆë‹¤. ë¬¸ì„œ/ë·° ëª¨ë¸ì„ ì‚¬ìš©í•˜ëŠ” MFC ì‘ìš© í”„ë¡œê·¸ë¨ì˜ ê²½ìš°ì—ëŠ”
+//!               : í”„ë ˆì„ì›Œí¬ì—ì„œ ì´ ì‘ì—…ì„ ìë™ìœ¼ë¡œ ìˆ˜í–‰í•©ë‹ˆë‹¤.
 //******************************************************************/
 void CKhOpenApiTestDlg::OnPaint()
 {
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // ±×¸®±â¸¦ À§ÇÑ µğ¹ÙÀÌ½º ÄÁÅØ½ºÆ®ÀÔ´Ï´Ù.
+		CPaintDC dc(this); // ê·¸ë¦¬ê¸°ë¥¼ ìœ„í•œ ë””ë°”ì´ìŠ¤ ì»¨í…ìŠ¤íŠ¸ì…ë‹ˆë‹¤.
 
 		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
-		// Å¬¶óÀÌ¾ğÆ® »ç°¢Çü¿¡¼­ ¾ÆÀÌÄÜÀ» °¡¿îµ¥¿¡ ¸ÂÃä´Ï´Ù.
+		// í´ë¼ì´ì–¸íŠ¸ ì‚¬ê°í˜•ì—ì„œ ì•„ì´ì½˜ì„ ê°€ìš´ë°ì— ë§ì¶¥ë‹ˆë‹¤.
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
@@ -146,7 +146,7 @@ void CKhOpenApiTestDlg::OnPaint()
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
 
-		// ¾ÆÀÌÄÜÀ» ±×¸³´Ï´Ù.
+		// ì•„ì´ì½˜ì„ ê·¸ë¦½ë‹ˆë‹¤.
 		dc.DrawIcon(x, y, m_hIcon);
 	}
 	else
@@ -157,7 +157,7 @@ void CKhOpenApiTestDlg::OnPaint()
 
 //*******************************************************************/
 //! Function Name : OnDestroy
-//! Function      : ÆÄ±«ÀÚ
+//! Function      : íŒŒê´´ì
 //! Param         : void
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -181,18 +181,18 @@ void CKhOpenApiTestDlg::OnDestroy()
 	m_mapScreen.RemoveAll();
 	m_mapScreenNum.RemoveAll();
 
-	// Åë½Å Á¾·á Ã³¸®
+	// í†µì‹  ì¢…ë£Œ ì²˜ë¦¬
 	theApp.m_khOpenApi.CommTerminate();
 }
 
 //*******************************************************************/
 //! Function Name : OnQueryDragIcon
-//! Function      : µå·¡±× ¾ÆÀÌÄÜ Ã³¸®
+//! Function      : ë“œë˜ê·¸ ì•„ì´ì½˜ ì²˜ë¦¬
 //! Param         : void
 //! Return        : HCURSOR
 //! Create        : , 2014/06/02
-//! Comment       : »ç¿ëÀÚ°¡ ÃÖ¼ÒÈ­µÈ Ã¢À» ²ô´Â µ¿¾È¿¡ Ä¿¼­°¡ Ç¥½ÃµÇµµ·Ï ½Ã½ºÅÛ¿¡¼­ 
-//!               : ÀÌ ÇÔ¼ö¸¦ È£ÃâÇÕ´Ï´Ù.
+//! Comment       : ì‚¬ìš©ìê°€ ìµœì†Œí™”ëœ ì°½ì„ ë„ëŠ” ë™ì•ˆì— ì»¤ì„œê°€ í‘œì‹œë˜ë„ë¡ ì‹œìŠ¤í…œì—ì„œ 
+//!               : ì´ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•©ë‹ˆë‹¤.
 //******************************************************************/
 HCURSOR CKhOpenApiTestDlg::OnQueryDragIcon()
 {
@@ -201,7 +201,7 @@ HCURSOR CKhOpenApiTestDlg::OnQueryDragIcon()
 
 //*******************************************************************/
 //! Function Name : OnScreenClose
-//! Function      : È­¸éÀÌ ´İÈù ÈÄ Ã³¸®
+//! Function      : í™”ë©´ì´ ë‹«íŒ í›„ ì²˜ë¦¬
 //! Param         : WPARAM wParam, LPARAM lParam
 //! Return        : LRESULT
 //! Create        : , 2014/06/02
@@ -244,7 +244,7 @@ LRESULT CKhOpenApiTestDlg::OnScreenClose(WPARAM wParam, LPARAM lParam)
 
 //*******************************************************************/
 //! Function Name : OnBtnCurrentPrice
-//! Function      : ÇöÀç°¡ ¹öÆ°
+//! Function      : í˜„ì¬ê°€ ë²„íŠ¼
 //! Param         : void
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -252,7 +252,7 @@ LRESULT CKhOpenApiTestDlg::OnScreenClose(WPARAM wParam, LPARAM lParam)
 //******************************************************************/
 void CKhOpenApiTestDlg::OnBtnCurrentPrice()
 {
-	// TODO: ¿©±â¿¡ ÄÁÆ®·Ñ ¾Ë¸² Ã³¸®±â ÄÚµå¸¦ Ãß°¡ÇÕ´Ï´Ù.
+	// TODO: ì—¬ê¸°ì— ì»¨íŠ¸ë¡¤ ì•Œë¦¼ ì²˜ë¦¬ê¸° ì½”ë“œë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
 	if (!GetNextScreenNum(0))
 	{
 		return;
@@ -264,14 +264,14 @@ void CKhOpenApiTestDlg::OnBtnCurrentPrice()
 
 	m_mapScreen.SetAt(pCurrentPriceDlg->m_strScrNo, pCurrentPriceDlg);
 
-	// 2°³ÀÌ»çÀÇ ¼­ºñ½º¸¦ Á¶È¸ ½Ã m_mapScreen¿¡ È­¸éÀ» µî·ÏÇÏ±â Àü¿¡ 
-	// µ¥ÀÌÅÍ ÀÀ´äÀÌ ¸ÕÀú ¿Í¼­ Ã³¸®°¡ ºÒ°¡´É ÇÏ¿© ¿©±â¼­ Á¶È¸ Ã³¸® ÇÔ.
-	pCurrentPriceDlg->SendSearch();		// Á¶È¸ Ã³¸®
+	// 2ê°œì´ì‚¬ì˜ ì„œë¹„ìŠ¤ë¥¼ ì¡°íšŒ ì‹œ m_mapScreenì— í™”ë©´ì„ ë“±ë¡í•˜ê¸° ì „ì— 
+	// ë°ì´í„° ì‘ë‹µì´ ë¨¼ì € ì™€ì„œ ì²˜ë¦¬ê°€ ë¶ˆê°€ëŠ¥ í•˜ì—¬ ì—¬ê¸°ì„œ ì¡°íšŒ ì²˜ë¦¬ í•¨.
+	pCurrentPriceDlg->SendSearch();		// ì¡°íšŒ ì²˜ë¦¬
 }
 
 //*******************************************************************/
 //! Function Name : OnBtnOrder
-//! Function      : ÁÖ¹® ¹öÆ°
+//! Function      : ì£¼ë¬¸ ë²„íŠ¼
 //! Param         : void
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -279,7 +279,7 @@ void CKhOpenApiTestDlg::OnBtnCurrentPrice()
 //******************************************************************/
 void CKhOpenApiTestDlg::OnBtnOrder()
 {
-	// TODO: ¿©±â¿¡ ÄÁÆ®·Ñ ¾Ë¸² Ã³¸®±â ÄÚµå¸¦ Ãß°¡ÇÕ´Ï´Ù.
+	// TODO: ì—¬ê¸°ì— ì»¨íŠ¸ë¡¤ ì•Œë¦¼ ì²˜ë¦¬ê¸° ì½”ë“œë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
 	if (!GetNextScreenNum(1))
 	{
 		return;
@@ -294,7 +294,7 @@ void CKhOpenApiTestDlg::OnBtnOrder()
 
 //*******************************************************************/
 //! Function Name : OnBtnKwanSim
-//! Function      : °ü½É ¹öÆ°
+//! Function      : ê´€ì‹¬ ë²„íŠ¼
 //! Param         : void
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -302,7 +302,7 @@ void CKhOpenApiTestDlg::OnBtnOrder()
 //******************************************************************/
 void CKhOpenApiTestDlg::OnBtnKwanSim()
 {
-	// TODO: ¿©±â¿¡ ÄÁÆ®·Ñ ¾Ë¸² Ã³¸®±â ÄÚµå¸¦ Ãß°¡ÇÕ´Ï´Ù.
+	// TODO: ì—¬ê¸°ì— ì»¨íŠ¸ë¡¤ ì•Œë¦¼ ì²˜ë¦¬ê¸° ì½”ë“œë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
 	if (!GetNextScreenNum(2))
 	{
 		return;
@@ -314,14 +314,14 @@ void CKhOpenApiTestDlg::OnBtnKwanSim()
 
 	m_mapScreen.SetAt(pKwanSimDlg->m_strScrNo, pKwanSimDlg);
 
-	// 2°³ÀÌ»çÀÇ ¼­ºñ½º¸¦ Á¶È¸ ½Ã m_mapScreen¿¡ È­¸éÀ» µî·ÏÇÏ±â Àü¿¡ 
-	// µ¥ÀÌÅÍ ÀÀ´äÀÌ ¸ÕÀú ¿Í¼­ Ã³¸®°¡ ºÒ°¡´É ÇÏ¿© ¿©±â¼­ Á¶È¸ Ã³¸® ÇÔ.
-	pKwanSimDlg->SetKwanSimJong();		// °ü½É ±×¸®µå¿¡ Á¾¸ñ ¼³Á¤ Ã³¸®
+	// 2ê°œì´ì‚¬ì˜ ì„œë¹„ìŠ¤ë¥¼ ì¡°íšŒ ì‹œ m_mapScreenì— í™”ë©´ì„ ë“±ë¡í•˜ê¸° ì „ì— 
+	// ë°ì´í„° ì‘ë‹µì´ ë¨¼ì € ì™€ì„œ ì²˜ë¦¬ê°€ ë¶ˆê°€ëŠ¥ í•˜ì—¬ ì—¬ê¸°ì„œ ì¡°íšŒ ì²˜ë¦¬ í•¨.
+	pKwanSimDlg->SetKwanSimJong();		// ê´€ì‹¬ ê·¸ë¦¬ë“œì— ì¢…ëª© ì„¤ì • ì²˜ë¦¬
 }
 
 //*******************************************************************/
 //! Function Name : OnReceiveTrDataKhopenapictrl
-//! Function      : Á¶È¸ ÀÀ´ä Ã³¸®
+//! Function      : ì¡°íšŒ ì‘ë‹µ ì²˜ë¦¬
 //! Param         : LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrcode, LPCTSTR sRecordName, LPCTSTR sPrevNext, long nDataLength, LPCTSTR sErrorCode, LPCTSTR sMessage, LPCTSTR sSplmMsg
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -345,27 +345,27 @@ void CKhOpenApiTestDlg::OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQ
 	{
 		switch (atoi(strScrType))
 		{
-			case 0:		// ÇöÀç°¡
+			case 0:		// í˜„ì¬ê°€
 				{
 					((CCurrentPriceDlg *)pWnd)->OnReceiveTrDataKhopenapictrl(sScrNo, sRQName, sTrcode, sRecordName, sPrevNext, nDataLength, sErrorCode, sMessage, sSplmMsg);
 				}
 				break;
-			case 1:		// ÁÖ¹®
+			case 1:		// ì£¼ë¬¸
 				{
 					((COrderDlg *)pWnd)->OnReceiveTrDataKhopenapictrl(sScrNo, sRQName, sTrcode, sRecordName, sPrevNext, nDataLength, sErrorCode, sMessage, sSplmMsg);
 				}
 				break;
-			case 2:		// °ü½ÉÁ¾¸ñ
+			case 2:		// ê´€ì‹¬ì¢…ëª©
 				{
 					((CKwanSimDlg *)pWnd)->OnReceiveTrDataKhopenapictrl(sScrNo, sRQName, sTrcode, sRecordName, sPrevNext, nDataLength, sErrorCode, sMessage, sSplmMsg);
 				}
 				break;
-			case 3:		// Á¶°Ç°Ë»ö
+			case 3:		// ì¡°ê±´ê²€ìƒ‰
 				{
 					((CRealAddDlg *)pWnd)->OnReceiveTrDataKhopenapictrl(sScrNo, sRQName, sTrcode, sRecordName, sPrevNext, nDataLength, sErrorCode, sMessage, sSplmMsg);
 				}
 				break;
-			case 4:		// ¼öÀÍ·ü
+			case 4:		// ìˆ˜ìµë¥ 
 				{
 					((CRateDlg *)pWnd)->OnReceiveTrDataKhopenapictrl(sScrNo, sRQName, sTrcode, sRecordName, sPrevNext, nDataLength, sErrorCode, sMessage, sSplmMsg);
 				}
@@ -376,7 +376,7 @@ void CKhOpenApiTestDlg::OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQ
 
 //*******************************************************************/
 //! Function Name : OnReceiveMsgKhopenapictrl
-//! Function      : Á¶È¸ ¿¡·¯ Ã³¸®
+//! Function      : ì¡°íšŒ ì—ëŸ¬ ì²˜ë¦¬
 //! Param         : LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrCode, LPCTSTR sMsg
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -400,35 +400,35 @@ void CKhOpenApiTestDlg::OnReceiveMsgKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQNam
 	if (m_mapScreen.Lookup(strKey, (void *&)pWnd) && pWnd)
 	{
 		CString strData;
-		strData.Format(_T("[%s] [%s] ¿À·ù"), sRQName, sTrCode);
+		strData.Format(_T("[%s] [%s] ì˜¤ë¥˜"), sRQName, sTrCode);
 
 		CString strRQName = strRQ.Mid(4);
 		switch (atoi(strScrType))
 		{
-			case 0:		// ÇöÀç°¡
+			case 0:		// í˜„ì¬ê°€
 				{
 					((CCurrentPriceDlg *)pWnd)->OnReceiveMsgKhopenapictrl(sScrNo, strRQName, sTrCode, sMsg);
 					pWnd->MessageBox(sMsg, strData, MB_ICONERROR | MB_OK);
 				}
 				break;
-			case 1:		// ÁÖ¹®
+			case 1:		// ì£¼ë¬¸
 				{
 					((COrderDlg *)pWnd)->OnReceiveMsgKhopenapictrl(sScrNo, strRQName, sTrCode, sMsg);
 				}
 				break;
-			case 2:		// °ü½ÉÁ¾¸ñ
+			case 2:		// ê´€ì‹¬ì¢…ëª©
 				{
 					((CKwanSimDlg *)pWnd)->OnReceiveMsgKhopenapictrl(sScrNo, strRQName, sTrCode, sMsg);
 					pWnd->MessageBox(sMsg, strData, MB_ICONERROR | MB_OK);
 				}
 				break;
-			case 3:		// Á¶°Ç°Ë»ö
+			case 3:		// ì¡°ê±´ê²€ìƒ‰
 				{
 					((CRealAddDlg *)pWnd)->OnReceiveMsgKhopenapictrl(sScrNo, strRQName, sTrCode, sMsg);
 					pWnd->MessageBox(sMsg, strData, MB_ICONERROR | MB_OK);
 				}
 				break;
-			case 4:	// ¼öÀÍ·ü
+			case 4:	// ìˆ˜ìµë¥ 
 				{
 					((CRateDlg *)pWnd)->OnReceiveMsgKhopenapictrl(sScrNo, strRQName, sTrCode, sMsg);
 				}
@@ -439,7 +439,7 @@ void CKhOpenApiTestDlg::OnReceiveMsgKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQNam
 
 //*******************************************************************/
 //! Function Name : OnReceiveRealDataKhopenapictrl
-//! Function      : ½Ç½Ã°£ Ã³¸®
+//! Function      : ì‹¤ì‹œê°„ ì²˜ë¦¬
 //! Param         : LPCTSTR sJongmokCode, LPCTSTR sRealType, LPCTSTR sRealData
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -463,27 +463,27 @@ void CKhOpenApiTestDlg::OnReceiveRealDataKhopenapictrl(LPCTSTR sJongmokCode, LPC
 		{
 			switch (atoi(strScrType))
 			{
-				case 0:		// ÇöÀç°¡
+				case 0:		// í˜„ì¬ê°€
 					{
 						((CCurrentPriceDlg *)pWnd)->OnReceiveRealDataKhopenapictrl(sJongmokCode, sRealType, sRealData);
 					}
 					break;
-				case 1:		// ÁÖ¹®
+				case 1:		// ì£¼ë¬¸
 					{
 						((COrderDlg *)pWnd)->OnReceiveRealDataKhopenapictrl(sJongmokCode, sRealType, sRealData);
 					}
 					break;
-				case 2:		// °ü½ÉÁ¾¸ñ
+				case 2:		// ê´€ì‹¬ì¢…ëª©
 					{
 						((CKwanSimDlg *)pWnd)->OnReceiveRealDataKhopenapictrl(sJongmokCode, sRealType, sRealData);
 					}
 					break;
-				case 3:		// Á¶°Ç°Ë»ö
+				case 3:		// ì¡°ê±´ê²€ìƒ‰
 					{
 						((CRealAddDlg *)pWnd)->OnReceiveRealDataKhopenapictrl(sJongmokCode, sRealType, sRealData);
 					}
 					break;
-				case 4:	// ¼öÀÍ·ü
+				case 4:	// ìˆ˜ìµë¥ 
 					{
 						((CRateDlg *)pWnd)->OnReceiveRealDataKhopenapictrl(sJongmokCode, sRealType, sRealData);
 					}
@@ -492,31 +492,31 @@ void CKhOpenApiTestDlg::OnReceiveRealDataKhopenapictrl(LPCTSTR sJongmokCode, LPC
 		}
 	}
 
-	// Àå¿î¿µ Á¤º¸ Ã³¸®
-	if (!strcmp(sRealType, "Àå½ÃÀÛ½Ã°£"))
+	// ì¥ìš´ì˜ ì •ë³´ ì²˜ë¦¬
+	if (!strcmp(sRealType, "ì¥ì‹œì‘ì‹œê°„"))
 	{
 		int i;
 		CString strData[3], strMsg;
-		// 0: Àå¿î¿µ±¸ºĞ, 1:½Ã°£, 2:Àå½ÃÀÛ ¿¹»óÀÜ¿©½Ã°£
+		// 0: ì¥ìš´ì˜êµ¬ë¶„, 1:ì‹œê°„, 2:ì¥ì‹œì‘ ì˜ˆìƒì”ì—¬ì‹œê°„
 		for (i = 0; i < 3; i++)
 		{
 			strData[i] = theApp.m_khOpenApi.GetCommRealData(sJongmokCode, i);	strData[i].Trim();
 // 			strData.Format("%d", i);
 // 			strData = theApp.m_khOpenApi.CommGetData(sJongmokCode, sRealType, strData, 0,  _T(""));	strData.Trim();
 		}
-		strMsg.Format("Àå¿î¿µ±¸ºĞ : %s\r\n½Ã°£ : %s\r\n¿¹»óÀÜ¿©½Ã°£ : %s", strData[0], strData[1], strData[2]);
+		strMsg.Format("ì¥ìš´ì˜êµ¬ë¶„ : %s\r\nì‹œê°„ : %s\r\nì˜ˆìƒì”ì—¬ì‹œê°„ : %s", strData[0], strData[1], strData[2]);
 
 		if (atoi(strData[2]) == 10)
 		{
-			ReplyMessage(S_OK);		// SendMessage Ç®¸²
-			MessageBox(strMsg, "Àå¿î¿µ Á¤º¸", MB_ICONINFORMATION | MB_OK);
+			ReplyMessage(S_OK);		// SendMessage í’€ë¦¼
+			MessageBox(strMsg, "ì¥ìš´ì˜ ì •ë³´", MB_ICONINFORMATION | MB_OK);
 		}
 	}
 }
 
 //*******************************************************************/
 //! Function Name : OnReceiveChejanData
-//! Function      : Ã¼°áÀÜ°í ½Ç½Ã°£ Ã³¸®
+//! Function      : ì²´ê²°ì”ê³  ì‹¤ì‹œê°„ ì²˜ë¦¬
 //! Param         : LPCTSTR sGubun, LONG nItemCnt, LPCTSTR sFidList
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -540,22 +540,22 @@ void CKhOpenApiTestDlg::OnReceiveChejanData(LPCTSTR sGubun, LONG nItemCnt, LPCTS
 		{
 			switch (atoi(strScrType))
 			{
-				case 0:		// ÇöÀç°¡
+				case 0:		// í˜„ì¬ê°€
 					{
 						((CCurrentPriceDlg *)pWnd)->OnReceiveChejanData(sGubun, nItemCnt, sFidList);
 					}
 					break;
-				case 1:		// ÁÖ¹®
+				case 1:		// ì£¼ë¬¸
 					{
 						((COrderDlg *)pWnd)->OnReceiveChejanData(sGubun, nItemCnt, sFidList);
 					}
 					break;
-				case 2:		// °ü½ÉÁ¾¸ñ
+				case 2:		// ê´€ì‹¬ì¢…ëª©
 					{
 						((CKwanSimDlg *)pWnd)->OnReceiveChejanData(sGubun, nItemCnt, sFidList);
 					}
 					break;
-				case 4:		// ¼öÀÍ·ü
+				case 4:		// ìˆ˜ìµë¥ 
 					{
 						((CRateDlg *)pWnd)->OnReceiveChejanData(sGubun, nItemCnt, sFidList);
 					}
@@ -567,7 +567,7 @@ void CKhOpenApiTestDlg::OnReceiveChejanData(LPCTSTR sGubun, LONG nItemCnt, LPCTS
 
 //*******************************************************************/
 //! Function Name : OnReceiveRealCondition
-//! Function      : Á¶°Ç°Ë»ö ½Ç½Ã°£ Á¾¸ñ »ğÀÔ/»èÁ¦
+//! Function      : ì¡°ê±´ê²€ìƒ‰ ì‹¤ì‹œê°„ ì¢…ëª© ì‚½ì…/ì‚­ì œ
 //! Param         : LPCTSTR strCode, LPCTSTR strType, LPCTSTR strConditionName, LPCTSTR strConditionIndex
 //! Return        : void
 //! Create        : , 2015/04/20
@@ -591,7 +591,7 @@ void CKhOpenApiTestDlg::OnReceiveRealCondition(LPCTSTR strCode, LPCTSTR strType,
 		{
 			switch (atoi(strScrType))
 			{
-			case 3:		// Á¶°Ç°Ë»ö
+			case 3:		// ì¡°ê±´ê²€ìƒ‰
 				{
 					((CRealAddDlg *)pWnd)->OnReceiveRealCondition(strCode, strType, strConditionName, strConditionIndex);
 				}
@@ -603,12 +603,12 @@ void CKhOpenApiTestDlg::OnReceiveRealCondition(LPCTSTR strCode, LPCTSTR strType,
 
 //*******************************************************************/
 //! Function Name	: OnReceiveTrCondition
-//! Function			: Á¶°Ç°Ë»ö Á¾¸ñÁ¶È¸ ÀÀ´ä
-//! Param				: LPCTSTR sScrNo					- È­¸é¹øÈ£
-//!						: LPCTSTR strCodeList			- Á¾¸ñ¸®½ºÆ®
-//!						: LPCTSTR strConditionName	- Á¶°Ç¸í
-//!						: int nIndex								- Á¶°Ç¸íÀÎµ¦½º
-//!						: int nNext								- ¿¬¼ÓÁ¶È¸¿©ºÎ(2: ¿¬¼ÓÁ¶È¸, 0:¿¬¼ÓÁ¶È¸¾øÀ½)
+//! Function			: ì¡°ê±´ê²€ìƒ‰ ì¢…ëª©ì¡°íšŒ ì‘ë‹µ
+//! Param				: LPCTSTR sScrNo					- í™”ë©´ë²ˆí˜¸
+//!						: LPCTSTR strCodeList			- ì¢…ëª©ë¦¬ìŠ¤íŠ¸
+//!						: LPCTSTR strConditionName	- ì¡°ê±´ëª…
+//!						: int nIndex								- ì¡°ê±´ëª…ì¸ë±ìŠ¤
+//!						: int nNext								- ì—°ì†ì¡°íšŒì—¬ë¶€(2: ì—°ì†ì¡°íšŒ, 0:ì—°ì†ì¡°íšŒì—†ìŒ)
 //! Return        : void
 //! Create        : , 2015/04/20
 //! Comment       : 
@@ -631,7 +631,7 @@ void CKhOpenApiTestDlg::OnReceiveTrCondition(LPCTSTR sScrNo, LPCTSTR strCodeList
 	{
 		switch (atoi(strScrType))
 		{
-		case 3:	//Á¶°Ç°Ë»ö
+		case 3:	//ì¡°ê±´ê²€ìƒ‰
 			{
 				((CRealAddDlg *)pWnd)->OnReceiveTrCondition(sScrNo, strCodeList, strConditionName, nIndex, nNext);
 			}
@@ -642,9 +642,9 @@ void CKhOpenApiTestDlg::OnReceiveTrCondition(LPCTSTR sScrNo, LPCTSTR strCodeList
 
 //*******************************************************************/
 //! Function Name	: OnReceiveConditionVer
-//! Function			: »ç¿ëÀÚ Á¶°Ç½Ä ÀÀ´ä
-//! Param				: BOOL bRet							- ¼º°ø(TRUE), ½ÇÆĞ(FALSE)
-//!						: LPCTSTR sMsg					- ¸Ş¼¼Áö(reserved)
+//! Function			: ì‚¬ìš©ì ì¡°ê±´ì‹ ì‘ë‹µ
+//! Param				: BOOL bRet							- ì„±ê³µ(TRUE), ì‹¤íŒ¨(FALSE)
+//!						: LPCTSTR sMsg					- ë©”ì„¸ì§€(reserved)
 //! Return        : void
 //! Create        : , 2015/04/20
 //! Comment       : 
@@ -657,7 +657,7 @@ void CKhOpenApiTestDlg::OnReceiveConditionVer(long lRet, LPCTSTR sMsg)
 	}
 
 	if(lRet != 1)
-	{// »ç¿ëÀÚ Á¶°Ç°Ë»ö½Ä ¼­¹ö¿äÃ»Áß ¿¡·¯°¡ ¹ß»ıÇÑ °æ¿ì...
+	{// ì‚¬ìš©ì ì¡°ê±´ê²€ìƒ‰ì‹ ì„œë²„ìš”ì²­ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí•œ ê²½ìš°...
 		CString		strErr; strErr.Format(_T("%s [%d]"), sMsg, lRet);
 		AfxMessageBox(strErr);
 		return;
@@ -678,7 +678,7 @@ void CKhOpenApiTestDlg::OnReceiveConditionVer(long lRet, LPCTSTR sMsg)
 	{
 		switch (atoi(strScrType))
 		{
-		case 3:	//Á¶°Ç°Ë»ö
+		case 3:	//ì¡°ê±´ê²€ìƒ‰
 			{
 				((CRealAddDlg *)pWnd)->OnReceiveConditionVer(lRet, sMsg);
 			}
@@ -689,7 +689,7 @@ void CKhOpenApiTestDlg::OnReceiveConditionVer(long lRet, LPCTSTR sMsg)
 
 //*******************************************************************/
 //! Function Name : OnEventConnect
-//! Function      : Á¢¼Ó Åëº¸ Ã³¸®
+//! Function      : ì ‘ì† í†µë³´ ì²˜ë¦¬
 //! Param         : LONG nItemCnt
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -699,18 +699,18 @@ void CKhOpenApiTestDlg::OnEventConnect(LONG nItemCnt)
 {
 	if (nItemCnt == 0)
 	{
-		// Á¢¼Ó Á¤»óÃ³¸®
+		// ì ‘ì† ì •ìƒì²˜ë¦¬
 	}
 	else
 	{
-		// Á¢¼Ó ºñÁ¤»ó Ã³¸®
+		// ì ‘ì† ë¹„ì •ìƒ ì²˜ë¦¬
 		EndDialog(IDCANCEL);
 	}
 }
 
 //*******************************************************************/
 //! Function Name : GetNextScreenNum
-//! Function      : ´ÙÀ½ È­¸é ¹øÈ£ Ãëµæ
+//! Function      : ë‹¤ìŒ í™”ë©´ ë²ˆí˜¸ ì·¨ë“
 //! Param         : int nScreenType
 //! Return        : BOOL
 //! Create        : , 2014/06/02
@@ -718,7 +718,7 @@ void CKhOpenApiTestDlg::OnEventConnect(LONG nItemCnt)
 //******************************************************************/
 BOOL CKhOpenApiTestDlg::GetNextScreenNum(int nScreenType)
 {
-	// TODO: ¿©±â¿¡ ÄÁÆ®·Ñ ¾Ë¸² Ã³¸®±â ÄÚµå¸¦ Ãß°¡ÇÕ´Ï´Ù.
+	// TODO: ì—¬ê¸°ì— ì»¨íŠ¸ë¡¤ ì•Œë¦¼ ì²˜ë¦¬ê¸° ì½”ë“œë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
 	static int nRepeat = 0;
 	m_nScrN0++;
 	if (m_nScrN0 > 9999)
@@ -730,7 +730,7 @@ BOOL CKhOpenApiTestDlg::GetNextScreenNum(int nScreenType)
 	if (nRepeat > 1)
 	{
 		nRepeat = 0;
-		AfxMessageBox("´õ ÀÌ»ó È­¸éÀ» ¿­¼ö ¾ø½À´Ï´Ù.´Ù¸¥ È­¸éÀ» ´İ°í ½ÇÇà ÇØ ÁÖ¼¼¿ä~!");
+		AfxMessageBox("ë” ì´ìƒ í™”ë©´ì„ ì—´ìˆ˜ ì—†ìŠµë‹ˆë‹¤.ë‹¤ë¥¸ í™”ë©´ì„ ë‹«ê³  ì‹¤í–‰ í•´ ì£¼ì„¸ìš”~!");
 		return FALSE;
 	}
 
@@ -761,16 +761,16 @@ void CKhOpenApiTestDlg::OnBnClickedBtnCurrentprice2()
 
 void CKhOpenApiTestDlg::OnBnClickedBtnReal()
 {
-	// TODO: ¿©±â¿¡ ÄÁÆ®·Ñ ¾Ë¸² Ã³¸®±â ÄÚµå¸¦ Ãß°¡ÇÕ´Ï´Ù.
+	// TODO: ì—¬ê¸°ì— ì»¨íŠ¸ë¡¤ ì•Œë¦¼ ì²˜ë¦¬ê¸° ì½”ë“œë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
 	if (!GetNextScreenNum(3))
 	{
 		return;
 	}
 
-	// È­¸é ¿ÀÇÂ½Ã ¼­¹ö¿¡ ÀúÀåµÈ Á¶°Ç½ÄÀ» ¹Ş¾Æ¿Â´Ù.
-	// ÀÌ ÇÔ¼ö¸¦ È£ÃâÇÏÁö ¾ÊÀ¸¸é ÀÌÈÄ Á¶°Ç¸í¸®½ºÆ®¸¦ ºÒ·¯¿Ã¼ö°¡ ¾øÀ¸´Ï Á¶°Ç °Ë»öÀ» ÇÒ °æ¿ì
-	// ¹«Á¶°Ç ÀÌ ÇÔ¼ö¸¦ Ã³À½¿¡ ºÒ·¯¿Í¾ß ÇÑ´Ù.
-	// Á¶°Ç°Ë»öÀ» ½ÃÀÛÇÏ·Á¸é ÇÑ¹øÀº ²À È£ÃâÇØ¾ßÇÑ´Ù.
+	// í™”ë©´ ì˜¤í”ˆì‹œ ì„œë²„ì— ì €ì¥ëœ ì¡°ê±´ì‹ì„ ë°›ì•„ì˜¨ë‹¤.
+	// ì´ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•˜ì§€ ì•Šìœ¼ë©´ ì´í›„ ì¡°ê±´ëª…ë¦¬ìŠ¤íŠ¸ë¥¼ ë¶ˆëŸ¬ì˜¬ìˆ˜ê°€ ì—†ìœ¼ë‹ˆ ì¡°ê±´ ê²€ìƒ‰ì„ í•  ê²½ìš°
+	// ë¬´ì¡°ê±´ ì´ í•¨ìˆ˜ë¥¼ ì²˜ìŒì— ë¶ˆëŸ¬ì™€ì•¼ í•œë‹¤.
+	// ì¡°ê±´ê²€ìƒ‰ì„ ì‹œì‘í•˜ë ¤ë©´ í•œë²ˆì€ ê¼­ í˜¸ì¶œí•´ì•¼í•œë‹¤.
 	m_nRet = theApp.m_khOpenApi.GetConditionLoad();
 
 	if (m_nRet > 0)

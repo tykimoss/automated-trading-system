@@ -1,15 +1,15 @@
+ï»¿//******************************************************************/
 //******************************************************************/
-//******************************************************************/
-//! All Rights Reserved. Copyright(c)   2014 (ÁÖ)ÇÑ±¹¼Ò¸®¸¶Ä¡        /
+//! All Rights Reserved. Copyright(c)   2014 (ì£¼)í•œêµ­ì†Œë¦¬ë§ˆì¹˜        /
 //******************************************************************/
 //! File Name     : CurrentPriceDlg.cpp
-//! Function      : ÇöÀç°¡ ´ÙÀÌ¾ó·Î±×
-//! System Name   : Å°¿ò ¿ÀÇÂAPI Å×½ºÆ®
+//! Function      : í˜„ì¬ê°€ ë‹¤ì´ì–¼ë¡œê·¸
+//! System Name   : í‚¤ì›€ ì˜¤í”ˆAPI í…ŒìŠ¤íŠ¸
 //! Create        : , 2014/06/02
 //! Update        : 
 //! Comment       : 
 //******************************************************************/
-// CurrentPriceDlg.cpp : ±¸Çö ÆÄÀÏ
+// CurrentPriceDlg.cpp : êµ¬í˜„ íŒŒì¼
 //
 
 #include "stdafx.h"
@@ -21,179 +21,179 @@
 #define new DEBUG_NEW
 #endif
 
-const CString m_strRealSet = "ÁÖ½Ä½Ã¼¼;ÁÖ½ÄÃ¼°á;ÁÖ½ÄÈ£°¡ÀÜ·®;ÁÖ½Ä½Ã°£¿ÜÈ£°¡";
+const CString m_strRealSet = "ì£¼ì‹ì‹œì„¸;ì£¼ì‹ì²´ê²°;ì£¼ì‹í˜¸ê°€ì”ëŸ‰;ì£¼ì‹ì‹œê°„ì™¸í˜¸ê°€";
 
-// {Á¶È¸ Å°,		¸®¾ó Å°,	Çà, ¿­, Å¸ÀÔ,			»ö º¯°æ, Á¤·Ä, ¾Õ ¹®ÀÚ, µŞ ¹®ÀÚ}
+// {ì¡°íšŒ í‚¤,		ë¦¬ì–¼ í‚¤,	í–‰, ì—´, íƒ€ì…,			ìƒ‰ ë³€ê²½, ì •ë ¬, ì• ë¬¸ì, ë’· ë¬¸ì}
 const stGRID lstOPT10001[] = 
 {
-	{"Á¾¸ñ¸í",			"-1",	-1,	-1,	DT_NONE,		FALSE,	DT_LEFT,	"",	""}, 
+	{"ì¢…ëª©ëª…",			"-1",	-1,	-1,	DT_NONE,		FALSE,	DT_LEFT,	"",	""}, 
 	/////////////////////////////////////
-	// ÇöÀç°¡ ±×¸®µå
-	{"ÇöÀç°¡",			"10",	0,	0,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
-	{"´ëºñ±âÈ£",		"25",	0,	1,	DT_SIGN,		TRUE,	DT_CENTER,	"",	""}, 
-	{"ÀüÀÏ´ëºñ",		"11",	0,	2,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
-	{"µî¶ôÀ²",			"12",	0,	3,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	"%"}, 
-	{"°Å·¡·®",			"13",	0,	4,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"°Å·¡´ëºñ",		"30",	0,	5,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	"%"}, 
+	// í˜„ì¬ê°€ ê·¸ë¦¬ë“œ
+	{"í˜„ì¬ê°€",			"10",	0,	0,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
+	{"ëŒ€ë¹„ê¸°í˜¸",		"25",	0,	1,	DT_SIGN,		TRUE,	DT_CENTER,	"",	""}, 
+	{"ì „ì¼ëŒ€ë¹„",		"11",	0,	2,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
+	{"ë“±ë½ìœ¨",			"12",	0,	3,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	"%"}, 
+	{"ê±°ë˜ëŸ‰",			"13",	0,	4,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ê±°ë˜ëŒ€ë¹„",		"30",	0,	5,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	"%"}, 
 	/////////////////////////////////////
-	// ÁÖ½Ä±âº»Á¤º¸ ±×¸®µå 1Çà
-	{"250ÃÖ°í",			"-1",	0,	1,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
-	{"250ÃÖ°í°¡´ëºñÀ²",	"-1",	0,	2,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	"%"}, 
-	{"250ÃÖ°í°¡ÀÏ",		"-1",	0,	3,	DT_DATE,		FALSE,	DT_CENTER,	"",	""}, 
-	{"¾×¸é°¡",			"-1",	0,	5,	DT_ZERO_NUMBER,	FALSE,	DT_CENTER,	"",	" ¿ø"}, 
-	{"½Ã°¡ÃÑ¾×",		"-1",	0,	7,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	" ¾ï"}, 
+	// ì£¼ì‹ê¸°ë³¸ì •ë³´ ê·¸ë¦¬ë“œ 1í–‰
+	{"250ìµœê³ ",			"-1",	0,	1,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
+	{"250ìµœê³ ê°€ëŒ€ë¹„ìœ¨",	"-1",	0,	2,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	"%"}, 
+	{"250ìµœê³ ê°€ì¼",		"-1",	0,	3,	DT_DATE,		FALSE,	DT_CENTER,	"",	""}, 
+	{"ì•¡ë©´ê°€",			"-1",	0,	5,	DT_ZERO_NUMBER,	FALSE,	DT_CENTER,	"",	" ì›"}, 
+	{"ì‹œê°€ì´ì•¡",		"-1",	0,	7,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	" ì–µ"}, 
 	{"EPS",				"-1",	0,	9,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
 	/////////////////////////////////////
-	// ÁÖ½Ä±âº»Á¤º¸ ±×¸®µå 2Çà
-	{"250ÃÖÀú",			"-1",	1,	1,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
-	{"250ÃÖÀú°¡´ëºñÀ²",	"-1",	1,	2,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	"%"}, 
-	{"250ÃÖÀú°¡ÀÏ",		"-1",	1,	3,	DT_DATE,		FALSE,	DT_CENTER,	"",	""}, 
-	{"ÀÚº»±İ",			"-1",	1,	5,	DT_ZERO_NUMBER,	FALSE,	DT_CENTER,	"",	" ¾ï"}, 
-	{"´ë¿ë°¡",			"-1",	1,	7,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	// ì£¼ì‹ê¸°ë³¸ì •ë³´ ê·¸ë¦¬ë“œ 2í–‰
+	{"250ìµœì €",			"-1",	1,	1,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
+	{"250ìµœì €ê°€ëŒ€ë¹„ìœ¨",	"-1",	1,	2,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	"%"}, 
+	{"250ìµœì €ê°€ì¼",		"-1",	1,	3,	DT_DATE,		FALSE,	DT_CENTER,	"",	""}, 
+	{"ìë³¸ê¸ˆ",			"-1",	1,	5,	DT_ZERO_NUMBER,	FALSE,	DT_CENTER,	"",	" ì–µ"}, 
+	{"ëŒ€ìš©ê°€",			"-1",	1,	7,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
 	{"PER",				"-1",	1,	9,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
 	/////////////////////////////////////
-	// ÁÖ½Ä±âº»Á¤º¸ ±×¸®µå 3Çà
-	{"¿ÜÀÎ¼ÒÁø·ü",		"-1",	2,	1,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	"%"}, 
-	{"»óÀåÁÖ½Ä",		"-1",	2,	5,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	" Ãµ"}, 
-	{"½Å¿ëºñÀ²",		"-1",	2,	7,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	"%"}, 
-	{"°á»ê¿ù",			"-1",	2,	9,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	"¿ù"}, 
+	// ì£¼ì‹ê¸°ë³¸ì •ë³´ ê·¸ë¦¬ë“œ 3í–‰
+	{"ì™¸ì¸ì†Œì§„ë¥ ",		"-1",	2,	1,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	"%"}, 
+	{"ìƒì¥ì£¼ì‹",		"-1",	2,	5,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	" ì²œ"}, 
+	{"ì‹ ìš©ë¹„ìœ¨",		"-1",	2,	7,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	"%"}, 
+	{"ê²°ì‚°ì›”",			"-1",	2,	9,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	"ì›”"}, 
 	/////////////////////////////////////
-	// ÁÖ½Ä±âº»Á¤º¸ ±×¸®µå 4Çà
-	{"¿¬ÁßÃÖ°í",		"-1",	3,	1,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
+	// ì£¼ì‹ê¸°ë³¸ì •ë³´ ê·¸ë¦¬ë“œ 4í–‰
+	{"ì—°ì¤‘ìµœê³ ",		"-1",	3,	1,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
 	{"BPS",				"-1",	3,	9,	DT_ZERO_NUMBER,	FALSE,	DT_CENTER,	"",	""}, 
 	/////////////////////////////////////
-	// ÁÖ½Ä±âº»Á¤º¸ ±×¸®µå 5Çà
-	{"¿¬ÁßÃÖÀú",		"-1",	4,	1,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
+	// ì£¼ì‹ê¸°ë³¸ì •ë³´ ê·¸ë¦¬ë“œ 5í–‰
+	{"ì—°ì¤‘ìµœì €",		"-1",	4,	1,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
 	{"PBR",				"-1",	4,	9,	DT_ZERO_NUMBER,	FALSE,	DT_CENTER,	"",	""}, 
 };
 
-// ½Ç½Ã°£ ÁÖ¹®Ã¼°á(ÇöÀç°¡ Ç¥½Ã¿ë)
+// ì‹¤ì‹œê°„ ì£¼ë¬¸ì²´ê²°(í˜„ì¬ê°€ í‘œì‹œìš©)
 const stGRID lstOPT10001_B[] = 
 {
-	{"Á¾¸ñ¸í",			"-1",	-1,	-1,	DT_NONE,		FALSE,	DT_LEFT,	"",	""}, 
+	{"ì¢…ëª©ëª…",			"-1",	-1,	-1,	DT_NONE,		FALSE,	DT_LEFT,	"",	""}, 
 	/////////////////////////////////////
-	// ÇöÀç°¡ ±×¸®µå
-	{"ÇöÀç°¡",			"10",	0,	0,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
-	{"´ëºñ±âÈ£",		"25",	0,	1,	DT_SIGN,		TRUE,	DT_CENTER,	"",	""}, 
-	{"ÀüÀÏ´ëºñ",		"11",	0,	2,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
-	{"µî¶ôÀ²",			"12",	0,	3,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	"%"}, 
-	{"°Å·¡·®",			"13",	0,	4,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"°Å·¡´ëºñ",		"30",	0,	5,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	"%"}, 
+	// í˜„ì¬ê°€ ê·¸ë¦¬ë“œ
+	{"í˜„ì¬ê°€",			"10",	0,	0,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
+	{"ëŒ€ë¹„ê¸°í˜¸",		"25",	0,	1,	DT_SIGN,		TRUE,	DT_CENTER,	"",	""}, 
+	{"ì „ì¼ëŒ€ë¹„",		"11",	0,	2,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
+	{"ë“±ë½ìœ¨",			"12",	0,	3,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	"%"}, 
+	{"ê±°ë˜ëŸ‰",			"13",	0,	4,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ê±°ë˜ëŒ€ë¹„",		"30",	0,	5,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	"%"}, 
 };
 
 const stGRID lstOPT10003[] = 
 {
-	{"½Ã°£",			"20",	-1,	0,	DT_TIME,		FALSE,	DT_CENTER,	"",	""}, 
-	{"ÇöÀç°¡",			"10",	-1,	1,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
+	{"ì‹œê°„",			"20",	-1,	0,	DT_TIME,		FALSE,	DT_CENTER,	"",	""}, 
+	{"í˜„ì¬ê°€",			"10",	-1,	1,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
 	{"sign",			"25",	-1,	2,	DT_SIGN,		TRUE,	DT_CENTER,	"",	""}, 
-	{"ÀüÀÏ´ëºñ",		"11",	-1,	3,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
-	{"´©Àû°Å·¡·®",		"13",	-1,	4,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"´©Àû°Å·¡´ë±İ",	"14",	-1,	5,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ì „ì¼ëŒ€ë¹„",		"11",	-1,	3,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
+	{"ëˆ„ì ê±°ë˜ëŸ‰",		"13",	-1,	4,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ëˆ„ì ê±°ë˜ëŒ€ê¸ˆ",	"14",	-1,	5,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
 };
 
 const stGRID lstOPT10004[] = 
 {
 	/////////////////////////////////////
-	// ÃÑ¸Åµµ/¸Å¼ö ÀÜ·®
-	{"ÃÑ¸ÅµµÀÜ·®",		"61",	0,	0,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""},
-	{"ÃÑ¸Å¼öÀÜ·®",		"63",	0,	1,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	// ì´ë§¤ë„/ë§¤ìˆ˜ ì”ëŸ‰
+	{"ì´ë§¤ë„ì”ëŸ‰",		"61",	0,	0,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""},
+	{"ì´ë§¤ìˆ˜ì”ëŸ‰",		"63",	0,	1,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
 	/////////////////////////////////////
-	// ¸ÅµµÈ£°¡
-	{"¸Åµµ10Â÷¼±ÀÜ·®",	"70",	1,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
-	{"¸Åµµ10Â÷¼±È£°¡",	"50",	1,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
-	{"¸Åµµ9Â÷¼±ÀÜ·®",	"69",	2,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
-	{"¸Åµµ9Â÷¼±È£°¡",	"49",	2,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
-	{"¸Åµµ8Â÷¼±ÀÜ·®",	"68",	3,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
-	{"¸Åµµ8Â÷¼±È£°¡",	"48",	3,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
-	{"¸Åµµ7Â÷¼±ÀÜ·®",	"67",	4,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
-	{"¸Åµµ7Â÷¼±È£°¡",	"47",	4,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
-	{"¸Åµµ6Â÷¼±ÀÜ·®",	"66",	5,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
-	{"¸Åµµ6Â÷¼±È£°¡",	"46",	5,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
-	{"¸Åµµ5Â÷¼±ÀÜ·®",	"65",	6,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
-	{"¸Åµµ5Â÷¼±È£°¡",	"45",	6,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
-	{"¸Åµµ4Â÷¼±ÀÜ·®",	"64",	7,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
-	{"¸Åµµ4Â÷¼±È£°¡",	"44",	7,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
-	{"¸Åµµ3Â÷¼±ÀÜ·®",	"63",	8,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
-	{"¸Åµµ3Â÷¼±È£°¡",	"43",	8,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
-	{"¸Åµµ2Â÷¼±ÀÜ·®",	"62",	9,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
-	{"¸Åµµ2Â÷¼±È£°¡",	"42",	9,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
-	{"¸ÅµµÃÖ¿ì¼±ÀÜ·®",	"61",	10,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
-	{"¸ÅµµÃÖ¿ì¼±È£°¡",	"41",	10,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
+	// ë§¤ë„í˜¸ê°€
+	{"ë§¤ë„10ì°¨ì„ ì”ëŸ‰",	"70",	1,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ë„10ì°¨ì„ í˜¸ê°€",	"50",	1,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ë„9ì°¨ì„ ì”ëŸ‰",	"69",	2,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ë„9ì°¨ì„ í˜¸ê°€",	"49",	2,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ë„8ì°¨ì„ ì”ëŸ‰",	"68",	3,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ë„8ì°¨ì„ í˜¸ê°€",	"48",	3,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ë„7ì°¨ì„ ì”ëŸ‰",	"67",	4,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ë„7ì°¨ì„ í˜¸ê°€",	"47",	4,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ë„6ì°¨ì„ ì”ëŸ‰",	"66",	5,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ë„6ì°¨ì„ í˜¸ê°€",	"46",	5,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ë„5ì°¨ì„ ì”ëŸ‰",	"65",	6,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ë„5ì°¨ì„ í˜¸ê°€",	"45",	6,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ë„4ì°¨ì„ ì”ëŸ‰",	"64",	7,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ë„4ì°¨ì„ í˜¸ê°€",	"44",	7,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ë„3ì°¨ì„ ì”ëŸ‰",	"63",	8,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ë„3ì°¨ì„ í˜¸ê°€",	"43",	8,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ë„2ì°¨ì„ ì”ëŸ‰",	"62",	9,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ë„2ì°¨ì„ í˜¸ê°€",	"42",	9,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ë„ìµœìš°ì„ ì”ëŸ‰",	"61",	10,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ë„ìµœìš°ì„ í˜¸ê°€",	"41",	10,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
 	/////////////////////////////////////
-	// ¸Å¼öÈ£°¡
-	{"¸Å¼öÃÖ¿ì¼±È£°¡",	"51",	11,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
-	{"¸ÅµµÃÖ¿ì¼±ÀÜ·®",	"71",	11,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
-	{"¸Å¼ö2Â÷¼±È£°¡",	"52",	12,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
-	{"¸Å¼ö2Â÷¼±ÀÜ·®",	"72",	12,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
-	{"¸Å¼ö3Â÷¼±È£°¡",	"53",	13,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
-	{"¸Å¼ö3Â÷¼±ÀÜ·®",	"73",	13,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
-	{"¸Å¼ö4Â÷¼±È£°¡",	"54",	14,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
-	{"¸Å¼ö4Â÷¼±ÀÜ·®",	"74",	14,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
-	{"¸Å¼ö5Â÷¼±È£°¡",	"55",	15,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
-	{"¸Å¼ö5Â÷¼±ÀÜ·®",	"75",	15,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
-	{"¸Å¼ö6Â÷¼±È£°¡",	"56",	16,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
-	{"¸Å¼ö6Â÷¼±ÀÜ·®",	"76",	16,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
-	{"¸Å¼ö7Â÷¼±È£°¡",	"57",	17,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
-	{"¸Å¼ö7Â÷¼±ÀÜ·®",	"77",	17,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
-	{"¸Å¼ö8Â÷¼±È£°¡",	"58",	18,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
-	{"¸Å¼ö8Â÷¼±ÀÜ·®",	"78",	18,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
-	{"¸Å¼ö9Â÷¼±È£°¡",	"59",	19,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
-	{"¸Å¼ö9Â÷¼±ÀÜ·®",	"79",	19,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
-	{"¸Å¼ö10Â÷¼±È£°¡",	"60",	20,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
-	{"¸Å¼ö10Â÷¼±ÀÜ·®",	"80",	20,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	// ë§¤ìˆ˜í˜¸ê°€
+	{"ë§¤ìˆ˜ìµœìš°ì„ í˜¸ê°€",	"51",	11,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
+	{"ë§¤ë„ìµœìš°ì„ ì”ëŸ‰",	"71",	11,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ìˆ˜2ì°¨ì„ í˜¸ê°€",	"52",	12,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
+	{"ë§¤ìˆ˜2ì°¨ì„ ì”ëŸ‰",	"72",	12,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ìˆ˜3ì°¨ì„ í˜¸ê°€",	"53",	13,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
+	{"ë§¤ìˆ˜3ì°¨ì„ ì”ëŸ‰",	"73",	13,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ìˆ˜4ì°¨ì„ í˜¸ê°€",	"54",	14,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
+	{"ë§¤ìˆ˜4ì°¨ì„ ì”ëŸ‰",	"74",	14,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ìˆ˜5ì°¨ì„ í˜¸ê°€",	"55",	15,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
+	{"ë§¤ìˆ˜5ì°¨ì„ ì”ëŸ‰",	"75",	15,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ìˆ˜6ì°¨ì„ í˜¸ê°€",	"56",	16,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
+	{"ë§¤ìˆ˜6ì°¨ì„ ì”ëŸ‰",	"76",	16,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ìˆ˜7ì°¨ì„ í˜¸ê°€",	"57",	17,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
+	{"ë§¤ìˆ˜7ì°¨ì„ ì”ëŸ‰",	"77",	17,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ìˆ˜8ì°¨ì„ í˜¸ê°€",	"58",	18,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
+	{"ë§¤ìˆ˜8ì°¨ì„ ì”ëŸ‰",	"78",	18,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ìˆ˜9ì°¨ì„ í˜¸ê°€",	"59",	19,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
+	{"ë§¤ìˆ˜9ì°¨ì„ ì”ëŸ‰",	"79",	19,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	{"ë§¤ìˆ˜10ì°¨ì„ í˜¸ê°€",	"60",	20,	1,	DT_NUMBER,		TRUE,	DT_RIGHT,	"",	""},
+	{"ë§¤ìˆ˜10ì°¨ì„ ì”ëŸ‰",	"80",	20,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
 	/////////////////////////////////////
-	// ÃÑÀÜ·®
-	{"ÃÑ¸ÅµµÀÜ·®",		"121",	21,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""},
-	{"ÃÑ¸Å¼öÀÜ·®",		"125",	21,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	// ì´ì”ëŸ‰
+	{"ì´ë§¤ë„ì”ëŸ‰",		"121",	21,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""},
+	{"ì´ë§¤ìˆ˜ì”ëŸ‰",		"125",	21,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
 	/////////////////////////////////////
-	// È£°¡ÀÜ·®±âÁØ½Ã°£
-	{"È£°¡ÀÜ·®±âÁØ½Ã°£","21",	21,	1,	DT_TIME,		FALSE,	DT_CENTER,	"",	""}, 
+	// í˜¸ê°€ì”ëŸ‰ê¸°ì¤€ì‹œê°„
+	{"í˜¸ê°€ì”ëŸ‰ê¸°ì¤€ì‹œê°„","21",	21,	1,	DT_TIME,		FALSE,	DT_CENTER,	"",	""}, 
 	/////////////////////////////////////
-	// ½Ã°£¿Ü ¸Åµµ/¸Å¼ö ÀÜ·®
-	{"½Ã°£¿Ü¸ÅµµÀÜ·®",	"131",	22,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""},
-	{"½Ã°£¿Ü¸Å¼öÀÜ·®",	"132",	22,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
+	// ì‹œê°„ì™¸ ë§¤ë„/ë§¤ìˆ˜ ì”ëŸ‰
+	{"ì‹œê°„ì™¸ë§¤ë„ì”ëŸ‰",	"131",	22,	0,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""},
+	{"ì‹œê°„ì™¸ë§¤ìˆ˜ì”ëŸ‰",	"132",	22,	2,	DT_NUMBER,		FALSE,	DT_RIGHT,	"",	""}, 
 };
 
-// {Á¶È¸ Å°,		¸®¾ó Å°,	Çà, ¿­, Å¸ÀÔ,			»ö º¯°æ, Á¤·Ä, ¾Õ ¹®ÀÚ, µŞ ¹®ÀÚ}
+// {ì¡°íšŒ í‚¤,		ë¦¬ì–¼ í‚¤,	í–‰, ì—´, íƒ€ì…,			ìƒ‰ ë³€ê²½, ì •ë ¬, ì• ë¬¸ì, ë’· ë¬¸ì}
 const stGRID lstOPT10080[] = 
 {
-	{"ÇöÀç°¡",			"20",	-1,	0,	DT_ZERO_NUMBER,	FALSE,	DT_CENTER,	"",	""}, 
-	{"°Å·¡·®",			"10",	-1,	1,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
-	{"Ã¼°á½Ã°£",			"25",	-1,	2,	DT_TIME,		TRUE,	DT_CENTER,	"",	""}, 
-	{"½Ã°¡",				"11",	-1,	3,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
-	{"°í°¡",				"13",	-1,	4,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"Àú°¡",				"14",	-1,	5,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"¼öÁ¤ÁÖ°¡±¸ºĞ",		"14",	-1,	6,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"¼öÁ¤ºñÀ²",			"14",	-1,	7,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"´ë¾÷Á¾±¸ºĞ",		"14",	-1,	8,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"¼Ò¾÷Á¾±¸ºĞ",		"14",	-1,	9,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"Á¾¸ñÁ¤º¸",			"14",	-1,	10,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"¼öÁ¤ÁÖ°¡ÀÌº¥Æ®",	"14",	-1,	11,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"ÀüÀÏÁ¾°¡",			"14",	-1,	12,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"í˜„ì¬ê°€",			"20",	-1,	0,	DT_ZERO_NUMBER,	FALSE,	DT_CENTER,	"",	""}, 
+	{"ê±°ë˜ëŸ‰",			"10",	-1,	1,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
+	{"ì²´ê²°ì‹œê°„",			"25",	-1,	2,	DT_TIME,		TRUE,	DT_CENTER,	"",	""}, 
+	{"ì‹œê°€",				"11",	-1,	3,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
+	{"ê³ ê°€",				"13",	-1,	4,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ì €ê°€",				"14",	-1,	5,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ìˆ˜ì •ì£¼ê°€êµ¬ë¶„",		"14",	-1,	6,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ìˆ˜ì •ë¹„ìœ¨",			"14",	-1,	7,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ëŒ€ì—…ì¢…êµ¬ë¶„",		"14",	-1,	8,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ì†Œì—…ì¢…êµ¬ë¶„",		"14",	-1,	9,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ì¢…ëª©ì •ë³´",			"14",	-1,	10,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ìˆ˜ì •ì£¼ê°€ì´ë²¤íŠ¸",	"14",	-1,	11,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ì „ì¼ì¢…ê°€",			"14",	-1,	12,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
 };
 
-// {Á¶È¸ Å°,		¸®¾ó Å°,	Çà, ¿­, Å¸ÀÔ,			»ö º¯°æ, Á¤·Ä, ¾Õ ¹®ÀÚ, µŞ ¹®ÀÚ}
+// {ì¡°íšŒ í‚¤,		ë¦¬ì–¼ í‚¤,	í–‰, ì—´, íƒ€ì…,			ìƒ‰ ë³€ê²½, ì •ë ¬, ì• ë¬¸ì, ë’· ë¬¸ì}
 const stGRID lstOPT10081[] = 
 {
-	{"ÇöÀç°¡",			"20",	-1,	0,	DT_ZERO_NUMBER,	FALSE,	DT_CENTER,	"",	""}, 
-	{"°Å·¡·®",			"10",	-1,	1,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
-	{"°Å·¡´ë±İ",			"25",	-1,	2,	DT_ZERO_NUMBER,	TRUE,	DT_CENTER,	"",	""}, 
-	{"ÀÏÀÚ",				"11",	-1,	3,	DT_DATE,		TRUE,	DT_RIGHT,	"",	""}, 
-	{"½Ã°¡",				"13",	-1,	4,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"°í°¡",				"14",	-1,	5,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"Àú°¡",				"14",	-1,	6,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"¼öÁ¤ÁÖ°¡±¸ºĞ",		"14",	-1,	7,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"¼öÁ¤ºñÀ²",			"14",	-1,	8,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"´ë¾÷Á¾±¸ºĞ",		"14",	-1,	9,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"¼Ò¾÷Á¾±¸ºĞ",		"14",	-1,	10,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"Á¾¸ñÁ¤º¸",			"14",	-1,	11,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"¼öÁ¤ÁÖ°¡ÀÌº¥Æ®",	"14",	-1,	12,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
-	{"ÀüÀÏÁ¾°¡",			"14",	-1,	13,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"í˜„ì¬ê°€",			"20",	-1,	0,	DT_ZERO_NUMBER,	FALSE,	DT_CENTER,	"",	""}, 
+	{"ê±°ë˜ëŸ‰",			"10",	-1,	1,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
+	{"ê±°ë˜ëŒ€ê¸ˆ",			"25",	-1,	2,	DT_ZERO_NUMBER,	TRUE,	DT_CENTER,	"",	""}, 
+	{"ì¼ì",				"11",	-1,	3,	DT_DATE,		TRUE,	DT_RIGHT,	"",	""}, 
+	{"ì‹œê°€",				"13",	-1,	4,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ê³ ê°€",				"14",	-1,	5,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ì €ê°€",				"14",	-1,	6,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ìˆ˜ì •ì£¼ê°€êµ¬ë¶„",		"14",	-1,	7,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ìˆ˜ì •ë¹„ìœ¨",			"14",	-1,	8,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ëŒ€ì—…ì¢…êµ¬ë¶„",		"14",	-1,	9,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ì†Œì—…ì¢…êµ¬ë¶„",		"14",	-1,	10,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ì¢…ëª©ì •ë³´",			"14",	-1,	11,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ìˆ˜ì •ì£¼ê°€ì´ë²¤íŠ¸",	"14",	-1,	12,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ì „ì¼ì¢…ê°€",			"14",	-1,	13,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
 };
-// CCurrentPriceDlg ´ëÈ­ »óÀÚ
+// CCurrentPriceDlg ëŒ€í™” ìƒì
 //*******************************************************************/
 //! Function Name : CCurrentPriceDlg::CCurrentPriceDlg(CWnd* pParent /*=NULL*/) : CDialogEx(CCurrentPriceDlg::IDD, pParent)
-//! Function      : »ı¼º ÃÊ±â Ã³¸®
+//! Function      : ìƒì„± ì´ˆê¸° ì²˜ë¦¬
 //! Param         : HANDLE hBitmap, int bits
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -210,13 +210,13 @@ CCurrentPriceDlg::CCurrentPriceDlg(CWnd* pParent /*=NULL*/)
 
 //*******************************************************************/
 // Function Name : DoDataExchange
-// Function      : DDX/DDV¿¡ °ü·Ã µÈ ÇÔ¼ö È£Ãâ
+// Function      : DDX/DDVì— ê´€ë ¨ ëœ í•¨ìˆ˜ í˜¸ì¶œ
 // Param         : CDataExchange*	pDX
 // Return        : void
 // Create        : , 2014/06/02
-// Comment       : DDX - ÄÁÆ®·Ñ°ú ¸â¹öº¯¼ö»çÀÌ¿¡ Á¤º¸¸¦ ±³È¯ÇÏ´Â ¿ªÇÒ
-//				 : DDV - ¸â¹öº¯¼ö¿¡ ÀúÀå µÉ °ªÀÇ À¯È¿¼º Ã¼Å©
-//				 : UapdateData()ÇÔ¼ö·Î °£Á¢ È£Ãâ ÇÒ ¼ö ÀÖÀ½
+// Comment       : DDX - ì»¨íŠ¸ë¡¤ê³¼ ë©¤ë²„ë³€ìˆ˜ì‚¬ì´ì— ì •ë³´ë¥¼ êµí™˜í•˜ëŠ” ì—­í• 
+//				 : DDV - ë©¤ë²„ë³€ìˆ˜ì— ì €ì¥ ë  ê°’ì˜ ìœ íš¨ì„± ì²´í¬
+//				 : UapdateData()í•¨ìˆ˜ë¡œ ê°„ì ‘ í˜¸ì¶œ í•  ìˆ˜ ìˆìŒ
 //*******************************************************************/
 void CCurrentPriceDlg::DoDataExchange(CDataExchange* pDX)
 {
@@ -241,31 +241,31 @@ END_MESSAGE_MAP()
 
 //*******************************************************************/
 //! Function Name : OnInitDialog
-//! Function      : »ı¼º ÃÊ±â Ã³¸®
+//! Function      : ìƒì„± ì´ˆê¸° ì²˜ë¦¬
 //! Param         : void
 //! Return        : BOOL
 //! Create        : , 2014/06/02
-//! Comment       : CCurrentPriceDlg ¸Ş½ÃÁö Ã³¸®±â
+//! Comment       : CCurrentPriceDlg ë©”ì‹œì§€ ì²˜ë¦¬ê¸°
 //******************************************************************/
 BOOL CCurrentPriceDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	// ÀÌ ´ëÈ­ »óÀÚÀÇ ¾ÆÀÌÄÜÀ» ¼³Á¤ÇÕ´Ï´Ù. ÀÀ¿ë ÇÁ·Î±×·¥ÀÇ ÁÖ Ã¢ÀÌ ´ëÈ­ »óÀÚ°¡ ¾Æ´Ò °æ¿ì¿¡´Â
-	//  ÇÁ·¹ÀÓ¿öÅ©°¡ ÀÌ ÀÛ¾÷À» ÀÚµ¿À¸·Î ¼öÇàÇÕ´Ï´Ù.
-	SetIcon(m_hIcon, TRUE);			// Å« ¾ÆÀÌÄÜÀ» ¼³Á¤ÇÕ´Ï´Ù.
-	SetIcon(m_hIcon, FALSE);		// ÀÛÀº ¾ÆÀÌÄÜÀ» ¼³Á¤ÇÕ´Ï´Ù.
+	// ì´ ëŒ€í™” ìƒìì˜ ì•„ì´ì½˜ì„ ì„¤ì •í•©ë‹ˆë‹¤. ì‘ìš© í”„ë¡œê·¸ë¨ì˜ ì£¼ ì°½ì´ ëŒ€í™” ìƒìê°€ ì•„ë‹ ê²½ìš°ì—ëŠ”
+	//  í”„ë ˆì„ì›Œí¬ê°€ ì´ ì‘ì—…ì„ ìë™ìœ¼ë¡œ ìˆ˜í–‰í•©ë‹ˆë‹¤.
+	SetIcon(m_hIcon, TRUE);			// í° ì•„ì´ì½˜ì„ ì„¤ì •í•©ë‹ˆë‹¤.
+	SetIcon(m_hIcon, FALSE);		// ì‘ì€ ì•„ì´ì½˜ì„ ì„¤ì •í•©ë‹ˆë‹¤.
 
-	// TODO: ¿©±â¿¡ Ãß°¡ ÃÊ±âÈ­ ÀÛ¾÷À» Ãß°¡ÇÕ´Ï´Ù.
-	((CEdit*)GetDlgItem(IDC_EDT_JONGCODE))->SetLimitText(6);	// Á¾¸ñÄÚµå ÃÖ´ë±æÀÌ ¼³Á¤
+	// TODO: ì—¬ê¸°ì— ì¶”ê°€ ì´ˆê¸°í™” ì‘ì—…ì„ ì¶”ê°€í•©ë‹ˆë‹¤.
+	((CEdit*)GetDlgItem(IDC_EDT_JONGCODE))->SetLimitText(6);	// ì¢…ëª©ì½”ë“œ ìµœëŒ€ê¸¸ì´ ì„¤ì •
 
-	// ±×¸®µå ¼³Á¤
-	InitCurPrcGrid();				// ÇöÀç°¡ ±×¸®µå ÃÊ±â Ã³¸®
-	InitJongInfoGrid();				// Á¾¸ñÁ¤º¸ ±×¸®µå ÃÊ±â Ã³¸®
-	InitHogaGrid();					// È£°¡ ±×¸®µå ÃÊ±â Ã³¸®
-	InitTickGrid();					// Æ½ ±×¸®µå ÃÊ±â Ã³¸®
+	// ê·¸ë¦¬ë“œ ì„¤ì •
+	InitCurPrcGrid();				// í˜„ì¬ê°€ ê·¸ë¦¬ë“œ ì´ˆê¸° ì²˜ë¦¬
+	InitJongInfoGrid();				// ì¢…ëª©ì •ë³´ ê·¸ë¦¬ë“œ ì´ˆê¸° ì²˜ë¦¬
+	InitHogaGrid();					// í˜¸ê°€ ê·¸ë¦¬ë“œ ì´ˆê¸° ì²˜ë¦¬
+	InitTickGrid();					// í‹± ê·¸ë¦¬ë“œ ì´ˆê¸° ì²˜ë¦¬
 
-	// ¸¶Áö¸· Á¾¸ñÄÚµå Ãëµæ
+	// ë§ˆì§€ë§‰ ì¢…ëª©ì½”ë“œ ì·¨ë“
 	char szItem[7];
 	int nSize = sizeof(szItem);
 	memset(szItem, 0, nSize);
@@ -274,28 +274,28 @@ BOOL CCurrentPriceDlg::OnInitDialog()
 	m_strJongCode = szItem;		m_strJongCode.Trim();
 	((CEdit*)GetDlgItem(IDC_EDT_JONGCODE))->SetWindowText(m_strJongCode);
 
-	return TRUE;  // Æ÷Ä¿½º¸¦ ÄÁÆ®·Ñ¿¡ ¼³Á¤ÇÏÁö ¾ÊÀ¸¸é TRUE¸¦ ¹İÈ¯ÇÕ´Ï´Ù.
+	return TRUE;  // í¬ì»¤ìŠ¤ë¥¼ ì»¨íŠ¸ë¡¤ì— ì„¤ì •í•˜ì§€ ì•Šìœ¼ë©´ TRUEë¥¼ ë°˜í™˜í•©ë‹ˆë‹¤.
 }
 
 //*******************************************************************/
 //! Function Name : OnPaint
-//! Function      : ±×¸®±â Ã³¸®
+//! Function      : ê·¸ë¦¬ê¸° ì²˜ë¦¬
 //! Param         : void
 //! Return        : void
 //! Create        : , 2014/06/02
-//! Comment       : ´ëÈ­ »óÀÚ¿¡ ÃÖ¼ÒÈ­ ´ÜÃß¸¦ Ãß°¡ÇÒ °æ¿ì ¾ÆÀÌÄÜÀ» ±×¸®·Á¸é
-//!               : ¾Æ·¡ ÄÚµå°¡ ÇÊ¿äÇÕ´Ï´Ù. ¹®¼­/ºä ¸ğµ¨À» »ç¿ëÇÏ´Â MFC ÀÀ¿ë ÇÁ·Î±×·¥ÀÇ °æ¿ì¿¡´Â
-//!               : ÇÁ·¹ÀÓ¿öÅ©¿¡¼­ ÀÌ ÀÛ¾÷À» ÀÚµ¿À¸·Î ¼öÇàÇÕ´Ï´Ù.
+//! Comment       : ëŒ€í™” ìƒìì— ìµœì†Œí™” ë‹¨ì¶”ë¥¼ ì¶”ê°€í•  ê²½ìš° ì•„ì´ì½˜ì„ ê·¸ë¦¬ë ¤ë©´
+//!               : ì•„ë˜ ì½”ë“œê°€ í•„ìš”í•©ë‹ˆë‹¤. ë¬¸ì„œ/ë·° ëª¨ë¸ì„ ì‚¬ìš©í•˜ëŠ” MFC ì‘ìš© í”„ë¡œê·¸ë¨ì˜ ê²½ìš°ì—ëŠ”
+//!               : í”„ë ˆì„ì›Œí¬ì—ì„œ ì´ ì‘ì—…ì„ ìë™ìœ¼ë¡œ ìˆ˜í–‰í•©ë‹ˆë‹¤.
 //******************************************************************/
 void CCurrentPriceDlg::OnPaint()
 {
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // ±×¸®±â¸¦ À§ÇÑ µğ¹ÙÀÌ½º ÄÁÅØ½ºÆ®ÀÔ´Ï´Ù.
+		CPaintDC dc(this); // ê·¸ë¦¬ê¸°ë¥¼ ìœ„í•œ ë””ë°”ì´ìŠ¤ ì»¨í…ìŠ¤íŠ¸ì…ë‹ˆë‹¤.
 
 		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
-		// Å¬¶óÀÌ¾ğÆ® »ç°¢Çü¿¡¼­ ¾ÆÀÌÄÜÀ» °¡¿îµ¥¿¡ ¸ÂÃä´Ï´Ù.
+		// í´ë¼ì´ì–¸íŠ¸ ì‚¬ê°í˜•ì—ì„œ ì•„ì´ì½˜ì„ ê°€ìš´ë°ì— ë§ì¶¥ë‹ˆë‹¤.
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
@@ -303,7 +303,7 @@ void CCurrentPriceDlg::OnPaint()
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
 
-		// ¾ÆÀÌÄÜÀ» ±×¸³´Ï´Ù.
+		// ì•„ì´ì½˜ì„ ê·¸ë¦½ë‹ˆë‹¤.
 		dc.DrawIcon(x, y, m_hIcon);
 	}
 	else
@@ -314,7 +314,7 @@ void CCurrentPriceDlg::OnPaint()
 
 //*******************************************************************/
 //! Function Name : OnClose
-//! Function      : ÆÄ±«ÀÚ
+//! Function      : íŒŒê´´ì
 //! Param         : void
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -322,7 +322,7 @@ void CCurrentPriceDlg::OnPaint()
 //******************************************************************/
 void CCurrentPriceDlg::OnClose()
 {
-	// È­¸é ´İÀ» ¶§ ºÎ¸ğÀ©µµ¿ì¿¡°Ô Åëº¸(È­¸é °ü¸® À§ÇØ)
+	// í™”ë©´ ë‹«ì„ ë•Œ ë¶€ëª¨ìœˆë„ìš°ì—ê²Œ í†µë³´(í™”ë©´ ê´€ë¦¬ ìœ„í•´)
 	if (m_pParent)
 	{
 		int nLen = m_strScrNo.GetLength();
@@ -349,12 +349,12 @@ void CCurrentPriceDlg::OnClose()
 
 //*******************************************************************/
 //! Function Name : OnQueryDragIcon
-//! Function      : µå·¡±× ¾ÆÀÌÄÜ Ã³¸®
+//! Function      : ë“œë˜ê·¸ ì•„ì´ì½˜ ì²˜ë¦¬
 //! Param         : void
 //! Return        : HCURSOR
 //! Create        : , 2014/06/02
-//! Comment       : »ç¿ëÀÚ°¡ ÃÖ¼ÒÈ­µÈ Ã¢À» ²ô´Â µ¿¾È¿¡ Ä¿¼­°¡ Ç¥½ÃµÇµµ·Ï ½Ã½ºÅÛ¿¡¼­ 
-//!               : ÀÌ ÇÔ¼ö¸¦ È£ÃâÇÕ´Ï´Ù.
+//! Comment       : ì‚¬ìš©ìê°€ ìµœì†Œí™”ëœ ì°½ì„ ë„ëŠ” ë™ì•ˆì— ì»¤ì„œê°€ í‘œì‹œë˜ë„ë¡ ì‹œìŠ¤í…œì—ì„œ 
+//!               : ì´ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•©ë‹ˆë‹¤.
 //******************************************************************/
 HCURSOR CCurrentPriceDlg::OnQueryDragIcon()
 {
@@ -363,7 +363,7 @@ HCURSOR CCurrentPriceDlg::OnQueryDragIcon()
 
 //*******************************************************************/
 //! Function Name : OnBtnSearch
-//! Function      : Á¶È¸ ¹öÆ°
+//! Function      : ì¡°íšŒ ë²„íŠ¼
 //! Param         : void
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -371,23 +371,23 @@ HCURSOR CCurrentPriceDlg::OnQueryDragIcon()
 //******************************************************************/
 void CCurrentPriceDlg::OnBtnSearch()
 {
-	// TODO: ¿©±â¿¡ ÄÁÆ®·Ñ ¾Ë¸² Ã³¸®±â ÄÚµå¸¦ Ãß°¡ÇÕ´Ï´Ù.
-	// Á¾¸ñÄÚµå ÀÔ·Â ¿©ºÎ
+	// TODO: ì—¬ê¸°ì— ì»¨íŠ¸ë¡¤ ì•Œë¦¼ ì²˜ë¦¬ê¸° ì½”ë“œë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
+	// ì¢…ëª©ì½”ë“œ ì…ë ¥ ì—¬ë¶€
 	((CEdit*)GetDlgItem(IDC_EDT_JONGCODE))->GetWindowText(m_strJongCode);
 	if (m_strJongCode.GetLength() != 6)
 	{
-		AfxMessageBox("Á¾¸ñÄÚµå 6ÀÚ¸¦ ÀÔ·Â ÇØ ÁÖ¼¼¿ä~!");
+		AfxMessageBox("ì¢…ëª©ì½”ë“œ 6ìë¥¼ ì…ë ¥ í•´ ì£¼ì„¸ìš”~!");
 		((CEdit*)GetDlgItem(IDC_EDT_JONGCODE))->SetFocus();
 		return;
 	}
 
-	m_grdTick.SetRowCount(1);		// Çà/¿­ °¹¼ö ¼³Á¤
-	SendSearch();					// Á¶È¸ Ã³¸®
+	m_grdTick.SetRowCount(1);		// í–‰/ì—´ ê°¯ìˆ˜ ì„¤ì •
+	SendSearch();					// ì¡°íšŒ ì²˜ë¦¬
 }
 
 //*******************************************************************/
 //! Function Name : InitCurPrcGrid
-//! Function      : ÇöÀç°¡ ±×¸®µå ÃÊ±â Ã³¸®
+//! Function      : í˜„ì¬ê°€ ê·¸ë¦¬ë“œ ì´ˆê¸° ì²˜ë¦¬
 //! Param         : void
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -395,16 +395,16 @@ void CCurrentPriceDlg::OnBtnSearch()
 //******************************************************************/
 void CCurrentPriceDlg::InitCurPrcGrid()
 {
-	m_grdCurPrc.SetEditable(false);					//cellÀ» ¿¡µğÆ® ¸øÇÏ°Ô ÇÔ.
+	m_grdCurPrc.SetEditable(false);					//cellì„ ì—ë””íŠ¸ ëª»í•˜ê²Œ í•¨.
 	m_grdCurPrc.EnableScrollBars(SB_BOTH, FALSE);
 
-	// Çà/¿­ °¹¼ö ¼³Á¤
+	// í–‰/ì—´ ê°¯ìˆ˜ ì„¤ì •
 	m_grdCurPrc.SetRowCount(1);
 	m_grdCurPrc.SetColumnCount(6);
 
-	// ¿­ÀÇ ³ĞÀÌ ¼³Á¤
+	// ì—´ì˜ ë„“ì´ ì„¤ì •
 	int i, nWidth[] = {80, 20, 80, 60, 80, 80};
-	int nCnt = sizeof(nWidth) / sizeof(*nWidth);		// ÀüÃ¼Å©±â / ¿ø¼ÒÅ©±â = ¿ø¼Ò°³¼ö
+	int nCnt = sizeof(nWidth) / sizeof(*nWidth);		// ì „ì²´í¬ê¸° / ì›ì†Œí¬ê¸° = ì›ì†Œê°œìˆ˜
 	for (i = 0; i < nCnt; i++)
 	{
 		m_grdCurPrc.SetColumnWidth(i, nWidth[i]);
@@ -412,7 +412,7 @@ void CCurrentPriceDlg::InitCurPrcGrid()
 	}
 	m_grdCurPrc.SetItemFormat(0, 1, DT_CENTER);
 
-	// ÇàÀÇ ³ôÀÌ ¼³Á¤
+	// í–‰ì˜ ë†’ì´ ì„¤ì •
 	m_grdCurPrc.SetRowHeight(0, 20);
 
 	m_grdCurPrc.Invalidate();
@@ -420,7 +420,7 @@ void CCurrentPriceDlg::InitCurPrcGrid()
 
 //*******************************************************************/
 //! Function Name : InitJongInfoGrid
-//! Function      : Á¾¸ñÁ¤º¸ ±×¸®µå ÃÊ±â Ã³¸®
+//! Function      : ì¢…ëª©ì •ë³´ ê·¸ë¦¬ë“œ ì´ˆê¸° ì²˜ë¦¬
 //! Param         : void
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -428,19 +428,19 @@ void CCurrentPriceDlg::InitCurPrcGrid()
 //******************************************************************/
 void CCurrentPriceDlg::InitJongInfoGrid()
 {
-	m_grdJongInfo.SetEditable(false);				//cellÀ» ¿¡µğÆ® ¸øÇÏ°Ô ÇÔ.
+	m_grdJongInfo.SetEditable(false);				//cellì„ ì—ë””íŠ¸ ëª»í•˜ê²Œ í•¨.
 	m_grdJongInfo.EnableScrollBars(SB_BOTH, FALSE);
 
 	COLORREF clr = RGB(220, 224, 233);
 
-	// Çà/¿­ °¹¼ö ¼³Á¤
+	// í–‰/ì—´ ê°¯ìˆ˜ ì„¤ì •
 	m_grdJongInfo.SetRowCount(5);
 	m_grdJongInfo.SetColumnCount(10);
 
-	// ¿­ÀÇ ³ĞÀÌ ¼³Á¤
+	// ì—´ì˜ ë„“ì´ ì„¤ì •
 	UINT nFormat;
 	int i, nWidth[] = {67, 67, 60, 80, 45, 80, 55, 80, 45, 60};
-	int nCnt = sizeof(nWidth) / sizeof(*nWidth);		// ÀüÃ¼Å©±â / ¿ø¼ÒÅ©±â = ¿ø¼Ò°³¼ö
+	int nCnt = sizeof(nWidth) / sizeof(*nWidth);		// ì „ì²´í¬ê¸° / ì›ì†Œí¬ê¸° = ì›ì†Œê°œìˆ˜
 	for (i = 0; i < nCnt; i++)
 	{
 		m_grdJongInfo.SetColumnWidth(i, nWidth[i]);
@@ -463,37 +463,37 @@ void CCurrentPriceDlg::InitJongInfoGrid()
 		m_grdJongInfo.SetItemFormat(4, i, nFormat);
 	}
 
-	// ÇàÀÇ ³ôÀÌ ¼³Á¤
+	// í–‰ì˜ ë†’ì´ ì„¤ì •
 	for (i = 0; i < 5; i++)
 	{
 		m_grdJongInfo.SetRowHeight(i, 24);
-		m_grdJongInfo.SetItemBkColour(i, 0, clr);	// ÁöÁ¤µÈ ¼¿ÀÇ ¹è°æ»ö ¼³Á¤
-		m_grdJongInfo.SetItemBkColour(i, 4, clr);	// ÁöÁ¤µÈ ¼¿ÀÇ ¹è°æ»ö ¼³Á¤
-		m_grdJongInfo.SetItemBkColour(i, 6, clr);	// ÁöÁ¤µÈ ¼¿ÀÇ ¹è°æ»ö ¼³Á¤
-		m_grdJongInfo.SetItemBkColour(i, 8, clr);	// ÁöÁ¤µÈ ¼¿ÀÇ ¹è°æ»ö ¼³Á¤
+		m_grdJongInfo.SetItemBkColour(i, 0, clr);	// ì§€ì •ëœ ì…€ì˜ ë°°ê²½ìƒ‰ ì„¤ì •
+		m_grdJongInfo.SetItemBkColour(i, 4, clr);	// ì§€ì •ëœ ì…€ì˜ ë°°ê²½ìƒ‰ ì„¤ì •
+		m_grdJongInfo.SetItemBkColour(i, 6, clr);	// ì§€ì •ëœ ì…€ì˜ ë°°ê²½ìƒ‰ ì„¤ì •
+		m_grdJongInfo.SetItemBkColour(i, 8, clr);	// ì§€ì •ëœ ì…€ì˜ ë°°ê²½ìƒ‰ ì„¤ì •
 	}
 
-	m_grdJongInfo.SetItemText(0, 0, "250ÀÏÃÖ°í");
-	m_grdJongInfo.SetItemText(1, 0, "250ÀÏÃÖÀú");
-	m_grdJongInfo.SetItemText(2, 0, "¿Ü±¹ÀÎº¸À¯");
-	m_grdJongInfo.SetItemText(3, 0, "¿¬ÁßÃÖ°í");
-	m_grdJongInfo.SetItemText(4, 0, "¿¬ÁßÃÖÀú");
+	m_grdJongInfo.SetItemText(0, 0, "250ì¼ìµœê³ ");
+	m_grdJongInfo.SetItemText(1, 0, "250ì¼ìµœì €");
+	m_grdJongInfo.SetItemText(2, 0, "ì™¸êµ­ì¸ë³´ìœ ");
+	m_grdJongInfo.SetItemText(3, 0, "ì—°ì¤‘ìµœê³ ");
+	m_grdJongInfo.SetItemText(4, 0, "ì—°ì¤‘ìµœì €");
 
-	m_grdJongInfo.SetItemText(0, 4, "¾×¸é°¡");
-	m_grdJongInfo.SetItemText(1, 4, "ÀÚº»±İ");
-	m_grdJongInfo.SetItemText(2, 4, "ÁÖ½Ä¼ö");
+	m_grdJongInfo.SetItemText(0, 4, "ì•¡ë©´ê°€");
+	m_grdJongInfo.SetItemText(1, 4, "ìë³¸ê¸ˆ");
+	m_grdJongInfo.SetItemText(2, 4, "ì£¼ì‹ìˆ˜");
 	m_grdJongInfo.SetItemText(3, 4, "");
 	m_grdJongInfo.SetItemText(4, 4, "");
 
-	m_grdJongInfo.SetItemText(0, 6, "½Ã°¡ÃÑ¾×");
-	m_grdJongInfo.SetItemText(1, 6, "´ë¿ë°¡");
-	m_grdJongInfo.SetItemText(2, 6, "½Å¿ëºñÀ²");
+	m_grdJongInfo.SetItemText(0, 6, "ì‹œê°€ì´ì•¡");
+	m_grdJongInfo.SetItemText(1, 6, "ëŒ€ìš©ê°€");
+	m_grdJongInfo.SetItemText(2, 6, "ì‹ ìš©ë¹„ìœ¨");
 	m_grdJongInfo.SetItemText(3, 6, "");
 	m_grdJongInfo.SetItemText(4, 6, "");
 
 	m_grdJongInfo.SetItemText(0, 8, "EPS");
 	m_grdJongInfo.SetItemText(1, 8, "BPS");
-	m_grdJongInfo.SetItemText(2, 8, "°á»ê¿ù");
+	m_grdJongInfo.SetItemText(2, 8, "ê²°ì‚°ì›”");
 	m_grdJongInfo.SetItemText(3, 8, "PER");
 	m_grdJongInfo.SetItemText(4, 8, "PBR");
 	
@@ -502,7 +502,7 @@ void CCurrentPriceDlg::InitJongInfoGrid()
 
 //*******************************************************************/
 //! Function Name : InitHogaGrid
-//! Function      : È£°¡ ±×¸®µå ÃÊ±â Ã³¸®
+//! Function      : í˜¸ê°€ ê·¸ë¦¬ë“œ ì´ˆê¸° ì²˜ë¦¬
 //! Param         : void
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -510,21 +510,21 @@ void CCurrentPriceDlg::InitJongInfoGrid()
 //******************************************************************/
 void CCurrentPriceDlg::InitHogaGrid()
 {
-	m_grdHoga.SetEditable(false);				//cellÀ» ¿¡µğÆ® ¸øÇÏ°Ô ÇÔ.
+	m_grdHoga.SetEditable(false);				//cellì„ ì—ë””íŠ¸ ëª»í•˜ê²Œ í•¨.
 	m_grdHoga.EnableScrollBars(SB_BOTH, FALSE);
 
-	// Çà/¿­ °¹¼ö ¼³Á¤
+	// í–‰/ì—´ ê°¯ìˆ˜ ì„¤ì •
 	m_grdHoga.SetRowCount(23);
 	m_grdHoga.SetColumnCount(3);
 
-	// ¿­ÀÇ ³ĞÀÌ ¼³Á¤
+	// ì—´ì˜ ë„“ì´ ì„¤ì •
 	int i;
 	for (i = 0; i < 3; i++)
 	{
 		m_grdHoga.SetColumnWidth(i, 80);
 	}
 
-	// ÇàÀÇ ³ôÀÌ ¼³Á¤
+	// í–‰ì˜ ë†’ì´ ì„¤ì •
 	for (i = 0; i < 21; i++)
 	{
 		m_grdHoga.SetRowHeight(i, 20);
@@ -541,10 +541,10 @@ void CCurrentPriceDlg::InitHogaGrid()
 	m_grdHoga.SetItemFormat(22, 0, DT_RIGHT);
 	m_grdHoga.SetItemFormat(22, 1, DT_CENTER);
 	m_grdHoga.SetItemFormat(22, 2, DT_RIGHT);
-	m_grdHoga.SetItemText(22, 1, "½Ã°£¿Ü");
+	m_grdHoga.SetItemText(22, 1, "ì‹œê°„ì™¸");
 
-	// È£°¡ ±×¸®µå ¹è°æ»ö ¼³Á¤
-	m_grdHoga.SetItemBkColour(0, 0, RGB(233, 243, 253));		// ÁöÁ¤µÈ ¼¿ÀÇ ¹è°æ»ö ¼³Á¤
+	// í˜¸ê°€ ê·¸ë¦¬ë“œ ë°°ê²½ìƒ‰ ì„¤ì •
+	m_grdHoga.SetItemBkColour(0, 0, RGB(233, 243, 253));		// ì§€ì •ëœ ì…€ì˜ ë°°ê²½ìƒ‰ ì„¤ì •
 	COLORREF clrHoga[] = 
 	{
 		RGB(253,232,227),
@@ -555,15 +555,15 @@ void CCurrentPriceDlg::InitHogaGrid()
 	};
 	for (i = 0; i < 21; i++)
 	{
-		m_grdHoga.SetItemBkColour(i, 1, clrHoga[i]);			// ÁöÁ¤µÈ ¼¿ÀÇ ¹è°æ»ö ¼³Á¤
+		m_grdHoga.SetItemBkColour(i, 1, clrHoga[i]);			// ì§€ì •ëœ ì…€ì˜ ë°°ê²½ìƒ‰ ì„¤ì •
 	}
 
 	COLORREF clr = RGB(238, 238, 238);
 	for (i = 21; i < 23; i++)
 	{
-		m_grdHoga.SetItemBkColour(i, 0, clr);			// ÁöÁ¤µÈ ¼¿ÀÇ ¹è°æ»ö ¼³Á¤
-		m_grdHoga.SetItemBkColour(i, 1, clr);			// ÁöÁ¤µÈ ¼¿ÀÇ ¹è°æ»ö ¼³Á¤
-		m_grdHoga.SetItemBkColour(i, 2, clr);			// ÁöÁ¤µÈ ¼¿ÀÇ ¹è°æ»ö ¼³Á¤
+		m_grdHoga.SetItemBkColour(i, 0, clr);			// ì§€ì •ëœ ì…€ì˜ ë°°ê²½ìƒ‰ ì„¤ì •
+		m_grdHoga.SetItemBkColour(i, 1, clr);			// ì§€ì •ëœ ì…€ì˜ ë°°ê²½ìƒ‰ ì„¤ì •
+		m_grdHoga.SetItemBkColour(i, 2, clr);			// ì§€ì •ëœ ì…€ì˜ ë°°ê²½ìƒ‰ ì„¤ì •
 	}
 
 	m_grdHoga.Invalidate();
@@ -571,7 +571,7 @@ void CCurrentPriceDlg::InitHogaGrid()
 
 //*******************************************************************/
 //! Function Name : InitTickGrid
-//! Function      : Æ½ ±×¸®µå ÃÊ±â Ã³¸®
+//! Function      : í‹± ê·¸ë¦¬ë“œ ì´ˆê¸° ì²˜ë¦¬
 //! Param         : void
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -579,31 +579,31 @@ void CCurrentPriceDlg::InitHogaGrid()
 //******************************************************************/
 void CCurrentPriceDlg::InitTickGrid()
 {
-	m_grdTick.SetEditable(false);				//cellÀ» ¿¡µğÆ® ¸øÇÏ°Ô ÇÔ.
+	m_grdTick.SetEditable(false);				//cellì„ ì—ë””íŠ¸ ëª»í•˜ê²Œ í•¨.
 	m_grdTick.EnableScrollBars(SB_BOTH, FALSE);
 
 	COLORREF clr = RGB(215, 227, 241);
 
-	// °íÁ¤ Çà/¿­ ¼³Á¤
+	// ê³ ì • í–‰/ì—´ ì„¤ì •
 	m_grdTick.SetFixedRowCount(1);
 
-	// Çà/¿­ °¹¼ö ¼³Á¤
+	// í–‰/ì—´ ê°¯ìˆ˜ ì„¤ì •
 	m_grdTick.SetRowCount(1);
 	m_grdTick.SetColumnCount(6);
 
-	// ¿­ÀÇ ³ĞÀÌ ¼³Á¤
+	// ì—´ì˜ ë„“ì´ ì„¤ì •
 	int i, nWidth[] = {72, 80, 20, 60, 80, 80};
-	CString strHeader[] = {"½Ã°£", "Ã¼°á°¡", "", "ÀüÀÏ´ëºñ", "°Å·¡·®", "°Å·¡´ë±İ"};
-	int nCnt = sizeof(nWidth) / sizeof(*nWidth);		// ÀüÃ¼Å©±â / ¿ø¼ÒÅ©±â = ¿ø¼Ò°³¼ö
+	CString strHeader[] = {"ì‹œê°„", "ì²´ê²°ê°€", "", "ì „ì¼ëŒ€ë¹„", "ê±°ë˜ëŸ‰", "ê±°ë˜ëŒ€ê¸ˆ"};
+	int nCnt = sizeof(nWidth) / sizeof(*nWidth);		// ì „ì²´í¬ê¸° / ì›ì†Œí¬ê¸° = ì›ì†Œê°œìˆ˜
 	for (i = 0; i < nCnt; i++)
 	{
 		m_grdTick.SetColumnWidth(i, nWidth[i]);
 		m_grdTick.SetItemFormat(0, i, DT_CENTER);
 		m_grdTick.SetItemText(0, i, strHeader[i]);
-		m_grdTick.SetItemBkColour(0, i, clr);	// ÁöÁ¤µÈ ¼¿ÀÇ ¹è°æ»ö ¼³Á¤
+		m_grdTick.SetItemBkColour(0, i, clr);	// ì§€ì •ëœ ì…€ì˜ ë°°ê²½ìƒ‰ ì„¤ì •
 	}
 
-	// ÇàÀÇ ³ôÀÌ ¼³Á¤
+	// í–‰ì˜ ë†’ì´ ì„¤ì •
 	m_grdTick.SetRowHeight(0, 24);
 
 	m_grdTick.Invalidate();
@@ -611,7 +611,7 @@ void CCurrentPriceDlg::InitTickGrid()
 
 //*******************************************************************/
 //! Function Name : SendSearch
-//! Function      : Á¶È¸ Ã³¸®
+//! Function      : ì¡°íšŒ ì²˜ë¦¬
 //! Param         : void
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -622,41 +622,41 @@ void CCurrentPriceDlg::SendSearch()
 	CString strFileName = theApp.m_sAppPath + "/data/jongcodedata.ini";
 	::WritePrivateProfileString("CURRENTPRICEDLG", "LAST_JONG_CODE", m_strJongCode, strFileName);
 
-	CString strRQName = _T("ÇöÀç°¡/Á¾¸ñÁ¤º¸");
+	CString strRQName = _T("í˜„ì¬ê°€/ì¢…ëª©ì •ë³´");
 	CString strTRCode = TR_OPT10001;
-	theApp.m_khOpenApi.SetInputValue("Á¾¸ñÄÚµå", m_strJongCode);
+	theApp.m_khOpenApi.SetInputValue("ì¢…ëª©ì½”ë“œ", m_strJongCode);
 	long lRet = theApp.m_khOpenApi.CommRqData(strRQName, strTRCode, 0, m_strScrNo);
 	CString		strErr;
 	if (!theApp.IsError(lRet))
 	{
-		strErr.Format(_T("ÁÖ½Ä±âº»Á¤º¸¿äÃ» ¿¡·¯ [%s][%d]"), strTRCode, lRet);
+		strErr.Format(_T("ì£¼ì‹ê¸°ë³¸ì •ë³´ìš”ì²­ ì—ëŸ¬ [%s][%d]"), strTRCode, lRet);
 		OutputDebugString(strErr);
 	}
 	
-	strRQName = _T("Ã¼°áÆ½");
+	strRQName = _T("ì²´ê²°í‹±");
 	strTRCode = TR_OPT10003;
-	theApp.m_khOpenApi.SetInputValue("Á¾¸ñÄÚµå", m_strJongCode);
+	theApp.m_khOpenApi.SetInputValue("ì¢…ëª©ì½”ë“œ", m_strJongCode);
 	lRet = theApp.m_khOpenApi.CommRqData(strRQName, strTRCode, 0, m_strScrNo);
 	if (!theApp.IsError(lRet))
 	{
-		strErr.Format(_T("Ã¼°áÁ¤º¸¿äÃ» ¿¡·¯ [%s][%d]"), strTRCode, lRet);
+		strErr.Format(_T("ì²´ê²°ì •ë³´ìš”ì²­ ì—ëŸ¬ [%s][%d]"), strTRCode, lRet);
 		OutputDebugString(strErr);
 	}
 
-	strRQName = _T("È£°¡");
+	strRQName = _T("í˜¸ê°€");
 	strTRCode = TR_OPT10004;
-	theApp.m_khOpenApi.SetInputValue("Á¾¸ñÄÚµå", m_strJongCode);
+	theApp.m_khOpenApi.SetInputValue("ì¢…ëª©ì½”ë“œ", m_strJongCode);
 	lRet = theApp.m_khOpenApi.CommRqData(strRQName, strTRCode, 0, m_strScrNo);
 	if (!theApp.IsError(lRet))
 	{
-		strErr.Format(_T("ÁÖ½ÄÈ£°¡¿äÃ» ¿¡·¯ [%s][%d]"), strTRCode, lRet);
+		strErr.Format(_T("ì£¼ì‹í˜¸ê°€ìš”ì²­ ì—ëŸ¬ [%s][%d]"), strTRCode, lRet);
 		OutputDebugString(strErr);
 	}
 }
 
 //*******************************************************************/
 //! Function Name : OnReceiveTrDataKhopenapictrl
-//! Function      : Á¶È¸ ÀÀ´ä Ã³¸®
+//! Function      : ì¡°íšŒ ì‘ë‹µ ì²˜ë¦¬
 //! Param         : LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrcode, LPCTSTR sRecordName, LPCTSTR sPrevNext, long nDataLength, LPCTSTR sErrorCode, LPCTSTR sMessage, LPCTSTR sSplmMsg
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -665,13 +665,13 @@ void CCurrentPriceDlg::SendSearch()
 void CCurrentPriceDlg::OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrcode, LPCTSTR sRecordName, LPCTSTR sPrevNext, long nDataLength, LPCTSTR sErrorCode, LPCTSTR sMessage, LPCTSTR sSplmMsg)
 {
 	CString strRQName = sRQName;
-	if (strRQName == _T("ÇöÀç°¡/Á¾¸ñÁ¤º¸"))		// ÁÖ½Ä±âº»Á¤º¸ ¼³Á¤
+	if (strRQName == _T("í˜„ì¬ê°€/ì¢…ëª©ì •ë³´"))		// ì£¼ì‹ê¸°ë³¸ì •ë³´ ì„¤ì •
 	{
 		CString strData;
 		CStringArray arrData;
-		int nFieldCnt = sizeof(lstOPT10001) / sizeof(*lstOPT10001);		// ÀüÃ¼Å©±â / ¿ø¼ÒÅ©±â = ¿ø¼Ò°³¼ö
+		int nFieldCnt = sizeof(lstOPT10001) / sizeof(*lstOPT10001);		// ì „ì²´í¬ê¸° / ì›ì†Œí¬ê¸° = ì›ì†Œê°œìˆ˜
 
-		strRQName = _T("ÁÖ½Ä±âº»Á¤º¸");
+		strRQName = _T("ì£¼ì‹ê¸°ë³¸ì •ë³´");
 		int i, j, nCnt = theApp.m_khOpenApi.GetRepeatCnt(sTrcode, strRQName);
 		for (i = 0; i < nCnt; i++)
 		{
@@ -684,14 +684,14 @@ void CCurrentPriceDlg::OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQN
 			SetDataJongInfoGrid(arrData);
 		}
 	}
-	else if (strRQName == _T("Ã¼°áÆ½"))			// Ã¼°áÁ¤º¸ ¼³Á¤
+	else if (strRQName == _T("ì²´ê²°í‹±"))			// ì²´ê²°ì •ë³´ ì„¤ì •
 	{
 		CString strData;
 		CStringArray arrData;
-		int nFieldCnt = sizeof(lstOPT10003) / sizeof(*lstOPT10003);		// ÀüÃ¼Å©±â / ¿ø¼ÒÅ©±â = ¿ø¼Ò°³¼ö
+		int nFieldCnt = sizeof(lstOPT10003) / sizeof(*lstOPT10003);		// ì „ì²´í¬ê¸° / ì›ì†Œí¬ê¸° = ì›ì†Œê°œìˆ˜
 
 		m_grdTick.SetRowCount(1);
-		strRQName = _T("Ã¼°áÁ¤º¸");
+		strRQName = _T("ì²´ê²°ì •ë³´");
 		int i, j, nCnt = theApp.m_khOpenApi.GetRepeatCnt(sTrcode, strRQName);
 		for (i = 0; i < nCnt; i++)
 		{
@@ -700,7 +700,7 @@ void CCurrentPriceDlg::OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQN
 			{
 				strData = theApp.m_khOpenApi.GetCommData(sTrcode, strRQName, i, lstOPT10003[j].strKey);	strData.Trim();
 				if (j == nFieldCnt - 1)
-				{	// ¹é¸¸´ÜÀ§
+				{	// ë°±ë§Œë‹¨ìœ„
 					strData.Format("%ld", long(atof(strData) / 1000000));
 				}
 				arrData.Add(strData);
@@ -708,13 +708,13 @@ void CCurrentPriceDlg::OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQN
 			SetDataTickGrid(-1, i + 1, arrData);
 		}
 	}
-	else if (strRQName == _T("È£°¡"))			// ÁÖ½ÄÈ£°¡ ¼³Á¤
+	else if (strRQName == _T("í˜¸ê°€"))			// ì£¼ì‹í˜¸ê°€ ì„¤ì •
 	{
 		CString strData;
 		CStringArray arrData;
-		int nFieldCnt = sizeof(lstOPT10004) / sizeof(*lstOPT10004);		// ÀüÃ¼Å©±â / ¿ø¼ÒÅ©±â = ¿ø¼Ò°³¼ö
+		int nFieldCnt = sizeof(lstOPT10004) / sizeof(*lstOPT10004);		// ì „ì²´í¬ê¸° / ì›ì†Œí¬ê¸° = ì›ì†Œê°œìˆ˜
 
-		strRQName = _T("ÁÖ½ÄÈ£°¡");
+		strRQName = _T("ì£¼ì‹í˜¸ê°€");
 		int i, j, nCnt = theApp.m_khOpenApi.GetRepeatCnt(sTrcode, strRQName);
 		for (i = 0; i < nCnt; i++)
 		{
@@ -727,13 +727,13 @@ void CCurrentPriceDlg::OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQN
 			SetDataHogaGrid(arrData);
 		}
 	}
-	else if (strRQName == _T("ÁÖ½ÄºĞºÀÂ÷Æ®"))		// ÁÖ½Ä±âº»Á¤º¸ ¼³Á¤
+	else if (strRQName == _T("ì£¼ì‹ë¶„ë´‰ì°¨íŠ¸"))		// ì£¼ì‹ê¸°ë³¸ì •ë³´ ì„¤ì •
 	{
 		CString strData;
 		CStringArray arrData;
-		int nFieldCnt = sizeof(lstOPT10080) / sizeof(*lstOPT10080);		// ÀüÃ¼Å©±â / ¿ø¼ÒÅ©±â = ¿ø¼Ò°³¼ö
+		int nFieldCnt = sizeof(lstOPT10080) / sizeof(*lstOPT10080);		// ì „ì²´í¬ê¸° / ì›ì†Œí¬ê¸° = ì›ì†Œê°œìˆ˜
 
-		strRQName = _T("ÁÖ½Ä±âº»Á¤º¸");
+		strRQName = _T("ì£¼ì‹ê¸°ë³¸ì •ë³´");
 		int i, j, nCnt = theApp.m_khOpenApi.GetRepeatCnt(sTrcode, strRQName);
 		for (i = 0; i < nCnt; i++)
 		{
@@ -743,13 +743,13 @@ void CCurrentPriceDlg::OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQN
 			}
 		}
 	}
-	else if (strRQName == _T("ÁÖ½ÄÀÏºÀÂ÷Æ®"))		// ÁÖ½Ä±âº»Á¤º¸ ¼³Á¤
+	else if (strRQName == _T("ì£¼ì‹ì¼ë´‰ì°¨íŠ¸"))		// ì£¼ì‹ê¸°ë³¸ì •ë³´ ì„¤ì •
 	{
 		CString strData;
 		CStringArray arrData;
-		int nFieldCnt = sizeof(lstOPT10081) / sizeof(*lstOPT10081);		// ÀüÃ¼Å©±â / ¿ø¼ÒÅ©±â = ¿ø¼Ò°³¼ö
+		int nFieldCnt = sizeof(lstOPT10081) / sizeof(*lstOPT10081);		// ì „ì²´í¬ê¸° / ì›ì†Œí¬ê¸° = ì›ì†Œê°œìˆ˜
 
-		strRQName = _T("ÁÖ½Ä±âº»Á¤º¸");
+		strRQName = _T("ì£¼ì‹ê¸°ë³¸ì •ë³´");
 		int i, j, nCnt = theApp.m_khOpenApi.GetRepeatCnt(sTrcode, strRQName);
 		for (i = 0; i < nCnt; i++)
 		{
@@ -764,7 +764,7 @@ void CCurrentPriceDlg::OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQN
 
 //*******************************************************************/
 //! Function Name : OnReceiveMsgKhopenapictrl
-//! Function      : Á¶È¸ ¿¡·¯ Ã³¸®
+//! Function      : ì¡°íšŒ ì—ëŸ¬ ì²˜ë¦¬
 //! Param         : LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrCode, LPCTSTR sMsg
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -776,7 +776,7 @@ void CCurrentPriceDlg::OnReceiveMsgKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName
 
 //*******************************************************************/
 //! Function Name : OnReceiveRealDataKhopenapictrl
-//! Function      : ½Ç½Ã°£ Ã³¸®
+//! Function      : ì‹¤ì‹œê°„ ì²˜ë¦¬
 //! Param         : LPCTSTR sJongmokCode, LPCTSTR sRealType, LPCTSTR sRealData
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -791,9 +791,9 @@ void CCurrentPriceDlg::OnReceiveRealDataKhopenapictrl(LPCTSTR sJongmokCode, LPCT
 
 	CString strData;
 	CStringArray arrData;
-	if (!strcmp(sRealType, "ÁÖ½Ä½Ã¼¼"))		// ÁÖ½Ä½Ã¼¼
+	if (!strcmp(sRealType, "ì£¼ì‹ì‹œì„¸"))		// ì£¼ì‹ì‹œì„¸
 	{
-		int i, nFieldCnt = sizeof(lstOPT10001) / sizeof(*lstOPT10001);		// ÀüÃ¼Å©±â / ¿ø¼ÒÅ©±â = ¿ø¼Ò°³¼ö
+		int i, nFieldCnt = sizeof(lstOPT10001) / sizeof(*lstOPT10001);		// ì „ì²´í¬ê¸° / ì›ì†Œí¬ê¸° = ì›ì†Œê°œìˆ˜
 		for (i = 0; i < nFieldCnt; i++)
 		{
 			if (atoi(lstOPT10001[i].strRealKey) < 0)
@@ -806,10 +806,10 @@ void CCurrentPriceDlg::OnReceiveRealDataKhopenapictrl(LPCTSTR sJongmokCode, LPCT
 		}
 		SetDataJongInfoGrid(arrData, sRealType);
 	}
-	else if (!strcmp(sRealType, "ÁÖ½ÄÃ¼°á"))	// ÁÖ½ÄÃ¼°á
+	else if (!strcmp(sRealType, "ì£¼ì‹ì²´ê²°"))	// ì£¼ì‹ì²´ê²°
 	{
 		CStringArray arrData;
-		int i, nFieldCnt = sizeof(lstOPT10003) / sizeof(*lstOPT10003);		// ÀüÃ¼Å©±â / ¿ø¼ÒÅ©±â = ¿ø¼Ò°³¼ö
+		int i, nFieldCnt = sizeof(lstOPT10003) / sizeof(*lstOPT10003);		// ì „ì²´í¬ê¸° / ì›ì†Œí¬ê¸° = ì›ì†Œê°œìˆ˜
 		for (i = 0; i < nFieldCnt; i++)
 		{
 			if (atoi(lstOPT10003[i].strRealKey) < 0)
@@ -825,7 +825,7 @@ void CCurrentPriceDlg::OnReceiveRealDataKhopenapictrl(LPCTSTR sJongmokCode, LPCT
 		m_grdTick.SetSelectedRange(1, 0, 1, 5);
 
 		arrData.RemoveAll();
-		nFieldCnt = sizeof(lstOPT10001_B) / sizeof(*lstOPT10001_B);		// ÀüÃ¼Å©±â / ¿ø¼ÒÅ©±â = ¿ø¼Ò°³¼ö
+		nFieldCnt = sizeof(lstOPT10001_B) / sizeof(*lstOPT10001_B);		// ì „ì²´í¬ê¸° / ì›ì†Œí¬ê¸° = ì›ì†Œê°œìˆ˜
 		for (i = 0; i < nFieldCnt; i++)
 		{
 			if (atoi(lstOPT10001_B[i].strRealKey) < 0)
@@ -838,11 +838,11 @@ void CCurrentPriceDlg::OnReceiveRealDataKhopenapictrl(LPCTSTR sJongmokCode, LPCT
 		}
 		SetDataJongInfoGrid(arrData, sRealType);
 	}
-	else if(!strcmp(sRealType, "ÁÖ½ÄÈ£°¡ÀÜ·®") ||	// ÁÖ½ÄÈ£°¡ÀÜ·®
-			!strcmp(sRealType, "ÁÖ½Ä½Ã°£¿ÜÈ£°¡"))	// ÁÖ½Ä½Ã°£¿ÜÈ£°¡
+	else if(!strcmp(sRealType, "ì£¼ì‹í˜¸ê°€ì”ëŸ‰") ||	// ì£¼ì‹í˜¸ê°€ì”ëŸ‰
+			!strcmp(sRealType, "ì£¼ì‹ì‹œê°„ì™¸í˜¸ê°€"))	// ì£¼ì‹ì‹œê°„ì™¸í˜¸ê°€
 	{
 		CStringArray arrData;
-		int i, nFieldCnt = sizeof(lstOPT10004) / sizeof(*lstOPT10004);		// ÀüÃ¼Å©±â / ¿ø¼ÒÅ©±â = ¿ø¼Ò°³¼ö
+		int i, nFieldCnt = sizeof(lstOPT10004) / sizeof(*lstOPT10004);		// ì „ì²´í¬ê¸° / ì›ì†Œí¬ê¸° = ì›ì†Œê°œìˆ˜
 		for (i = 0; i < nFieldCnt; i++)
 		{
 			if (atoi(lstOPT10004[i].strRealKey) < 0)
@@ -860,7 +860,7 @@ void CCurrentPriceDlg::OnReceiveRealDataKhopenapictrl(LPCTSTR sJongmokCode, LPCT
 
 //*******************************************************************/
 //! Function Name : OnReceiveChejanData
-//! Function      : Ã¼°áÀÜ°í ½Ç½Ã°£ Ã³¸®
+//! Function      : ì²´ê²°ì”ê³  ì‹¤ì‹œê°„ ì²˜ë¦¬
 //! Param         : LPCTSTR sGubun, LONG nItemCnt, LPCTSTR sFidList
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -873,7 +873,7 @@ void CCurrentPriceDlg::OnReceiveChejanData(LPCTSTR sGubun, LONG nItemCnt, LPCTST
 
 //*******************************************************************/
 //! Function Name : SetDataJongInfoGrid
-//! Function      : ÇöÀç°¡, Á¾¸ñÁ¤º¸ ±×¸®µå µ¥ÀÌÅ¸ ¼³Á¤(ÁÖ½Ä±âº»Á¤º¸ ¼³Á¤)
+//! Function      : í˜„ì¬ê°€, ì¢…ëª©ì •ë³´ ê·¸ë¦¬ë“œ ë°ì´íƒ€ ì„¤ì •(ì£¼ì‹ê¸°ë³¸ì •ë³´ ì„¤ì •)
 //! Param         : CStringArray &arrData, CString strRealType/* = ""*/
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -886,14 +886,14 @@ void CCurrentPriceDlg::SetDataJongInfoGrid(CStringArray &arrData, CString strRea
 	for (i = 0; i < nCnt; i++)
 	{
 		strData = arrData.GetAt(i);
-		if (i == 0 && strRealType == "")			// Á¾¸ñ¸í
+		if (i == 0 && strRealType == "")			// ì¢…ëª©ëª…
 		{
 			((CStatic*)GetDlgItem(IDC_STC_JONGNAME))->SetWindowText(strData);
 		}
-		else if (i < 7)		// ÇöÀç°¡ ±×¸®µå
+		else if (i < 7)		// í˜„ì¬ê°€ ê·¸ë¦¬ë“œ
 		{
 			/////////////////////////////////////////////
-			// º¯°æ µÈ µ¥ÀÌÅÍ ¼±ÅÃ Ã³¸®¡é¡é¡é¡é¡é¡é¡é¡é¡é
+			// ë³€ê²½ ëœ ë°ì´í„° ì„ íƒ ì²˜ë¦¬â†“â†“â†“â†“â†“â†“â†“â†“â†“
 			if (strRealType != "" && (i == 1 || i == 3 || i == 4))
 			{
 				strTempData = strData;
@@ -909,16 +909,16 @@ void CCurrentPriceDlg::SetDataJongInfoGrid(CStringArray &arrData, CString strRea
 					m_grdCurPrc.Invalidate();
 				}
 			}
-			// º¯°æ µÈ µ¥ÀÌÅÍ ¼±ÅÃ Ã³¸®¡è¡è¡è¡è¡è¡è¡è¡è¡è
+			// ë³€ê²½ ëœ ë°ì´í„° ì„ íƒ ì²˜ë¦¬â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘
 			/////////////////////////////////////////////
 			if (lstOPT10001[i].bTextColor)
 			{
 				strTemp = arrData.GetAt(2);
-				if (strTemp == "1" || strTemp == "2")	// ºÎÈ£¿¡ µû¶ó »ö»óº¯°æ
+				if (strTemp == "1" || strTemp == "2")	// ë¶€í˜¸ì— ë”°ë¼ ìƒ‰ìƒë³€ê²½
 				{
 					strTemp = "1";
 				}
-				else if (strTemp == "4" || strTemp == "5")	// ºÎÈ£¿¡ µû¶ó »ö»óº¯°æ
+				else if (strTemp == "4" || strTemp == "5")	// ë¶€í˜¸ì— ë”°ë¼ ìƒ‰ìƒë³€ê²½
 				{
 					strTemp = "-1";
 				}
@@ -941,7 +941,7 @@ void CCurrentPriceDlg::SetDataJongInfoGrid(CStringArray &arrData, CString strRea
 				m_grdCurPrc.SetItemText(lstOPT10001[i].nRow, lstOPT10001[i].nCol, theApp.ConvDataFormat(lstOPT10001[i].nDataType, strData, lstOPT10001[i].strBeforeData, lstOPT10001[i].strAfterData));
 			}
 		}
-		else				// ÁÖ½Ä±âº»Á¤º¸ ±×¸®µå 1Çà
+		else				// ì£¼ì‹ê¸°ë³¸ì •ë³´ ê·¸ë¦¬ë“œ 1í–‰
 		{
 			if (strRealType != "")
 			{
@@ -967,7 +967,7 @@ void CCurrentPriceDlg::SetDataJongInfoGrid(CStringArray &arrData, CString strRea
 
 //*******************************************************************/
 //! Function Name : SetDataTickGrid
-//! Function      : Æ½ ±×¸®µå µ¥ÀÌÅ¸ ¼³Á¤(Ã¼°áÁ¤º¸ ¼³Á¤)
+//! Function      : í‹± ê·¸ë¦¬ë“œ ë°ì´íƒ€ ì„¤ì •(ì²´ê²°ì •ë³´ ì„¤ì •)
 //! Param         : int nInsertRow, int nRow, CStringArray &arrData
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -979,9 +979,9 @@ void CCurrentPriceDlg::SetDataTickGrid(int nInsertRow, int nRow, CStringArray &a
 	{
 		nInsertRow = -1;
 	}
-	// Çà Ãß°¡
+	// í–‰ ì¶”ê°€
 	m_grdTick.InsertRow("", nInsertRow);
-	m_grdTick.SetRowHeight(1, 20);		// ÇàÀÇ ³ôÀÌ ¼³Á¤
+	m_grdTick.SetRowHeight(1, 20);		// í–‰ì˜ ë†’ì´ ì„¤ì •
 
 	CString strData, strTemp;
 	int i, nCnt = arrData.GetSize();
@@ -992,11 +992,11 @@ void CCurrentPriceDlg::SetDataTickGrid(int nInsertRow, int nRow, CStringArray &a
 		if (lstOPT10003[i].bTextColor)
 		{
 			strTemp = arrData.GetAt(2);
-			if (strTemp == "1" || strTemp == "2")	// ºÎÈ£¿¡ µû¶ó »ö»óº¯°æ
+			if (strTemp == "1" || strTemp == "2")	// ë¶€í˜¸ì— ë”°ë¼ ìƒ‰ìƒë³€ê²½
 			{
 				strTemp = "1";
 			}
-			else if (strTemp == "4" || strTemp == "5")	// ºÎÈ£¿¡ µû¶ó »ö»óº¯°æ
+			else if (strTemp == "4" || strTemp == "5")	// ë¶€í˜¸ì— ë”°ë¼ ìƒ‰ìƒë³€ê²½
 			{
 				strTemp = "-1";
 			}
@@ -1020,7 +1020,7 @@ void CCurrentPriceDlg::SetDataTickGrid(int nInsertRow, int nRow, CStringArray &a
 
 //*******************************************************************/
 //! Function Name : SetDataHogaGrid
-//! Function      : È£°¡ ±×¸®µå µ¥ÀÌÅ¸ ¼³Á¤(ÁÖ½ÄÈ£°¡ ¼³Á¤)
+//! Function      : í˜¸ê°€ ê·¸ë¦¬ë“œ ë°ì´íƒ€ ì„¤ì •(ì£¼ì‹í˜¸ê°€ ì„¤ì •)
 //! Param         : CStringArray &arrData, CString strRealType/* = ""*/
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -1032,11 +1032,11 @@ void CCurrentPriceDlg::SetDataHogaGrid(CStringArray &arrData, CString strRealTyp
 	int i, nCnt = arrData.GetSize();
 
 	int nStart = 0, nEnd = nCnt;
-	if (strRealType == "D")			// ÁÖ½ÄÈ£°¡ÀÜ·®
+	if (strRealType == "D")			// ì£¼ì‹í˜¸ê°€ì”ëŸ‰
 	{
 		nEnd = nCnt - 2;
 	}
-	else if (strRealType == "E")	// ÁÖ½Ä½Ã°£¿ÜÈ£°¡
+	else if (strRealType == "E")	// ì£¼ì‹ì‹œê°„ì™¸í˜¸ê°€
 	{
 		nStart = nCnt - 3;
 	}

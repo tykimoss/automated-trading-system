@@ -1,33 +1,33 @@
+ï»¿//******************************************************************/
 //******************************************************************/
-//******************************************************************/
-//! All Rights Reserved. Copyright(c)   2014 (ÁÖ)ÇÑ±¹¼Ò¸®¸¶Ä¡        /
+//! All Rights Reserved. Copyright(c)   2014 (ì£¼)í•œêµ­ì†Œë¦¬ë§ˆì¹˜        /
 //******************************************************************/
 //! File Name     : CurrentPriceDlg.h
-//! Function      : ÇöÀç°¡ ´ÙÀÌ¾ó·Î±×
-//! System Name   : Å°¿ò ¿ÀÇÂAPI Å×½ºÆ®
+//! Function      : í˜„ì¬ê°€ ë‹¤ì´ì–¼ë¡œê·¸
+//! System Name   : í‚¤ì›€ ì˜¤í”ˆAPI í…ŒìŠ¤íŠ¸
 //! Create        : , 2014/06/02
 //! Update        : 
 //! Comment       : 
 //******************************************************************/
-// CurrentPriceDlg.h : Çì´õ ÆÄÀÏ
+// CurrentPriceDlg.h : í—¤ë” íŒŒì¼
 //
 
 #pragma once
 
 #include "KhOpenApiTestDlg.h"
 
-// CCurrentPriceDlg ´ëÈ­ »óÀÚ
+// CCurrentPriceDlg ëŒ€í™” ìƒì
 class CCurrentPriceDlg : public CDialogEx
 {
-// »ı¼ºÀÔ´Ï´Ù.
+// ìƒì„±ì…ë‹ˆë‹¤.
 public:
-	CCurrentPriceDlg(CWnd* pParent = NULL);	// Ç¥ÁØ »ı¼ºÀÚÀÔ´Ï´Ù.
+	CCurrentPriceDlg(CWnd* pParent = NULL);	// í‘œì¤€ ìƒì„±ìì…ë‹ˆë‹¤.
 
-// ´ëÈ­ »óÀÚ µ¥ÀÌÅÍÀÔ´Ï´Ù.
+// ëŒ€í™” ìƒì ë°ì´í„°ì…ë‹ˆë‹¤.
 	enum { IDD = IDD_CURRENTPRICE_DLG };
 
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV Áö¿øÀÔ´Ï´Ù.
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ì§€ì›ì…ë‹ˆë‹¤.
 
 public:
 	CWnd*		m_pParent;
@@ -36,34 +36,34 @@ public:
 	CString		m_strScrNo3;
 	CString		m_strJongCode;
 
-	CGridCtrl	m_grdCurPrc;		// ÇöÀç°¡ ±×¸®µå
-	CGridCtrl	m_grdJongInfo;		// Á¾¸ñÁ¤º¸ ±×¸®µå
-	CGridCtrl	m_grdHoga;			// È£°¡ ±×¸®µå
-	CGridCtrl	m_grdTick;			// Æ½ ±×¸®µå
-	void InitCurPrcGrid();			// ÇöÀç°¡ ±×¸®µå ÃÊ±â Ã³¸®
-	void InitJongInfoGrid();		// Á¾¸ñÁ¤º¸ ±×¸®µå ÃÊ±â Ã³¸®
-	void InitHogaGrid();			// È£°¡ ±×¸®µå ÃÊ±â Ã³¸®
-	void InitTickGrid();			// Æ½ ±×¸®µå ÃÊ±â Ã³¸®
+	CGridCtrl	m_grdCurPrc;		// í˜„ì¬ê°€ ê·¸ë¦¬ë“œ
+	CGridCtrl	m_grdJongInfo;		// ì¢…ëª©ì •ë³´ ê·¸ë¦¬ë“œ
+	CGridCtrl	m_grdHoga;			// í˜¸ê°€ ê·¸ë¦¬ë“œ
+	CGridCtrl	m_grdTick;			// í‹± ê·¸ë¦¬ë“œ
+	void InitCurPrcGrid();			// í˜„ì¬ê°€ ê·¸ë¦¬ë“œ ì´ˆê¸° ì²˜ë¦¬
+	void InitJongInfoGrid();		// ì¢…ëª©ì •ë³´ ê·¸ë¦¬ë“œ ì´ˆê¸° ì²˜ë¦¬
+	void InitHogaGrid();			// í˜¸ê°€ ê·¸ë¦¬ë“œ ì´ˆê¸° ì²˜ë¦¬
+	void InitTickGrid();			// í‹± ê·¸ë¦¬ë“œ ì´ˆê¸° ì²˜ë¦¬
 
-	void SendSearch();				// Á¶È¸ Ã³¸®
+	void SendSearch();				// ì¡°íšŒ ì²˜ë¦¬
 
 	void OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrcode, LPCTSTR sRecordName, LPCTSTR sPrevNext, long nDataLength, LPCTSTR sErrorCode, LPCTSTR sMessage, LPCTSTR sSplmMsg);
 	void OnReceiveRealDataKhopenapictrl(LPCTSTR sJongmokCode, LPCTSTR sRealType, LPCTSTR sRealData);
 	void OnReceiveMsgKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrCode, LPCTSTR sMsg);
 	void OnReceiveChejanData(LPCTSTR sGubun, LONG nItemCnt, LPCTSTR sFidList);
 
-	// ÇöÀç°¡, Á¾¸ñÁ¤º¸ ±×¸®µå µ¥ÀÌÅ¸ ¼³Á¤(ÁÖ½Ä±âº»Á¤º¸ ¼³Á¤)
+	// í˜„ì¬ê°€, ì¢…ëª©ì •ë³´ ê·¸ë¦¬ë“œ ë°ì´íƒ€ ì„¤ì •(ì£¼ì‹ê¸°ë³¸ì •ë³´ ì„¤ì •)
 	void SetDataJongInfoGrid(CStringArray &arrData, CString strRealType = "");
-	// Æ½ ±×¸®µå µ¥ÀÌÅ¸ ¼³Á¤(Ã¼°áÁ¤º¸ ¼³Á¤)
+	// í‹± ê·¸ë¦¬ë“œ ë°ì´íƒ€ ì„¤ì •(ì²´ê²°ì •ë³´ ì„¤ì •)
 	void SetDataTickGrid(int nInsertRow, int nRow, CStringArray &arrData);
-	// È£°¡ ±×¸®µå µ¥ÀÌÅ¸ ¼³Á¤(ÁÖ½ÄÈ£°¡ ¼³Á¤)
+	// í˜¸ê°€ ê·¸ë¦¬ë“œ ë°ì´íƒ€ ì„¤ì •(ì£¼ì‹í˜¸ê°€ ì„¤ì •)
 	void SetDataHogaGrid(CStringArray &arrData, CString strRealType = "");
 
-// ±¸ÇöÀÔ´Ï´Ù.
+// êµ¬í˜„ì…ë‹ˆë‹¤.
 protected:
 	HICON m_hIcon;
 
-	// »ı¼ºµÈ ¸Ş½ÃÁö ¸Ê ÇÔ¼ö
+	// ìƒì„±ëœ ë©”ì‹œì§€ ë§µ í•¨ìˆ˜
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
 	afx_msg void OnClose();

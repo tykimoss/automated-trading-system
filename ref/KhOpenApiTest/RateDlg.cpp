@@ -1,15 +1,15 @@
+ï»¿//******************************************************************/
 //******************************************************************/
-//******************************************************************/
-//! All Rights Reserved. Copyright(c)   2015 (ÁÖ)ÇÑ±¹¼Ò¸®¸¶Ä¡                /
+//! All Rights Reserved. Copyright(c)   2015 (ì£¼)í•œêµ­ì†Œë¦¬ë§ˆì¹˜                /
 //******************************************************************/
 //! File Name			: RateDlg.cpp
-//! Function			: ¼öÀÍ·ü°è»ê
-//! System Name	: Å°¿ò ¿ÀÇÂAPI Å×½ºÆ®
+//! Function			: ìˆ˜ìµë¥ ê³„ì‚°
+//! System Name	: í‚¤ì›€ ì˜¤í”ˆAPI í…ŒìŠ¤íŠ¸
 //! Create				: , 2015/05/07
 //! Update				: 
 //! Comment			: 
 //******************************************************************/
-// RateDlg.cpp : ±¸Çö ÆÄÀÏ
+// RateDlg.cpp : êµ¬í˜„ íŒŒì¼
 
 #include "stdafx.h"
 #include "KhOpenApiTest.h"
@@ -25,28 +25,28 @@
 #define  COMMISSION1	0.0015
 #define  COMMISSION2	0.003
 
-// {Á¶È¸ Å°,		¸®¾ó Å°,	Çà, ¿­, Å¸ÀÔ,			»ö º¯°æ, Á¤·Ä, ¾Õ ¹®ÀÚ, µÞ ¹®ÀÚ}
+// {ì¡°íšŒ í‚¤,		ë¦¬ì–¼ í‚¤,	í–‰, ì—´, íƒ€ìž…,			ìƒ‰ ë³€ê²½, ì •ë ¬, ì•ž ë¬¸ìž, ë’· ë¬¸ìž}
 const stGRID lstFID[] = 
 {
-	{"½Å¿ë±¸ºÐ",	"917",		-1,	0,		DT_NONE,					FALSE,	DT_CENTER,	"",	""},
-	{"Á¾¸ñÄÚµå",	"9001",	-1,	1,		DT_NONE,					FALSE,	DT_CENTER,	"",	""},
-	{"Á¾¸ñ¸í",		"302",		-1,	2,		DT_NONE,					FALSE,	DT_CENTER,	"",	""},
-	{"ÇöÀç°¡",		"10",		-1,	3,		DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,		"",	""},
-	{"º¸À¯¼ö·®",	"930",		-1,	4,		DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,		"",	""},
-	{"Æò°¡±Ý¾×",	"-1",		-1,	5,		DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,		"",	""},
-	{"Æò°¡¼ÕÀÍ",	"-1",		-1,	6,		DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,		"",	""},
-	{"¼öÀÍ·ü",		"-1",		-1,	7,		DT_NONE,					FALSE,	DT_RIGHT,		"",	"%"},
-	{"¸ÅÀÔ±Ý¾×",	"932",		-1,	8,		DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,		"",	""},
-	{"ÇöÀç°¡",		"10",		-1,	9,		DT_NONE,					FALSE,	DT_RIGHT,		"",	""},	//(°è»ê¿ëÀ¸·Î ¼û±è)
-	{"º¸À¯¼ö·®",	"930",		-1,	10,	DT_NONE,					FALSE,	DT_RIGHT,		"",	""},	//(°è»ê¿ëÀ¸·Î ¼û±è)
-	{"¸ÅÀÔ±Ý¾×",	"932",		-1,	11,	DT_NONE,					FALSE,	DT_RIGHT,		"",	""},	//(°è»ê¿ëÀ¸·Î ¼û±è)
-	{"Æò°¡±Ý¾×",	"-1",		-1,	12,	DT_NONE,					FALSE,	DT_RIGHT,		"",	""},	//(°è»ê¿ëÀ¸·Î ¼û±è)
+	{"ì‹ ìš©êµ¬ë¶„",	"917",		-1,	0,		DT_NONE,					FALSE,	DT_CENTER,	"",	""},
+	{"ì¢…ëª©ì½”ë“œ",	"9001",	-1,	1,		DT_NONE,					FALSE,	DT_CENTER,	"",	""},
+	{"ì¢…ëª©ëª…",		"302",		-1,	2,		DT_NONE,					FALSE,	DT_CENTER,	"",	""},
+	{"í˜„ìž¬ê°€",		"10",		-1,	3,		DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,		"",	""},
+	{"ë³´ìœ ìˆ˜ëŸ‰",	"930",		-1,	4,		DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,		"",	""},
+	{"í‰ê°€ê¸ˆì•¡",	"-1",		-1,	5,		DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,		"",	""},
+	{"í‰ê°€ì†ìµ",	"-1",		-1,	6,		DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,		"",	""},
+	{"ìˆ˜ìµë¥ ",		"-1",		-1,	7,		DT_NONE,					FALSE,	DT_RIGHT,		"",	"%"},
+	{"ë§¤ìž…ê¸ˆì•¡",	"932",		-1,	8,		DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,		"",	""},
+	{"í˜„ìž¬ê°€",		"10",		-1,	9,		DT_NONE,					FALSE,	DT_RIGHT,		"",	""},	//(ê³„ì‚°ìš©ìœ¼ë¡œ ìˆ¨ê¹€)
+	{"ë³´ìœ ìˆ˜ëŸ‰",	"930",		-1,	10,	DT_NONE,					FALSE,	DT_RIGHT,		"",	""},	//(ê³„ì‚°ìš©ìœ¼ë¡œ ìˆ¨ê¹€)
+	{"ë§¤ìž…ê¸ˆì•¡",	"932",		-1,	11,	DT_NONE,					FALSE,	DT_RIGHT,		"",	""},	//(ê³„ì‚°ìš©ìœ¼ë¡œ ìˆ¨ê¹€)
+	{"í‰ê°€ê¸ˆì•¡",	"-1",		-1,	12,	DT_NONE,					FALSE,	DT_RIGHT,		"",	""},	//(ê³„ì‚°ìš©ìœ¼ë¡œ ìˆ¨ê¹€)
 };
 
-// CRateDlg ´ëÈ­ »óÀÚ
+// CRateDlg ëŒ€í™” ìƒìž
 //*******************************************************************************************************/
 //! Function Name	: CRateDlg::CRateDlg(CWnd* pParent /*=NULL*/) : CDialogEx(CRateDlg::IDD, pParent)
-//! Function			: »ý¼º ÃÊ±â Ã³¸®
+//! Function			: ìƒì„± ì´ˆê¸° ì²˜ë¦¬
 //! Param				: HANDLE hBitmap, int bits
 //! Return				: void
 //! Create				: , 2015/05/07
@@ -82,13 +82,13 @@ CRateDlg::CRateDlg(CWnd* pParent /*=NULL*/)
 
 //*******************************************************************/
 // Function Name	: DoDataExchange
-// Function			: DDX/DDV¿¡ °ü·Ã µÈ ÇÔ¼ö È£Ãâ
+// Function			: DDX/DDVì— ê´€ë ¨ ëœ í•¨ìˆ˜ í˜¸ì¶œ
 // Param				: CDataExchange*	pDX
 // Return				: void
 // Create				: , 2015/05/07
-// Comment			: DDX - ÄÁÆ®·Ñ°ú ¸â¹öº¯¼ö»çÀÌ¿¡ Á¤º¸¸¦ ±³È¯ÇÏ´Â ¿ªÇÒ
-//							: DDV - ¸â¹öº¯¼ö¿¡ ÀúÀå µÉ °ªÀÇ À¯È¿¼º Ã¼Å©
-//							: UapdateData()ÇÔ¼ö·Î °£Á¢ È£Ãâ ÇÒ ¼ö ÀÖÀ½
+// Comment			: DDX - ì»¨íŠ¸ë¡¤ê³¼ ë©¤ë²„ë³€ìˆ˜ì‚¬ì´ì— ì •ë³´ë¥¼ êµí™˜í•˜ëŠ” ì—­í• 
+//							: DDV - ë©¤ë²„ë³€ìˆ˜ì— ì €ìž¥ ë  ê°’ì˜ ìœ íš¨ì„± ì²´í¬
+//							: UapdateData()í•¨ìˆ˜ë¡œ ê°„ì ‘ í˜¸ì¶œ í•  ìˆ˜ ìžˆìŒ
 //*******************************************************************/
 void CRateDlg::DoDataExchange(CDataExchange* pDX)
 {
@@ -116,45 +116,45 @@ END_MESSAGE_MAP()
 
 //*******************************************************************/
 //! Function Name	: OnInitDialog
-//! Function			: »ý¼º ÃÊ±â Ã³¸®
+//! Function			: ìƒì„± ì´ˆê¸° ì²˜ë¦¬
 //! Param				: void
 //! Return				: BOOL
 //! Create				: , 2015/05/07
-//! Comment			: CRateDlg ¸Þ½ÃÁö Ã³¸®±â
+//! Comment			: CRateDlg ë©”ì‹œì§€ ì²˜ë¦¬ê¸°
 //******************************************************************/
 BOOL CRateDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	// ÀÌ ´ëÈ­ »óÀÚÀÇ ¾ÆÀÌÄÜÀ» ¼³Á¤ÇÕ´Ï´Ù. ÀÀ¿ë ÇÁ·Î±×·¥ÀÇ ÁÖ Ã¢ÀÌ ´ëÈ­ »óÀÚ°¡ ¾Æ´Ò °æ¿ì¿¡´Â
-	//  ÇÁ·¹ÀÓ¿öÅ©°¡ ÀÌ ÀÛ¾÷À» ÀÚµ¿À¸·Î ¼öÇàÇÕ´Ï´Ù.
-	SetIcon(m_hIcon, TRUE);			// Å« ¾ÆÀÌÄÜÀ» ¼³Á¤ÇÕ´Ï´Ù.
-	SetIcon(m_hIcon, FALSE);		// ÀÛÀº ¾ÆÀÌÄÜÀ» ¼³Á¤ÇÕ´Ï´Ù.
+	// ì´ ëŒ€í™” ìƒìžì˜ ì•„ì´ì½˜ì„ ì„¤ì •í•©ë‹ˆë‹¤. ì‘ìš© í”„ë¡œê·¸ëž¨ì˜ ì£¼ ì°½ì´ ëŒ€í™” ìƒìžê°€ ì•„ë‹ ê²½ìš°ì—ëŠ”
+	//  í”„ë ˆìž„ì›Œí¬ê°€ ì´ ìž‘ì—…ì„ ìžë™ìœ¼ë¡œ ìˆ˜í–‰í•©ë‹ˆë‹¤.
+	SetIcon(m_hIcon, TRUE);			// í° ì•„ì´ì½˜ì„ ì„¤ì •í•©ë‹ˆë‹¤.
+	SetIcon(m_hIcon, FALSE);		// ìž‘ì€ ì•„ì´ì½˜ì„ ì„¤ì •í•©ë‹ˆë‹¤.
 
-	InitRealAddGrid();					// ±×¸®µå ÃÊ±â Ã³¸®
+	InitRealAddGrid();					// ê·¸ë¦¬ë“œ ì´ˆê¸° ì²˜ë¦¬
 
-	return TRUE;  // Æ÷Ä¿½º¸¦ ÄÁÆ®·Ñ¿¡ ¼³Á¤ÇÏÁö ¾ÊÀ¸¸é TRUE¸¦ ¹ÝÈ¯ÇÕ´Ï´Ù.
+	return TRUE;  // í¬ì»¤ìŠ¤ë¥¼ ì»¨íŠ¸ë¡¤ì— ì„¤ì •í•˜ì§€ ì•Šìœ¼ë©´ TRUEë¥¼ ë°˜í™˜í•©ë‹ˆë‹¤.
 }
 
 //************************************************************************************************/
 //! Function Name	: OnPaint
-//! Function			: ±×¸®±â Ã³¸®
+//! Function			: ê·¸ë¦¬ê¸° ì²˜ë¦¬
 //! Param				: void
 //! Return				: void
 //! Create				: , 2015/05/07
-//! Comment			: ´ëÈ­ »óÀÚ¿¡ ÃÖ¼ÒÈ­ ´ÜÃß¸¦ Ãß°¡ÇÒ °æ¿ì ¾ÆÀÌÄÜÀ» ±×¸®·Á¸é
-//!						: ¾Æ·¡ ÄÚµå°¡ ÇÊ¿äÇÕ´Ï´Ù. ¹®¼­/ºä ¸ðµ¨À» »ç¿ëÇÏ´Â MFC ÀÀ¿ë ÇÁ·Î±×·¥ÀÇ °æ¿ì¿¡´Â
-//!						: ÇÁ·¹ÀÓ¿öÅ©¿¡¼­ ÀÌ ÀÛ¾÷À» ÀÚµ¿À¸·Î ¼öÇàÇÕ´Ï´Ù.
+//! Comment			: ëŒ€í™” ìƒìžì— ìµœì†Œí™” ë‹¨ì¶”ë¥¼ ì¶”ê°€í•  ê²½ìš° ì•„ì´ì½˜ì„ ê·¸ë¦¬ë ¤ë©´
+//!						: ì•„ëž˜ ì½”ë“œê°€ í•„ìš”í•©ë‹ˆë‹¤. ë¬¸ì„œ/ë·° ëª¨ë¸ì„ ì‚¬ìš©í•˜ëŠ” MFC ì‘ìš© í”„ë¡œê·¸ëž¨ì˜ ê²½ìš°ì—ëŠ”
+//!						: í”„ë ˆìž„ì›Œí¬ì—ì„œ ì´ ìž‘ì—…ì„ ìžë™ìœ¼ë¡œ ìˆ˜í–‰í•©ë‹ˆë‹¤.
 //***********************************************************************************************/
 void CRateDlg::OnPaint()
 {
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // ±×¸®±â¸¦ À§ÇÑ µð¹ÙÀÌ½º ÄÁÅØ½ºÆ®ÀÔ´Ï´Ù.
+		CPaintDC dc(this); // ê·¸ë¦¬ê¸°ë¥¼ ìœ„í•œ ë””ë°”ì´ìŠ¤ ì»¨í…ìŠ¤íŠ¸ìž…ë‹ˆë‹¤.
 
 		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
-		// Å¬¶óÀÌ¾ðÆ® »ç°¢Çü¿¡¼­ ¾ÆÀÌÄÜÀ» °¡¿îµ¥¿¡ ¸ÂÃä´Ï´Ù.
+		// í´ë¼ì´ì–¸íŠ¸ ì‚¬ê°í˜•ì—ì„œ ì•„ì´ì½˜ì„ ê°€ìš´ë°ì— ë§žì¶¥ë‹ˆë‹¤.
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
@@ -162,7 +162,7 @@ void CRateDlg::OnPaint()
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
 
-		// ¾ÆÀÌÄÜÀ» ±×¸³´Ï´Ù.
+		// ì•„ì´ì½˜ì„ ê·¸ë¦½ë‹ˆë‹¤.
 		dc.DrawIcon(x, y, m_hIcon);
 	}
 	else
@@ -173,7 +173,7 @@ void CRateDlg::OnPaint()
 
 //*******************************************************************/
 //! Function Name	: OnClose
-//! Function			: ÆÄ±«ÀÚ
+//! Function			: íŒŒê´´ìž
 //! Param				: void
 //! Return				: void
 //! Create				: , 2015/05/07
@@ -181,7 +181,7 @@ void CRateDlg::OnPaint()
 //******************************************************************/
 void CRateDlg::OnClose()
 {
-	// È­¸é ´ÝÀ» ¶§ ºÎ¸ðÀ©µµ¿ì¿¡°Ô Åëº¸(È­¸é °ü¸® À§ÇØ)
+	// í™”ë©´ ë‹«ì„ ë•Œ ë¶€ëª¨ìœˆë„ìš°ì—ê²Œ í†µë³´(í™”ë©´ ê´€ë¦¬ ìœ„í•´)
 	if (m_pParent)
 	{
 		int nLen = m_strScrNo.GetLength();
@@ -196,12 +196,12 @@ void CRateDlg::OnClose()
 
 //*******************************************************************************/
 //! Function Name	: OnQueryDragIcon
-//! Function			: µå·¡±× ¾ÆÀÌÄÜ Ã³¸®
+//! Function			: ë“œëž˜ê·¸ ì•„ì´ì½˜ ì²˜ë¦¬
 //! Param				: void
 //! Return				: HCURSOR
 //! Create				: , 2015/05/07
-//! Comment			: »ç¿ëÀÚ°¡ ÃÖ¼ÒÈ­µÈ Ã¢À» ²ô´Â µ¿¾È¿¡ Ä¿¼­°¡ Ç¥½ÃµÇµµ·Ï ½Ã½ºÅÛ¿¡¼­ 
-//!						: ÀÌ ÇÔ¼ö¸¦ È£ÃâÇÕ´Ï´Ù.
+//! Comment			: ì‚¬ìš©ìžê°€ ìµœì†Œí™”ëœ ì°½ì„ ë„ëŠ” ë™ì•ˆì— ì»¤ì„œê°€ í‘œì‹œë˜ë„ë¡ ì‹œìŠ¤í…œì—ì„œ 
+//!						: ì´ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•©ë‹ˆë‹¤.
 //*******************************************************************************/
 HCURSOR CRateDlg::OnQueryDragIcon()
 {
@@ -210,7 +210,7 @@ HCURSOR CRateDlg::OnQueryDragIcon()
 
 //*******************************************************************/
 //! Function Name	: InitRealAddGrid
-//! Function			: È£°¡ ±×¸®µå ÃÊ±â Ã³¸®
+//! Function			: í˜¸ê°€ ê·¸ë¦¬ë“œ ì´ˆê¸° ì²˜ë¦¬
 //! Param				: void
 //! Return				: void
 //! Create				: , 2015/05/07
@@ -218,33 +218,33 @@ HCURSOR CRateDlg::OnQueryDragIcon()
 //******************************************************************/
 void CRateDlg::InitRealAddGrid()
 {
-	m_grdRate.SetEditable(false);				//cellÀ» ¿¡µðÆ® ¸øÇÏ°Ô ÇÔ.
+	m_grdRate.SetEditable(false);				//cellì„ ì—ë””íŠ¸ ëª»í•˜ê²Œ í•¨.
 	m_grdRate.EnableScrollBars(SB_BOTH, FALSE);
 
 	COLORREF clr = RGB(215, 227, 241);
 
-	// °íÁ¤ Çà/¿­ ¼³Á¤
+	// ê³ ì • í–‰/ì—´ ì„¤ì •
 	m_grdRate.SetFixedRowCount(1);
 
-	// Çà/¿­ °¹¼ö ¼³Á¤
+	// í–‰/ì—´ ê°¯ìˆ˜ ì„¤ì •
 	m_grdRate.SetRowCount(1);
-	int nCount = sizeof(lstFID) / sizeof(*lstFID);		// ÀüÃ¼Å©±â / ¿ø¼ÒÅ©±â = ¿ø¼Ò°³¼ö
+	int nCount = sizeof(lstFID) / sizeof(*lstFID);		// ì „ì²´í¬ê¸° / ì›ì†Œí¬ê¸° = ì›ì†Œê°œìˆ˜
 	m_grdRate.SetColumnCount(nCount);
 
-	// ¿­ÀÇ ³ÐÀÌ ¼³Á¤
+	// ì—´ì˜ ë„“ì´ ì„¤ì •
 	int i, nWidth[] = {70, 79, 80, 80, 80, 80, 80, 60, 90, 0, 0, 0, 0};
-	CString strHeader[] = {"½Å¿ë±¸ºÐ", "ÄÚµå", "Á¾¸ñ¸í", "ÇöÀç°¡", "º¸À¯¼ö·®", "Æò°¡±Ý¾×", "Æò°¡¼ÕÀÍ", "¼öÀÍ·ü", "¸ÅÀÔ±Ý¾×", "ÇöÀç°¡(°è»ê¿ë)", "º¸À¯¼ö·®(°è»ê¿ë)", "¸ÅÀÔ±Ý¾×(°è»ê¿ë)", "Æò°¡±Ý¾×(°è»ê¿ë)"};
+	CString strHeader[] = {"ì‹ ìš©êµ¬ë¶„", "ì½”ë“œ", "ì¢…ëª©ëª…", "í˜„ìž¬ê°€", "ë³´ìœ ìˆ˜ëŸ‰", "í‰ê°€ê¸ˆì•¡", "í‰ê°€ì†ìµ", "ìˆ˜ìµë¥ ", "ë§¤ìž…ê¸ˆì•¡", "í˜„ìž¬ê°€(ê³„ì‚°ìš©)", "ë³´ìœ ìˆ˜ëŸ‰(ê³„ì‚°ìš©)", "ë§¤ìž…ê¸ˆì•¡(ê³„ì‚°ìš©)", "í‰ê°€ê¸ˆì•¡(ê³„ì‚°ìš©)"};
 
-	int nCnt = sizeof(nWidth) / sizeof(*nWidth);		// ÀüÃ¼Å©±â / ¿ø¼ÒÅ©±â = ¿ø¼Ò°³¼ö
+	int nCnt = sizeof(nWidth) / sizeof(*nWidth);		// ì „ì²´í¬ê¸° / ì›ì†Œí¬ê¸° = ì›ì†Œê°œìˆ˜
 	for (i = 0; i < nCnt; i++)
 	{
 		m_grdRate.SetColumnWidth(i, nWidth[i]);
 		m_grdRate.SetItemFormat(0, i, DT_CENTER);
 		m_grdRate.SetItemText(0, i, strHeader[i]);
-		m_grdRate.SetItemBkColour(0, i, clr);	// ÁöÁ¤µÈ ¼¿ÀÇ ¹è°æ»ö ¼³Á¤
+		m_grdRate.SetItemBkColour(0, i, clr);	// ì§€ì •ëœ ì…€ì˜ ë°°ê²½ìƒ‰ ì„¤ì •
 	}
 
-	// ÇàÀÇ ³ôÀÌ ¼³Á¤
+	// í–‰ì˜ ë†’ì´ ì„¤ì •
 	m_grdRate.SetRowHeight(0, 24);
 
 	m_grdRate.Invalidate();
@@ -252,7 +252,7 @@ void CRateDlg::InitRealAddGrid()
 
 //*******************************************************************/
 //! Function Name	: OnReceiveTrDataKhopenapictrl
-//! Function			: Á¶È¸ ÀÀ´ä Ã³¸®
+//! Function			: ì¡°íšŒ ì‘ë‹µ ì²˜ë¦¬
 //! Param				: LPCTSTR sScrNo
 //!						: LPCTSTR sRQName
 //!						: LPCTSTR sTrcode
@@ -270,15 +270,15 @@ void CRateDlg::OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LPC
 {
 	CString strPrevNext(sPrevNext);
 	CString strRQName(sRQName);
-	if (strRQName == _T("°èÁÂ¼öÀÍ·ü"))			// °èÁÂ¼öÀÍ·ü
+	if (strRQName == _T("ê³„ì¢Œìˆ˜ìµë¥ "))			// ê³„ì¢Œìˆ˜ìµë¥ 
 	{
 		m_bNextFlag = FALSE;
 		CString strData;
-		int nFieldCnt = sizeof(lstFID) / sizeof(*lstFID);		// ÀüÃ¼Å©±â / ¿ø¼ÒÅ©±â = ¿ø¼Ò°³¼ö
+		int nFieldCnt = sizeof(lstFID) / sizeof(*lstFID);		// ì „ì²´í¬ê¸° / ì›ì†Œí¬ê¸° = ì›ì†Œê°œìˆ˜
 
-		strRQName = _T("°èÁÂ¼öÀÍ·ü");
-		int i, j, nCnt = theApp.m_khOpenApi.GetRepeatCnt(sTrcode, strRQName);	//µ¥ÀÌÅÍ °Ç¼ö
-		m_nCount += (nCnt+1);	//µ¥ÀÌÅÍ °Ç¼ö¿¡ ±×¸®µå Çì´õ Ãß°¡
+		strRQName = _T("ê³„ì¢Œìˆ˜ìµë¥ ");
+		int i, j, nCnt = theApp.m_khOpenApi.GetRepeatCnt(sTrcode, strRQName);	//ë°ì´í„° ê±´ìˆ˜
+		m_nCount += (nCnt+1);	//ë°ì´í„° ê±´ìˆ˜ì— ê·¸ë¦¬ë“œ í—¤ë” ì¶”ê°€
 		m_grdRate.SetRowCount(m_nCount);
 
 		for (i = 0; i < nCnt; i++)
@@ -290,22 +290,22 @@ void CRateDlg::OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LPC
 				strData = theApp.m_khOpenApi.GetCommData(sTrcode, strRQName, i, lstFID[j].strKey);
 				strData.Trim();
 
-				if (j == 0) //½Å¿ë±¸ºÐ
+				if (j == 0) //ì‹ ìš©êµ¬ë¶„
 				{
 					if (strData == _T("00"))
 					{
-						strData = _T("Çö±Ý");
+						strData = _T("í˜„ê¸ˆ");
 					} 
 					else if (strData == _T("03"))
 					{
-						strData = _T("À¶ÀÚ");
+						strData = _T("ìœµìž");
 					}
 					else if (strData == _T("99"))
 					{
-						strData = _T("À¶ÀÚÇÕ");
+						strData = _T("ìœµìží•©");
 					}
 				}
-				else if (j == 1)	//Á¾¸ñ¸í
+				else if (j == 1)	//ì¢…ëª©ëª…
 				{
 					strCode = strData;
 				}
@@ -320,37 +320,37 @@ void CRateDlg::OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LPC
 			int nRow(0);
 			nRow = i + 1 + m_nNextRow;
 
-			//Á¾¸ñº° ¼öÀÍ·ü °è»ê
+			//ì¢…ëª©ë³„ ìˆ˜ìµë¥  ê³„ì‚°
 			SetRate(nRow, strCode);
 
 			CString strIndex;
 			strIndex.Format(_T("%d"), nRow);
 
-			//Á¾¸ñÀ» Å°°ªÀ¸·Î ÇØ¼­ ·Î¿ì°ªÀ» °ü¸®ÇÑ´Ù.
+			//ì¢…ëª©ì„ í‚¤ê°’ìœ¼ë¡œ í•´ì„œ ë¡œìš°ê°’ì„ ê´€ë¦¬í•œë‹¤.
 			m_mapJongCode.SetAt(strCode, strIndex);
 		}
 
-		//ÃÑ ¼öÀÍ·ü °è»ê
+		//ì´ ìˆ˜ìµë¥  ê³„ì‚°
 		SetTotalRate();
 
-		if (strPrevNext == "2")	//¿¬¼ÓÁ¶È¸
+		if (strPrevNext == "2")	//ì—°ì†ì¡°íšŒ
 		{
-			m_bNextFlag = TRUE;	//¿¬¼ÓÁ¶È¸¿©ºÎ
-			m_nCount = m_nCount - 1;	//±×¸®µå Çì´õRow¼ö/¸¦ »«´Ù.
-			m_nNextRow = m_nCount;	//¿¬¼ÓÁ¶È¸·Î ¸¶Áö¸· Row°ªÀ» ÀúÀå.
+			m_bNextFlag = TRUE;	//ì—°ì†ì¡°íšŒì—¬ë¶€
+			m_nCount = m_nCount - 1;	//ê·¸ë¦¬ë“œ í—¤ë”Rowìˆ˜/ë¥¼ ëº€ë‹¤.
+			m_nNextRow = m_nCount;	//ì—°ì†ì¡°íšŒë¡œ ë§ˆì§€ë§‰ Rowê°’ì„ ì €ìž¥.
 			
 			CString strAccNo;
-			m_EdtAcc.GetWindowText(strAccNo);	//ÀÔ·ÂÇÑ °èÁÂ¹øÈ£.
+			m_EdtAcc.GetWindowText(strAccNo);	//ìž…ë ¥í•œ ê³„ì¢Œë²ˆí˜¸.
 
-			//¿¬¼ÓÁ¶È¸¸¦ ÇÑ´Ù.
-			theApp.m_khOpenApi.SetInputValue("°èÁÂ¹øÈ£", strAccNo);
-			theApp.m_khOpenApi.CommRqData("°èÁÂ¼öÀÍ·ü", "OPT10085", 2, m_strScrNo);
+			//ì—°ì†ì¡°íšŒë¥¼ í•œë‹¤.
+			theApp.m_khOpenApi.SetInputValue("ê³„ì¢Œë²ˆí˜¸", strAccNo);
+			theApp.m_khOpenApi.CommRqData("ê³„ì¢Œìˆ˜ìµë¥ ", "OPT10085", 2, m_strScrNo);
 		}
 
-		//¿¬¼ÓÁ¶È¸°¡ ¾Æ´Ò¶§¸¸ ½Ç½Ã°£ µî·ÏÀ» ÇÑ´Ù.
+		//ì—°ì†ì¡°íšŒê°€ ì•„ë‹ë•Œë§Œ ì‹¤ì‹œê°„ ë“±ë¡ì„ í•œë‹¤.
 		if (!m_bNextFlag)
 		{
-			CString strRQName = _T("°ü½ÉÁ¾¸ñ"), strCodeList, strCode;
+			CString strRQName = _T("ê´€ì‹¬ì¢…ëª©"), strCodeList, strCode;
 			long  nCodeCount(0);
 
 			for (int nRow = 1; nRow < m_nCount; nRow++)
@@ -372,7 +372,7 @@ void CRateDlg::OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LPC
 
 //*******************************************************************/
 //! Function Name	: OnReceiveMsgKhopenapictrl
-//! Function			: Á¶È¸ ¿¡·¯ Ã³¸®
+//! Function			: ì¡°íšŒ ì—ëŸ¬ ì²˜ë¦¬
 //! Param				: LPCTSTR sScrNo
 //!						: LPCTSTR sRQName
 //!						: LPCTSTR sTrCode
@@ -387,7 +387,7 @@ void CRateDlg::OnReceiveMsgKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LPCTST
 
 //*******************************************************************/
 //! Function Name	: OnReceiveRealDataKhopenapictrl
-//! Function			: ½Ç½Ã°£ Ã³¸®
+//! Function			: ì‹¤ì‹œê°„ ì²˜ë¦¬
 //! Param				: LPCTSTR sJongmokCode, LPCTSTR sRealType, LPCTSTR sRealData
 //! Return				: void
 //! Create				: , 2015/05/07
@@ -403,7 +403,7 @@ void CRateDlg::OnReceiveRealDataKhopenapictrl(LPCTSTR sJongmokCode, LPCTSTR sRea
 
 	CString strCode;
 
-	int i, nFieldCnt = sizeof(lstFID) / sizeof(*lstFID);		// ÀüÃ¼Å©±â / ¿ø¼ÒÅ©±â = ¿ø¼Ò°³¼ö
+	int i, nFieldCnt = sizeof(lstFID) / sizeof(*lstFID);		// ì „ì²´í¬ê¸° / ì›ì†Œí¬ê¸° = ì›ì†Œê°œìˆ˜
 	for (i = 0; i < nFieldCnt; i++)
 	{
 		if (atoi(lstFID[i].strRealKey) < 0)
@@ -411,21 +411,21 @@ void CRateDlg::OnReceiveRealDataKhopenapictrl(LPCTSTR sJongmokCode, LPCTSTR sRea
 			continue;
 		}
 
-		//½Ç½Ã°£ µ¥ÀÌÅÍ¸¦ Ç×¸ñ¿¡ ¸Â°Ô °¡Á®¿Â´Ù.
+		//ì‹¤ì‹œê°„ ë°ì´í„°ë¥¼ í•­ëª©ì— ë§žê²Œ ê°€ì ¸ì˜¨ë‹¤.
 		strData = theApp.m_khOpenApi.GetCommRealData(sJongmokCode, atoi(lstFID[i].strRealKey));	strData.Trim();
 
-		//Ç×¸ñ¿¡ ¸Â´Â µ¥ÀÌÅÍ°¡ ÀÖÀ»¶§¸¸ ±×¸®µå¿¡ Ç¥½ÃÇÑ´Ù.
+		//í•­ëª©ì— ë§žëŠ” ë°ì´í„°ê°€ ìžˆì„ë•Œë§Œ ê·¸ë¦¬ë“œì— í‘œì‹œí•œë‹¤.
 		if (strData != "")
 		{
 			m_grdRate.SetItemText(_ttoi(strIndex), i, theApp.ConvDataFormat(lstFID[i].nDataType, strData, lstFID[i].strBeforeData, lstFID[i].strAfterData));
 		}
 	}
 
-	//Á¾¸ñº° ¼öÀÍ·ü °è»ê
+	//ì¢…ëª©ë³„ ìˆ˜ìµë¥  ê³„ì‚°
 	strCode = sJongmokCode;
 	SetRate(_ttoi(strIndex), strCode);
 
-	//ÃÑ ¼öÀÍ·ü °è»ê
+	//ì´ ìˆ˜ìµë¥  ê³„ì‚°
 	SetTotalRate();
 
 	m_grdRate.Invalidate();
@@ -433,7 +433,7 @@ void CRateDlg::OnReceiveRealDataKhopenapictrl(LPCTSTR sJongmokCode, LPCTSTR sRea
 
 //*******************************************************************/
 //! Function Name	: OnReceiveChejanData
-//! Function			: Ã¼°áÀÜ°í ½Ç½Ã°£ Ã³¸®
+//! Function			: ì²´ê²°ìž”ê³  ì‹¤ì‹œê°„ ì²˜ë¦¬
 //! Param				: LPCTSTR sGubun
 //!						: LONG nItemCnt
 //!						: LPCTSTR sFidList
@@ -445,22 +445,22 @@ void CRateDlg::OnReceiveChejanData(LPCTSTR sGubun, LONG nItemCnt, LPCTSTR sFidLi
 {
 	CString strGuBun(sGubun), strAccNo, strAcc;
 
-	strAccNo	= theApp.m_khOpenApi.GetChejanData(9201);	// Ã¼°áµÈ Á¾¸ñÀÇ °èÁÂ¹øÈ£
-	m_EdtAcc.GetWindowText(strAcc);									// ÇöÀç °èÁÂ¹øÈ£
+	strAccNo	= theApp.m_khOpenApi.GetChejanData(9201);	// ì²´ê²°ëœ ì¢…ëª©ì˜ ê³„ì¢Œë²ˆí˜¸
+	m_EdtAcc.GetWindowText(strAcc);									// í˜„ìž¬ ê³„ì¢Œë²ˆí˜¸
 
-	//ÇöÀç ¼öÀÍ·ü Á¶È¸ÇÑ °èÁÂ¹øÈ£¿¡ ÀÖ´Â Ã¼°áµÈ Á¾¸ñ¸¸ ¹ÞÀ» ¼ö ÀÖ°Ô Ã³¸®.
+	//í˜„ìž¬ ìˆ˜ìµë¥  ì¡°íšŒí•œ ê³„ì¢Œë²ˆí˜¸ì— ìžˆëŠ” ì²´ê²°ëœ ì¢…ëª©ë§Œ ë°›ì„ ìˆ˜ ìžˆê²Œ ì²˜ë¦¬.
 	if (strAccNo == strAcc)
 	{
 		if (strGuBun == "4")
 		{
-			OnBtnSearch(); //º¸À¯Á¾¸ñÀ» ÀçÁ¶È¸ÇÑ´Ù.
+			OnBtnSearch(); //ë³´ìœ ì¢…ëª©ì„ ìž¬ì¡°íšŒí•œë‹¤.
 		}
 	}
 }
 
 //*******************************************************************/
 //! Function Name	: OnBtnSearch
-//! Function			: Á¶È¸¹öÆ°
+//! Function			: ì¡°íšŒë²„íŠ¼
 //! Param				: 
 //! Return				: void
 //! Create				: , 2015/05/07
@@ -468,16 +468,16 @@ void CRateDlg::OnReceiveChejanData(LPCTSTR sGubun, LONG nItemCnt, LPCTSTR sFidLi
 //******************************************************************/
 void CRateDlg::OnBtnSearch()
 {
-	m_grdRate.SetRowCount(1);		// Çà/¿­ °¹¼ö ¼³Á¤
+	m_grdRate.SetRowCount(1);		// í–‰/ì—´ ê°¯ìˆ˜ ì„¤ì •
 	m_nCount = 0;
 	m_nNextRow = 0;
 
 	CString strAccNo;
-	m_EdtAcc.GetWindowText(strAccNo);	//ÀÔ·ÂÇÑ °èÁÂ¹øÈ£.
+	m_EdtAcc.GetWindowText(strAccNo);	//ìž…ë ¥í•œ ê³„ì¢Œë²ˆí˜¸.
 
-	//¼öÀÍ·ü°è»ê Á¶È¸
-	theApp.m_khOpenApi.SetInputValue("°èÁÂ¹øÈ£", strAccNo);
-	long lRet = theApp.m_khOpenApi.CommRqData("°èÁÂ¼öÀÍ·ü", "OPT10085", 0, m_strScrNo);
+	//ìˆ˜ìµë¥ ê³„ì‚° ì¡°íšŒ
+	theApp.m_khOpenApi.SetInputValue("ê³„ì¢Œë²ˆí˜¸", strAccNo);
+	long lRet = theApp.m_khOpenApi.CommRqData("ê³„ì¢Œìˆ˜ìµë¥ ", "OPT10085", 0, m_strScrNo);
 
 	if (!theApp.IsError(lRet))
 	{
@@ -486,7 +486,7 @@ void CRateDlg::OnBtnSearch()
 
 //*******************************************************************/
 //! Function Name	: SetRate
-//! Function			: Á¾¸ñº° ¼öÀÍ·ü °è»ê
+//! Function			: ì¢…ëª©ë³„ ìˆ˜ìµë¥  ê³„ì‚°
 //! Param				: 
 //! Return				: void
 //! Create				: , 2015/05/12
@@ -494,9 +494,9 @@ void CRateDlg::OnBtnSearch()
 //******************************************************************/
 void CRateDlg::SetRate(int nRow, CString strCode)
 {
-	//ÁÖ½Ä Á¾¸ñ¿¡ ´ëÇÑ ¼öÀÍ·ü °è»êÀÌ¶ó ÁÖ½Ä¿Ü Á¾¸ñÀÇ ¼öÀÍ·üÀº ´Ù¸¦¼ö ÀÖÀ½À» ¾Ë·Áµå¸³´Ï´Ù.
+	//ì£¼ì‹ ì¢…ëª©ì— ëŒ€í•œ ìˆ˜ìµë¥  ê³„ì‚°ì´ë¼ ì£¼ì‹ì™¸ ì¢…ëª©ì˜ ìˆ˜ìµë¥ ì€ ë‹¤ë¥¼ìˆ˜ ìžˆìŒì„ ì•Œë ¤ë“œë¦½ë‹ˆë‹¤.
 
-	//ÇöÀç°¡
+	//í˜„ìž¬ê°€
 	CString strData, strTmp;
 	strData = m_grdRate.GetItemText(nRow, 9);
 	strTmp = strData.Left(1);
@@ -506,51 +506,51 @@ void CRateDlg::SetRate(int nRow, CString strCode)
 	}
 	double nPrice = _ttof(strData);
 
-	//¼ö·®
+	//ìˆ˜ëŸ‰
 	double nQty = _ttof(m_grdRate.GetItemText(nRow, 10));
 
-	//¸ÅÀÔ±Ý¾×
+	//ë§¤ìž…ê¸ˆì•¡
 	double nPurchase = _ttof(m_grdRate.GetItemText(nRow, 11));
 
 	int nCount(0);
 	nCount = m_grdRate.GetRowCount();
 
-	//¸Å¼ö°¡°è»ê ¼ö¼ö·á = ¸ÅÀÔ±Ý¾× * ¸ÅÃ¼¼ö¼ö·á(0.015%) (10¿ø¹Ì¸¸ Àý»ç)
+	//ë§¤ìˆ˜ê°€ê³„ì‚° ìˆ˜ìˆ˜ë£Œ = ë§¤ìž…ê¸ˆì•¡ * ë§¤ì²´ìˆ˜ìˆ˜ë£Œ(0.015%) (10ì›ë¯¸ë§Œ ì ˆì‚¬)
 	m_BuyComm = nPurchase * COMMISSION;
-	m_BuyComm = floor(m_BuyComm / 10) * 10;	//(10¿ø¹Ì¸¸ Àý»ç)
+	m_BuyComm = floor(m_BuyComm / 10) * 10;	//(10ì›ë¯¸ë§Œ ì ˆì‚¬)
 
-	//¸Åµµ°¡°è»ê ¼ö¼ö·á = ÇöÀç°¡ * ¼ö·® * ¸ÅÃ¼¼ö¼ö·á(0.015%) (10¿ø¹Ì¸¸ Àý»ç)
+	//ë§¤ë„ê°€ê³„ì‚° ìˆ˜ìˆ˜ë£Œ = í˜„ìž¬ê°€ * ìˆ˜ëŸ‰ * ë§¤ì²´ìˆ˜ìˆ˜ë£Œ(0.015%) (10ì›ë¯¸ë§Œ ì ˆì‚¬)
 	m_SellComm = nPrice * nQty * COMMISSION;
-	m_SellComm = floor(m_SellComm / 10) * 10;	//(10¿ø¹Ì¸¸ Àý»ç)
+	m_SellComm = floor(m_SellComm / 10) * 10;	//(10ì›ë¯¸ë§Œ ì ˆì‚¬)
 
-	//Á¦¼¼±Ý
+	//ì œì„¸ê¸ˆ
 	long lMarketType = theApp.m_khOpenApi.GetMarketType(strCode);
-	if (lMarketType == 0) //°Å·¡¼Ò
+	if (lMarketType == 0) //ê±°ëž˜ì†Œ
 	{
-		//Á¦¼¼±Ý(°Å·¡¼Ò) = ÇöÀç°¡ * ¼ö·® * 0.15%(¿ø¹Ì¸¸ Àý»ç) * 2
+		//ì œì„¸ê¸ˆ(ê±°ëž˜ì†Œ) = í˜„ìž¬ê°€ * ìˆ˜ëŸ‰ * 0.15%(ì›ë¯¸ë§Œ ì ˆì‚¬) * 2
 		m_Tax = nPrice * nQty * COMMISSION1;
 		m_Tax = floor(m_Tax) * 2;
 	} 
-	else if (lMarketType == 10)//ÄÚ½º´Ú
+	else if (lMarketType == 10)//ì½”ìŠ¤ë‹¥
 	{
-		//Á¦¼¼±Ý(ÄÚ½º´Ú) = ÇöÀç°¡ * ¼ö·® * 0.3%(¿ø¹Ì¸¸ Àý»ç)
+		//ì œì„¸ê¸ˆ(ì½”ìŠ¤ë‹¥) = í˜„ìž¬ê°€ * ìˆ˜ëŸ‰ * 0.3%(ì›ë¯¸ë§Œ ì ˆì‚¬)
 		m_Tax = floor(nPrice * nQty * COMMISSION2);
 	}
 
 	CString strTemp;
 
-	//Á¾¸ñº° Æò°¡±Ý¾× = (ÇöÀç°¡ * ¼ö·®) - ¸Å¼ö°¡°è»ê ¼ö¼ö·á - ¸Åµµ°¡°è»ê ¼ö¼ö·á - Á¦¼¼±Ý °¡°è»ê
+	//ì¢…ëª©ë³„ í‰ê°€ê¸ˆì•¡ = (í˜„ìž¬ê°€ * ìˆ˜ëŸ‰) - ë§¤ìˆ˜ê°€ê³„ì‚° ìˆ˜ìˆ˜ë£Œ - ë§¤ë„ê°€ê³„ì‚° ìˆ˜ìˆ˜ë£Œ - ì œì„¸ê¸ˆ ê°€ê³„ì‚°
 	m_Eval = (nPrice * nQty) - m_BuyComm - m_SellComm - m_Tax;
 	strTemp.Format(_T("%0.lf"), m_Eval);
 	m_grdRate.SetItemText(nRow, 5,  theApp.ConvDataFormat(lstFID[5].nDataType, strTemp, lstFID[5].strBeforeData, lstFID[5].strAfterData));
 	m_grdRate.SetItemText(nRow, 12,  theApp.ConvDataFormat(lstFID[12].nDataType, strTemp, lstFID[12].strBeforeData, lstFID[12].strAfterData));
 
-	//Á¾¸ñº° Æò°¡¼ÕÀÍ = Æò°¡±Ý¾× - ¸ÅÀÔ±Ý¾×
+	//ì¢…ëª©ë³„ í‰ê°€ì†ìµ = í‰ê°€ê¸ˆì•¡ - ë§¤ìž…ê¸ˆì•¡
 	m_Profit = m_Eval - nPurchase;
 	strTemp.Format(_T("%0.lf"), m_Profit);
 	m_grdRate.SetItemText(nRow, 6,  theApp.ConvDataFormat(lstFID[6].nDataType, strTemp, lstFID[6].strBeforeData, lstFID[6].strAfterData));
 
-	//Á¾¸ñº° ¼öÀÍ·ü = Æò°¡¼ÕÀÍ / ¸ÅÀÔ±Ý¾× * 100
+	//ì¢…ëª©ë³„ ìˆ˜ìµë¥  = í‰ê°€ì†ìµ / ë§¤ìž…ê¸ˆì•¡ * 100
 	if (nPurchase == 0)
 	{
 		m_Rate = 0;
@@ -565,7 +565,7 @@ void CRateDlg::SetRate(int nRow, CString strCode)
 
 //*******************************************************************/
 //! Function Name	: SetRate
-//! Function			: Á¾¸ñº° ¼öÀÍ·ü °è»ê
+//! Function			: ì¢…ëª©ë³„ ìˆ˜ìµë¥  ê³„ì‚°
 //! Param				: 
 //! Return				: void
 //! Create				: , 2015/05/12
@@ -573,14 +573,14 @@ void CRateDlg::SetRate(int nRow, CString strCode)
 //******************************************************************/
 void CRateDlg::SetTotalRate()
 {
-	int nCnt = m_grdRate.GetRowCount();	//±×¸®µå Row °¹¼ö ±¸ÇÏ±â
+	int nCnt = m_grdRate.GetRowCount();	//ê·¸ë¦¬ë“œ Row ê°¯ìˆ˜ êµ¬í•˜ê¸°
 	double dTotalEval(0), dTotalPurchase(0), dTotalProfit, dTotalRate(0);
 	CString strTotalEval, strTotalPurchase, strTotalProfit, strTotalRate;
 
 	for (int i = 1; i < nCnt; i++)
 	{
-		dTotalEval += _ttof(m_grdRate.GetItemText(i, 12));			// ÃÑ Æò°¡±Ý¾×
-		dTotalPurchase += _ttof(m_grdRate.GetItemText(i, 11));	// ÃÑ ¸ÅÀÔ±Ý¾×
+		dTotalEval += _ttof(m_grdRate.GetItemText(i, 12));			// ì´ í‰ê°€ê¸ˆì•¡
+		dTotalPurchase += _ttof(m_grdRate.GetItemText(i, 11));	// ì´ ë§¤ìž…ê¸ˆì•¡
 	}
 	
 	strTotalEval.Format(_T("%0.lf"), dTotalEval);
@@ -592,13 +592,13 @@ void CRateDlg::SetTotalRate()
 	m_EdtTotalPurchase.SetWindowText(strTotalPurchase);
 
 
-	// ÃÑ Æò°¡¼ÕÀÍ
+	// ì´ í‰ê°€ì†ìµ
 	dTotalProfit = dTotalEval - dTotalPurchase;
 	strTotalProfit.Format(_T("%0.lf"), dTotalProfit);
 	strTotalProfit = theApp.ConvDataFormat(DT_ZERO_NUMBER, strTotalProfit);
 	m_EdtTotalProfit.SetWindowText(strTotalProfit);
 
-	// ÃÑ ¼öÀÍ·ü
+	// ì´ ìˆ˜ìµë¥ 
 	dTotalRate = dTotalProfit / dTotalPurchase * 100;
 	strTotalRate.Format(_T("%0.2lf"), dTotalRate);
 	strTotalRate = theApp.ConvDataFormat(DT_NONE, strTotalRate, "", "%");

@@ -1,66 +1,66 @@
+ï»¿//******************************************************************/
 //******************************************************************/
-//******************************************************************/
-//! All Rights Reserved. Copyright(c)   2015 (ÁÖ)ÇÑ±¹¼Ò¸®¸¶Ä¡        /
+//! All Rights Reserved. Copyright(c)   2015 (ì£¼)í•œêµ­ì†Œë¦¬ë§ˆì¹˜        /
 //******************************************************************/
 //! File Name     : RateDlg.h
-//! Function      : ¼öÀÍ·ü°è»ê
-//! System Name   : Å°¿ò ¿ÀÇÂAPI Å×½ºÆ®
+//! Function      : ìˆ˜ìµë¥ ê³„ì‚°
+//! System Name   : í‚¤ì›€ ì˜¤í”ˆAPI í…ŒìŠ¤íŠ¸
 //! Create        : , 2015/05/07
 //! Update        : 
 //! Comment       : 
 //******************************************************************/
-// RateDlg.h : Çì´õ ÆÄÀÏ
+// RateDlg.h : í—¤ë” íŒŒì¼
 //
 
 #pragma once
 
-// CRateDlg ´ëÈ­ »óÀÚ
+// CRateDlg ëŒ€í™” ìƒì
 class CRateDlg : public CDialogEx
 {
-// »ı¼ºÀÔ´Ï´Ù.
+// ìƒì„±ì…ë‹ˆë‹¤.
 public:
-	CRateDlg(CWnd* pParent = NULL);	// Ç¥ÁØ »ı¼ºÀÚÀÔ´Ï´Ù.
+	CRateDlg(CWnd* pParent = NULL);	// í‘œì¤€ ìƒì„±ìì…ë‹ˆë‹¤.
 
-// ´ëÈ­ »óÀÚ µ¥ÀÌÅÍÀÔ´Ï´Ù.
+// ëŒ€í™” ìƒì ë°ì´í„°ì…ë‹ˆë‹¤.
 	enum { IDD = IDD_RATE };
 
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV Áö¿øÀÔ´Ï´Ù.
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ì§€ì›ì…ë‹ˆë‹¤.
 
 public:
 	CWnd*							m_pParent;
 	CString							m_strScrNo;
-	CMapStringToString		m_mapJongCode;		// ¸®¾óµî·Ï Á¾¸ñ
-	long								m_nCount;					// ±×¸®µå Row °¹¼ö.
-	long								m_nNextRow;				// ¿¬¼ÓÁ¶È¸½Ã ½ÃÀÛ row À§Ä¡
+	CMapStringToString		m_mapJongCode;		// ë¦¬ì–¼ë“±ë¡ ì¢…ëª©
+	long								m_nCount;					// ê·¸ë¦¬ë“œ Row ê°¯ìˆ˜.
+	long								m_nNextRow;				// ì—°ì†ì¡°íšŒì‹œ ì‹œì‘ row ìœ„ì¹˜
 
-	CGridCtrl						m_grdRate;				// Á¾¸ñ ¼öÀÍ·ü ±×¸®µå
-	CEdit								m_EdtAcc;					// °èÁÂ¹øÈ£
-	CEdit								m_EdtTotalEval;			// ÃÑ Æò°¡±İ¾×
-	CEdit								m_EdtTotalPurchase;	// ÃÑ ¸ÅÀÔ±İ¾×
-	CEdit								m_EdtTotalProfit;			// ÃÑ ¼ÕÀÍ
-	CEdit								m_EdtTotalRate;			// ÃÑ ¼öÀÍ·ü
+	CGridCtrl						m_grdRate;				// ì¢…ëª© ìˆ˜ìµë¥  ê·¸ë¦¬ë“œ
+	CEdit								m_EdtAcc;					// ê³„ì¢Œë²ˆí˜¸
+	CEdit								m_EdtTotalEval;			// ì´ í‰ê°€ê¸ˆì•¡
+	CEdit								m_EdtTotalPurchase;	// ì´ ë§¤ì…ê¸ˆì•¡
+	CEdit								m_EdtTotalProfit;			// ì´ ì†ìµ
+	CEdit								m_EdtTotalRate;			// ì´ ìˆ˜ìµë¥ 
 
-	double							m_TotalEval;				// ÃÑ Æò°¡±İ¾×
-	double							m_TotalPurchase;		// ÃÑ ¸ÅÀÔ±İ¾×
-	double							m_TotalProfit;				// ÃÑ ¼ÕÀÍ
-	double							m_TotalRate;				// ÃÑ ¼öÀÍ·ü
+	double							m_TotalEval;				// ì´ í‰ê°€ê¸ˆì•¡
+	double							m_TotalPurchase;		// ì´ ë§¤ì…ê¸ˆì•¡
+	double							m_TotalProfit;				// ì´ ì†ìµ
+	double							m_TotalRate;				// ì´ ìˆ˜ìµë¥ 
 
-	double							m_Eval;						// Æò°¡±İ¾×(Çö±İ, ½Å¿ë/´ëÃâ)
-	double							m_Profit;					// Æò°¡¼ÕÀÍ(Çö±İ, ½Å¿ë/´ëÃâ)
-	double							m_Rate;						// ¼öÀÍ·ü
+	double							m_Eval;						// í‰ê°€ê¸ˆì•¡(í˜„ê¸ˆ, ì‹ ìš©/ëŒ€ì¶œ)
+	double							m_Profit;					// í‰ê°€ì†ìµ(í˜„ê¸ˆ, ì‹ ìš©/ëŒ€ì¶œ)
+	double							m_Rate;						// ìˆ˜ìµë¥ 
 
-	double							m_Purchase;				// ¸ÅÀÔ±İ¾×
-	double							m_Comm;					// ¸ÅÃ¼¼ö¼ö·á
-	double							m_BuyComm;			// ¸Å¼ö°¡°è»ê ¼ö¼ö·á(°è»ê)
-	double							m_SellComm;			// ¸Åµµ°¡°è»ê ¼ö¼ö·á(°è»ê)
-	double							m_Tax;						// Á¦¼¼±İ(°è»ê)
-	double							m_Price;					// ÇöÀç°¡
-	double							m_Qty;						// ¼ö·®
+	double							m_Purchase;				// ë§¤ì…ê¸ˆì•¡
+	double							m_Comm;					// ë§¤ì²´ìˆ˜ìˆ˜ë£Œ
+	double							m_BuyComm;			// ë§¤ìˆ˜ê°€ê³„ì‚° ìˆ˜ìˆ˜ë£Œ(ê³„ì‚°)
+	double							m_SellComm;			// ë§¤ë„ê°€ê³„ì‚° ìˆ˜ìˆ˜ë£Œ(ê³„ì‚°)
+	double							m_Tax;						// ì œì„¸ê¸ˆ(ê³„ì‚°)
+	double							m_Price;					// í˜„ì¬ê°€
+	double							m_Qty;						// ìˆ˜ëŸ‰
 
-	BOOL							m_bNextFlag;				// ¿¬¼ÓÁ¶È¸ À¯¹« ÇÃ·¡±×.
+	BOOL							m_bNextFlag;				// ì—°ì†ì¡°íšŒ ìœ ë¬´ í”Œë˜ê·¸.
 
-	void InitRealAddGrid();						// Á¾¸ñ ±×¸®µå ÃÊ±â Ã³¸®
+	void InitRealAddGrid();						// ì¢…ëª© ê·¸ë¦¬ë“œ ì´ˆê¸° ì²˜ë¦¬
 	void OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrcode, LPCTSTR sRecordName, LPCTSTR sPrevNext, long nDataLength, LPCTSTR sErrorCode, LPCTSTR sMessage, LPCTSTR sSplmMsg);
 	void OnReceiveRealDataKhopenapictrl(LPCTSTR sJongmokCode, LPCTSTR sRealType, LPCTSTR sRealData);
 	void OnReceiveMsgKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrCode, LPCTSTR sMsg);
@@ -68,14 +68,14 @@ public:
 	void SetRate(int nRow, CString strCode);
 	void SetTotalRate();
 
-	// ±×¸®µå µ¥ÀÌÅ¸ ¼³Á¤(ÁÖ½Ä±âº»Á¤º¸ ¼³Á¤)
+	// ê·¸ë¦¬ë“œ ë°ì´íƒ€ ì„¤ì •(ì£¼ì‹ê¸°ë³¸ì •ë³´ ì„¤ì •)
 	void SetDataRealAddGrid(CStringArray &arrData, CString strRealType = "");
 
-// ±¸ÇöÀÔ´Ï´Ù.
+// êµ¬í˜„ì…ë‹ˆë‹¤.
 protected:
 	HICON m_hIcon;
 
-	// »ı¼ºµÈ ¸Ş½ÃÁö ¸Ê ÇÔ¼ö
+	// ìƒì„±ëœ ë©”ì‹œì§€ ë§µ í•¨ìˆ˜
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
 	afx_msg void OnClose();

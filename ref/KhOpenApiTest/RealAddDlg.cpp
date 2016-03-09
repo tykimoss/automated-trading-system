@@ -1,15 +1,15 @@
+ï»¿//******************************************************************/
 //******************************************************************/
-//******************************************************************/
-//! All Rights Reserved. Copyright(c)   2015 (ÁÖ)ÇÑ±¹¼Ò¸®¸¶Ä¡                /
+//! All Rights Reserved. Copyright(c)   2015 (ì£¼)í•œêµ­ì†Œë¦¬ë§ˆì¹˜                /
 //******************************************************************/
 //! File Name     : RealAddDlg.cpp
-//! Function      : ¸®¾óµî·Ï ´ÙÀÌ¾ó·Î±×
-//! System Name   : Å°¿ò ¿ÀÇÂAPI Å×½ºÆ®
+//! Function      : ë¦¬ì–¼ë“±ë¡ ë‹¤ì´ì–¼ë¡œê·¸
+//! System Name   : í‚¤ì›€ ì˜¤í”ˆAPI í…ŒìŠ¤íŠ¸
 //! Create        : , 2015/04/01
 //! Update        : 
 //! Comment       : 
 //******************************************************************/
-// RealAddDlg.cpp : ±¸Çö ÆÄÀÏ
+// RealAddDlg.cpp : êµ¬í˜„ íŒŒì¼
 //
 
 #include "stdafx.h"
@@ -23,22 +23,22 @@
 
 #define FIDLIST	_T("9001;302;10;11;25;12;13")
 
-// {Á¶È¸ Å°,		¸®¾ó Å°,	Çà, ¿­, Å¸ÀÔ,			»ö º¯°æ, Á¤·Ä, ¾Õ ¹®ÀÚ, µŞ ¹®ÀÚ}
+// {ì¡°íšŒ í‚¤,		ë¦¬ì–¼ í‚¤,	í–‰, ì—´, íƒ€ì…,			ìƒ‰ ë³€ê²½, ì •ë ¬, ì• ë¬¸ì, ë’· ë¬¸ì}
 const stGRID lstOPTSBFID[] = 
 {
-	{"Á¾¸ñÄÚµå",					"9001",	-1,	0,	DT_NONE,					FALSE,	DT_LEFT,	"",	""}, 
-	{"Á¾¸ñ¸í",						"302",		-1,	1,	DT_NONE,					FALSE,	DT_LEFT,	"",	""}, 
-	{"ÇöÀç°¡",						"10",		-1,	2,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
-	{"ÀüÀÏ´ëºñ±âÈ£",				"25",		-1,	3,	DT_SIGN,					TRUE,	DT_CENTER,	"",	""}, 
-	{"ÀüÀÏ´ëºñ",					"11",		-1,	4,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
-	{"µî¶ôÀ²",						"12",		-1,	5,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	"%"}, 
-	{"°Å·¡·®",						"13",		-1,	6,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
+	{"ì¢…ëª©ì½”ë“œ",					"9001",	-1,	0,	DT_NONE,					FALSE,	DT_LEFT,	"",	""}, 
+	{"ì¢…ëª©ëª…",						"302",		-1,	1,	DT_NONE,					FALSE,	DT_LEFT,	"",	""}, 
+	{"í˜„ì¬ê°€",						"10",		-1,	2,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
+	{"ì „ì¼ëŒ€ë¹„ê¸°í˜¸",				"25",		-1,	3,	DT_SIGN,					TRUE,	DT_CENTER,	"",	""}, 
+	{"ì „ì¼ëŒ€ë¹„",					"11",		-1,	4,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	""}, 
+	{"ë“±ë½ìœ¨",						"12",		-1,	5,	DT_ZERO_NUMBER,	TRUE,	DT_RIGHT,	"",	"%"}, 
+	{"ê±°ë˜ëŸ‰",						"13",		-1,	6,	DT_ZERO_NUMBER,	FALSE,	DT_RIGHT,	"",	""}, 
 };
 
-// CRealAddDlg ´ëÈ­ »óÀÚ
+// CRealAddDlg ëŒ€í™” ìƒì
 //*******************************************************************/
 //! Function Name : CRealAddDlg::CRealAddDlg(CWnd* pParent /*=NULL*/) : CDialogEx(CRealAddDlg::IDD, pParent)
-//! Function      : »ı¼º ÃÊ±â Ã³¸®
+//! Function      : ìƒì„± ì´ˆê¸° ì²˜ë¦¬
 //! Param         : HANDLE hBitmap, int bits
 //! Return        : void
 //! Create        : , 2015/04/01
@@ -60,13 +60,13 @@ CRealAddDlg::CRealAddDlg(CWnd* pParent /*=NULL*/)
 
 //*******************************************************************/
 // Function Name : DoDataExchange
-// Function      : DDX/DDV¿¡ °ü·Ã µÈ ÇÔ¼ö È£Ãâ
+// Function      : DDX/DDVì— ê´€ë ¨ ëœ í•¨ìˆ˜ í˜¸ì¶œ
 // Param         : CDataExchange*	pDX
 // Return        : void
 // Create        : , 2015/04/01
-// Comment       : DDX - ÄÁÆ®·Ñ°ú ¸â¹öº¯¼ö»çÀÌ¿¡ Á¤º¸¸¦ ±³È¯ÇÏ´Â ¿ªÇÒ
-//				 : DDV - ¸â¹öº¯¼ö¿¡ ÀúÀå µÉ °ªÀÇ À¯È¿¼º Ã¼Å©
-//				 : UapdateData()ÇÔ¼ö·Î °£Á¢ È£Ãâ ÇÒ ¼ö ÀÖÀ½
+// Comment       : DDX - ì»¨íŠ¸ë¡¤ê³¼ ë©¤ë²„ë³€ìˆ˜ì‚¬ì´ì— ì •ë³´ë¥¼ êµí™˜í•˜ëŠ” ì—­í• 
+//				 : DDV - ë©¤ë²„ë³€ìˆ˜ì— ì €ì¥ ë  ê°’ì˜ ìœ íš¨ì„± ì²´í¬
+//				 : UapdateData()í•¨ìˆ˜ë¡œ ê°„ì ‘ í˜¸ì¶œ í•  ìˆ˜ ìˆìŒ
 //*******************************************************************/
 void CRealAddDlg::DoDataExchange(CDataExchange* pDX)
 {
@@ -97,45 +97,45 @@ END_MESSAGE_MAP()
 
 //*******************************************************************/
 //! Function Name : OnInitDialog
-//! Function      : »ı¼º ÃÊ±â Ã³¸®
+//! Function      : ìƒì„± ì´ˆê¸° ì²˜ë¦¬
 //! Param         : void
 //! Return        : BOOL
 //! Create        : , 2015/04/01
-//! Comment       : CRealAddDlg ¸Ş½ÃÁö Ã³¸®±â
+//! Comment       : CRealAddDlg ë©”ì‹œì§€ ì²˜ë¦¬ê¸°
 //******************************************************************/
 BOOL CRealAddDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	// ÀÌ ´ëÈ­ »óÀÚÀÇ ¾ÆÀÌÄÜÀ» ¼³Á¤ÇÕ´Ï´Ù. ÀÀ¿ë ÇÁ·Î±×·¥ÀÇ ÁÖ Ã¢ÀÌ ´ëÈ­ »óÀÚ°¡ ¾Æ´Ò °æ¿ì¿¡´Â
-	//  ÇÁ·¹ÀÓ¿öÅ©°¡ ÀÌ ÀÛ¾÷À» ÀÚµ¿À¸·Î ¼öÇàÇÕ´Ï´Ù.
-	SetIcon(m_hIcon, TRUE);			// Å« ¾ÆÀÌÄÜÀ» ¼³Á¤ÇÕ´Ï´Ù.
-	SetIcon(m_hIcon, FALSE);		// ÀÛÀº ¾ÆÀÌÄÜÀ» ¼³Á¤ÇÕ´Ï´Ù.
+	// ì´ ëŒ€í™” ìƒìì˜ ì•„ì´ì½˜ì„ ì„¤ì •í•©ë‹ˆë‹¤. ì‘ìš© í”„ë¡œê·¸ë¨ì˜ ì£¼ ì°½ì´ ëŒ€í™” ìƒìê°€ ì•„ë‹ ê²½ìš°ì—ëŠ”
+	//  í”„ë ˆì„ì›Œí¬ê°€ ì´ ì‘ì—…ì„ ìë™ìœ¼ë¡œ ìˆ˜í–‰í•©ë‹ˆë‹¤.
+	SetIcon(m_hIcon, TRUE);			// í° ì•„ì´ì½˜ì„ ì„¤ì •í•©ë‹ˆë‹¤.
+	SetIcon(m_hIcon, FALSE);		// ì‘ì€ ì•„ì´ì½˜ì„ ì„¤ì •í•©ë‹ˆë‹¤.
 
-	InitRealAddGrid();					// ±×¸®µå ÃÊ±â Ã³¸®
+	InitRealAddGrid();					// ê·¸ë¦¬ë“œ ì´ˆê¸° ì²˜ë¦¬
 
-	return TRUE;  // Æ÷Ä¿½º¸¦ ÄÁÆ®·Ñ¿¡ ¼³Á¤ÇÏÁö ¾ÊÀ¸¸é TRUE¸¦ ¹İÈ¯ÇÕ´Ï´Ù.
+	return TRUE;  // í¬ì»¤ìŠ¤ë¥¼ ì»¨íŠ¸ë¡¤ì— ì„¤ì •í•˜ì§€ ì•Šìœ¼ë©´ TRUEë¥¼ ë°˜í™˜í•©ë‹ˆë‹¤.
 }
 
 //*******************************************************************/
 //! Function Name : OnPaint
-//! Function      : ±×¸®±â Ã³¸®
+//! Function      : ê·¸ë¦¬ê¸° ì²˜ë¦¬
 //! Param         : void
 //! Return        : void
 //! Create        : , 2015/04/01
-//! Comment       : ´ëÈ­ »óÀÚ¿¡ ÃÖ¼ÒÈ­ ´ÜÃß¸¦ Ãß°¡ÇÒ °æ¿ì ¾ÆÀÌÄÜÀ» ±×¸®·Á¸é
-//!               : ¾Æ·¡ ÄÚµå°¡ ÇÊ¿äÇÕ´Ï´Ù. ¹®¼­/ºä ¸ğµ¨À» »ç¿ëÇÏ´Â MFC ÀÀ¿ë ÇÁ·Î±×·¥ÀÇ °æ¿ì¿¡´Â
-//!               : ÇÁ·¹ÀÓ¿öÅ©¿¡¼­ ÀÌ ÀÛ¾÷À» ÀÚµ¿À¸·Î ¼öÇàÇÕ´Ï´Ù.
+//! Comment       : ëŒ€í™” ìƒìì— ìµœì†Œí™” ë‹¨ì¶”ë¥¼ ì¶”ê°€í•  ê²½ìš° ì•„ì´ì½˜ì„ ê·¸ë¦¬ë ¤ë©´
+//!               : ì•„ë˜ ì½”ë“œê°€ í•„ìš”í•©ë‹ˆë‹¤. ë¬¸ì„œ/ë·° ëª¨ë¸ì„ ì‚¬ìš©í•˜ëŠ” MFC ì‘ìš© í”„ë¡œê·¸ë¨ì˜ ê²½ìš°ì—ëŠ”
+//!               : í”„ë ˆì„ì›Œí¬ì—ì„œ ì´ ì‘ì—…ì„ ìë™ìœ¼ë¡œ ìˆ˜í–‰í•©ë‹ˆë‹¤.
 //******************************************************************/
 void CRealAddDlg::OnPaint()
 {
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // ±×¸®±â¸¦ À§ÇÑ µğ¹ÙÀÌ½º ÄÁÅØ½ºÆ®ÀÔ´Ï´Ù.
+		CPaintDC dc(this); // ê·¸ë¦¬ê¸°ë¥¼ ìœ„í•œ ë””ë°”ì´ìŠ¤ ì»¨í…ìŠ¤íŠ¸ì…ë‹ˆë‹¤.
 
 		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
-		// Å¬¶óÀÌ¾ğÆ® »ç°¢Çü¿¡¼­ ¾ÆÀÌÄÜÀ» °¡¿îµ¥¿¡ ¸ÂÃä´Ï´Ù.
+		// í´ë¼ì´ì–¸íŠ¸ ì‚¬ê°í˜•ì—ì„œ ì•„ì´ì½˜ì„ ê°€ìš´ë°ì— ë§ì¶¥ë‹ˆë‹¤.
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
@@ -143,7 +143,7 @@ void CRealAddDlg::OnPaint()
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
 
-		// ¾ÆÀÌÄÜÀ» ±×¸³´Ï´Ù.
+		// ì•„ì´ì½˜ì„ ê·¸ë¦½ë‹ˆë‹¤.
 		dc.DrawIcon(x, y, m_hIcon);
 	}
 	else
@@ -154,7 +154,7 @@ void CRealAddDlg::OnPaint()
 
 //*******************************************************************/
 //! Function Name : OnClose
-//! Function      : ÆÄ±«ÀÚ
+//! Function      : íŒŒê´´ì
 //! Param         : void
 //! Return        : void
 //! Create        : , 2015/04/01
@@ -162,10 +162,10 @@ void CRealAddDlg::OnPaint()
 //******************************************************************/
 void CRealAddDlg::OnClose()
 {
-	// È­¸é ´İÀ» ¶§ ºÎ¸ğÀ©µµ¿ì¿¡°Ô Åëº¸(È­¸é °ü¸® À§ÇØ)
+	// í™”ë©´ ë‹«ì„ ë•Œ ë¶€ëª¨ìœˆë„ìš°ì—ê²Œ í†µë³´(í™”ë©´ ê´€ë¦¬ ìœ„í•´)
 	if (m_pParent)
 	{
-		//½Ã¼¼ ½Ç½Ã°£ ÇØÁ¦
+		//ì‹œì„¸ ì‹¤ì‹œê°„ í•´ì œ
 		theApp.m_khOpenApi.SetRealRemove(m_strScrNo, _T("ALL"));
 
 		if (m_strConditionName != "" && m_nConditionIndex > -1)
@@ -184,12 +184,12 @@ void CRealAddDlg::OnClose()
 
 //*******************************************************************/
 //! Function Name : OnQueryDragIcon
-//! Function      : µå·¡±× ¾ÆÀÌÄÜ Ã³¸®
+//! Function      : ë“œë˜ê·¸ ì•„ì´ì½˜ ì²˜ë¦¬
 //! Param         : void
 //! Return        : HCURSOR
 //! Create        : , 2015/04/01
-//! Comment       : »ç¿ëÀÚ°¡ ÃÖ¼ÒÈ­µÈ Ã¢À» ²ô´Â µ¿¾È¿¡ Ä¿¼­°¡ Ç¥½ÃµÇµµ·Ï ½Ã½ºÅÛ¿¡¼­ 
-//!               : ÀÌ ÇÔ¼ö¸¦ È£ÃâÇÕ´Ï´Ù.
+//! Comment       : ì‚¬ìš©ìê°€ ìµœì†Œí™”ëœ ì°½ì„ ë„ëŠ” ë™ì•ˆì— ì»¤ì„œê°€ í‘œì‹œë˜ë„ë¡ ì‹œìŠ¤í…œì—ì„œ 
+//!               : ì´ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•©ë‹ˆë‹¤.
 //******************************************************************/
 HCURSOR CRealAddDlg::OnQueryDragIcon()
 {
@@ -198,7 +198,7 @@ HCURSOR CRealAddDlg::OnQueryDragIcon()
 
 //*******************************************************************/
 //! Function Name : OnBtnSearch
-//! Function      : ½Ã¼¼ ½Ç½Ã°£µî·Ï
+//! Function      : ì‹œì„¸ ì‹¤ì‹œê°„ë“±ë¡
 //! Param         : void
 //! Return        : void
 //! Create        : , 2015/04/01
@@ -206,8 +206,8 @@ HCURSOR CRealAddDlg::OnQueryDragIcon()
 //******************************************************************/
 void CRealAddDlg::OnBtnSearch()
 {
-	//½Ã¼¼ ½Ç½Ã°£µî·Ï ÇÔ¼ö È£Ãâ
-	//Á¾¸ñ¿¡ ´ëÇÑ ÇöÀç°¡, ´ëºñ, µî¶ô·ü, °Å·¡·®µî¿¡ ´ëÇÑ ½Ç½Ã°£À» ¹Ş±â À§ÇØ ¹İµå½Ã È£ÃâÇØ¾ßÇÔ.
+	//ì‹œì„¸ ì‹¤ì‹œê°„ë“±ë¡ í•¨ìˆ˜ í˜¸ì¶œ
+	//ì¢…ëª©ì— ëŒ€í•œ í˜„ì¬ê°€, ëŒ€ë¹„, ë“±ë½ë¥ , ê±°ë˜ëŸ‰ë“±ì— ëŒ€í•œ ì‹¤ì‹œê°„ì„ ë°›ê¸° ìœ„í•´ ë°˜ë“œì‹œ í˜¸ì¶œí•´ì•¼í•¨.
 	int nCount = m_grdRealAdd.GetRowCount();
 	CString strCodeList;
 	
@@ -221,7 +221,7 @@ void CRealAddDlg::OnBtnSearch()
 
 //*******************************************************************/
 //! Function Name : OnBtnClose
-//! Function      : ½Ç½Ã°£ ÇØÁ¦.
+//! Function      : ì‹¤ì‹œê°„ í•´ì œ.
 //! Param         : void
 //! Return        : void
 //! Create        : , 2015/04/01
@@ -229,13 +229,13 @@ void CRealAddDlg::OnBtnSearch()
 //******************************************************************/
 void CRealAddDlg::OnBtnClose()
 {
-	// TODO: ¿©±â¿¡ ÄÁÆ®·Ñ ¾Ë¸² Ã³¸®±â ÄÚµå¸¦ Ãß°¡ÇÕ´Ï´Ù.
+	// TODO: ì—¬ê¸°ì— ì»¨íŠ¸ë¡¤ ì•Œë¦¼ ì²˜ë¦¬ê¸° ì½”ë“œë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
 	theApp.m_khOpenApi.SetRealRemove(m_strScrNo, _T("ALL"));
 }
 
 //*******************************************************************/
 //! Function Name : InitRealAddGrid
-//! Function      : È£°¡ ±×¸®µå ÃÊ±â Ã³¸®
+//! Function      : í˜¸ê°€ ê·¸ë¦¬ë“œ ì´ˆê¸° ì²˜ë¦¬
 //! Param         : void
 //! Return        : void
 //! Create        : , 2015/04/01
@@ -243,31 +243,31 @@ void CRealAddDlg::OnBtnClose()
 //******************************************************************/
 void CRealAddDlg::InitRealAddGrid()
 {
-	m_grdRealAdd.SetEditable(false);				//cellÀ» ¿¡µğÆ® ¸øÇÏ°Ô ÇÔ.
+	m_grdRealAdd.SetEditable(false);				//cellì„ ì—ë””íŠ¸ ëª»í•˜ê²Œ í•¨.
 	m_grdRealAdd.EnableScrollBars(SB_BOTH, FALSE);
 
 	COLORREF clr = RGB(215, 227, 241);
 
-	// °íÁ¤ Çà/¿­ ¼³Á¤
+	// ê³ ì • í–‰/ì—´ ì„¤ì •
 	m_grdRealAdd.SetFixedRowCount(1);
 
-	// Çà/¿­ °¹¼ö ¼³Á¤
+	// í–‰/ì—´ ê°¯ìˆ˜ ì„¤ì •
 	m_grdRealAdd.SetRowCount(1);
 	m_grdRealAdd.SetColumnCount(8);
 
-	// ¿­ÀÇ ³ĞÀÌ ¼³Á¤
+	// ì—´ì˜ ë„“ì´ ì„¤ì •
 	int i, nWidth[] = {50, 80, 80, 20, 60, 60, 100};
-	CString strHeader[] = {"ÄÚµå", "Á¾¸ñ¸í", "ÇöÀç°¡", "", "ÀüÀÏ´ëºñ", "µî¶ôÀ²", "°Å·¡·®"};
-	int nCnt = sizeof(nWidth) / sizeof(*nWidth);		// ÀüÃ¼Å©±â / ¿ø¼ÒÅ©±â = ¿ø¼Ò°³¼ö
+	CString strHeader[] = {"ì½”ë“œ", "ì¢…ëª©ëª…", "í˜„ì¬ê°€", "", "ì „ì¼ëŒ€ë¹„", "ë“±ë½ìœ¨", "ê±°ë˜ëŸ‰"};
+	int nCnt = sizeof(nWidth) / sizeof(*nWidth);		// ì „ì²´í¬ê¸° / ì›ì†Œí¬ê¸° = ì›ì†Œê°œìˆ˜
 	for (i = 0; i < nCnt; i++)
 	{
 		m_grdRealAdd.SetColumnWidth(i, nWidth[i]);
 		m_grdRealAdd.SetItemFormat(0, i, DT_CENTER);
 		m_grdRealAdd.SetItemText(0, i, strHeader[i]);
-		m_grdRealAdd.SetItemBkColour(0, i, clr);	// ÁöÁ¤µÈ ¼¿ÀÇ ¹è°æ»ö ¼³Á¤
+		m_grdRealAdd.SetItemBkColour(0, i, clr);	// ì§€ì •ëœ ì…€ì˜ ë°°ê²½ìƒ‰ ì„¤ì •
 	}
 
-	// ÇàÀÇ ³ôÀÌ ¼³Á¤
+	// í–‰ì˜ ë†’ì´ ì„¤ì •
 	m_grdRealAdd.SetRowHeight(0, 24);
 
 	m_grdRealAdd.Invalidate();
@@ -275,7 +275,7 @@ void CRealAddDlg::InitRealAddGrid()
 
 //*******************************************************************/
 //! Function Name : OnReceiveTrDataKhopenapictrl
-//! Function      : Á¶È¸ ÀÀ´ä Ã³¸®
+//! Function      : ì¡°íšŒ ì‘ë‹µ ì²˜ë¦¬
 //! Param         : LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrcode, LPCTSTR sRecordName, LPCTSTR sPrevNext, long nDataLength, LPCTSTR sErrorCode, LPCTSTR sMessage, LPCTSTR sSplmMsg
 //! Return        : void
 //! Create        : , 2015/04/01
@@ -288,7 +288,7 @@ void CRealAddDlg::OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, 
 
 //*******************************************************************/
 //! Function Name : OnReceiveMsgKhopenapictrl
-//! Function      : Á¶È¸ ¿¡·¯ Ã³¸®
+//! Function      : ì¡°íšŒ ì—ëŸ¬ ì²˜ë¦¬
 //! Param         : LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrCode, LPCTSTR sMsg
 //! Return        : void//! Create        : , 2015/04/01
 //! Comment       : 
@@ -299,7 +299,7 @@ void CRealAddDlg::OnReceiveMsgKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LPC
 
 //*******************************************************************/
 //! Function Name : OnReceiveRealDataKhopenapictrl
-//! Function      : ½Ç½Ã°£ Ã³¸®
+//! Function      : ì‹¤ì‹œê°„ ì²˜ë¦¬
 //! Param         : LPCTSTR sJongmokCode, LPCTSTR sRealType, LPCTSTR sRealData
 //! Return        : void
 //! Create        : , 2015/04/01
@@ -318,7 +318,7 @@ void CRealAddDlg::OnReceiveRealDataKhopenapictrl(LPCTSTR sJongmokCode, LPCTSTR s
 	CStringArray arrData;
 
 	arrData.Add(sJongmokCode);
-	int i, nFieldCnt = sizeof(lstOPTSBFID) / sizeof(*lstOPTSBFID);		// ÀüÃ¼Å©±â / ¿ø¼ÒÅ©±â = ¿ø¼Ò°³¼ö
+	int i, nFieldCnt = sizeof(lstOPTSBFID) / sizeof(*lstOPTSBFID);		// ì „ì²´í¬ê¸° / ì›ì†Œí¬ê¸° = ì›ì†Œê°œìˆ˜
 	for (i = 1; i < nFieldCnt; i++)
 	{
 		if (atoi(lstOPTSBFID[i].strRealKey) < 0)
@@ -334,7 +334,7 @@ void CRealAddDlg::OnReceiveRealDataKhopenapictrl(LPCTSTR sJongmokCode, LPCTSTR s
 
 //*******************************************************************/
 //! Function Name : OnReceiveRealCondition
-//! Function      : Á¶°Ç°Ë»ö ½Ç½Ã°£ Á¾¸ñ ÆíÀÔ/ÀÌÅ»
+//! Function      : ì¡°ê±´ê²€ìƒ‰ ì‹¤ì‹œê°„ ì¢…ëª© í¸ì…/ì´íƒˆ
 //! Param         : LPCTSTR strCode, LPCTSTR strType, LPCTSTR strConditionName, LPCTSTR strConditionIndex
 //! Return        : void
 //! Create        : , 2015/04/01
@@ -343,59 +343,59 @@ void CRealAddDlg::OnReceiveRealDataKhopenapictrl(LPCTSTR sJongmokCode, LPCTSTR s
 void CRealAddDlg::OnReceiveRealCondition(LPCTSTR strCode, LPCTSTR strType, LPCTSTR strConditionName, LPCTSTR strConditionIndex)
 {
 	CString strName, strMsg, strIndex, sType, sCode;
-	sType = strType;	//Á¾¸ñ ÆíÀÔ, ÀÌÅ» ±¸ºĞ
-	sCode = strCode;	//Á¾¸ñÄÚµå
-	m_cmbCon.GetLBText(m_cmbCon.GetCurSel(), strName);	//ÇöÀç ¼±ÅÃµÈ Á¶°Ç¸í
+	sType = strType;	//ì¢…ëª© í¸ì…, ì´íƒˆ êµ¬ë¶„
+	sCode = strCode;	//ì¢…ëª©ì½”ë“œ
+	m_cmbCon.GetLBText(m_cmbCon.GetCurSel(), strName);	//í˜„ì¬ ì„ íƒëœ ì¡°ê±´ëª…
 
-	if (strName == strConditionName)	//ÇöÀç ¼±ÅÃµÈ Á¶°Ç¸í°ú ½Ç½Ã°£À¸·Î µé¾î¿Â Á¶°Ç¸íÀÌ °°ÀºÁö ºñ±³.
+	if (strName == strConditionName)	//í˜„ì¬ ì„ íƒëœ ì¡°ê±´ëª…ê³¼ ì‹¤ì‹œê°„ìœ¼ë¡œ ë“¤ì–´ì˜¨ ì¡°ê±´ëª…ì´ ê°™ì€ì§€ ë¹„êµ.
 	{
-		if (sType == "I")	//Á¾¸ñ ÆíÀÔ
+		if (sType == "I")	//ì¢…ëª© í¸ì…
 		{
 			m_grdRealAdd.InsertRow(sCode, 1);
 
-			// Á¾¸ñ¸í/
+			// ì¢…ëª©ëª…/
 			CString strCodeName;
 			strCodeName = theApp.m_khOpenApi.GetMasterCodeName(sCode);
 			m_grdRealAdd.SetItemText(1, 1, strCodeName);
 
-			//ÇÏ´Ü ¸Ş¼¼Áö º¸ÀÌ±â
-			//¸Ş¼¼Áö 5ÁÙ¸¸ ³ÑÀ¸·Î Å¬¸®¾îÇÏ±â.
+			//í•˜ë‹¨ ë©”ì„¸ì§€ ë³´ì´ê¸°
+			//ë©”ì„¸ì§€ 5ì¤„ë§Œ ë„˜ìœ¼ë¡œ í´ë¦¬ì–´í•˜ê¸°.
 			if (m_listCtl_Insert.GetCount() > 5)
 			{
 				m_listCtl_Insert.ResetContent();
 			}
 
-			strMsg.Format(_T("[%s] Á¾¸ñÀÌ ÆíÀÔµÇ¾ú½À´Ï´Ù."), sCode);
+			strMsg.Format(_T("[%s] ì¢…ëª©ì´ í¸ì…ë˜ì—ˆìŠµë‹ˆë‹¤."), sCode);
 			m_listCtl_Insert.AddString(strMsg);
 
-			//±âÁ¸Á¶È¸µÈ Á¾¸ñÀÇ ½Ã¼¼°¡ µé¾î¿À°í ÀÖ´Â »óÈ²¿¡¼­ Ãß°¡·Î ÆíÀÔµÈ Á¾¸ñÀÇ ½Ã¼¼¸¦ º¸¿©ÁÙ¶§ 
-			// ¸¶Áö¸· ÆÄ¶ó¸ŞÅÍ¿¡ "1"À» ³Ö¾îÁÖ¾î¾ß ±âÁ¸ Á¾¸ñ°ú ÇÔ²² ÆíÀÔµÈ Á¾¸ñÀÇ ½Ã¼¼°¡ µé¾î¿Â´Ù.
-			// ¸¸¾à "1" ÀÌ¿ÜÀÇ "0"À» ³Ö¾îÁÖ¸é ±âÁ¸¿¡ µî·ÏÇÑ Á¾¸ñµé¿¡ ´ëÇÑ ½Ã¼¼°¡ ²÷¾îÁø´Ù.
-			//½Ç½Ã°£µî·Ï ÇÔ¼ö È£Ãâ
+			//ê¸°ì¡´ì¡°íšŒëœ ì¢…ëª©ì˜ ì‹œì„¸ê°€ ë“¤ì–´ì˜¤ê³  ìˆëŠ” ìƒí™©ì—ì„œ ì¶”ê°€ë¡œ í¸ì…ëœ ì¢…ëª©ì˜ ì‹œì„¸ë¥¼ ë³´ì—¬ì¤„ë•Œ 
+			// ë§ˆì§€ë§‰ íŒŒë¼ë©”í„°ì— "1"ì„ ë„£ì–´ì£¼ì–´ì•¼ ê¸°ì¡´ ì¢…ëª©ê³¼ í•¨ê»˜ í¸ì…ëœ ì¢…ëª©ì˜ ì‹œì„¸ê°€ ë“¤ì–´ì˜¨ë‹¤.
+			// ë§Œì•½ "1" ì´ì™¸ì˜ "0"ì„ ë„£ì–´ì£¼ë©´ ê¸°ì¡´ì— ë“±ë¡í•œ ì¢…ëª©ë“¤ì— ëŒ€í•œ ì‹œì„¸ê°€ ëŠì–´ì§„ë‹¤.
+			//ì‹¤ì‹œê°„ë“±ë¡ í•¨ìˆ˜ í˜¸ì¶œ
 			long lRet = theApp.m_khOpenApi.SetRealReg(m_strScrNo, strCode, FIDLIST, "1");
 		} 
-		else if (sType == "D")	//Á¾¸ñ ÀÌÅ»
+		else if (sType == "D")	//ì¢…ëª© ì´íƒˆ
 		{
-			//±âÁ¸¿¡ ÀÖ´ø Á¾¸ñÀÎÁö È®ÀÎ.
+			//ê¸°ì¡´ì— ìˆë˜ ì¢…ëª©ì¸ì§€ í™•ì¸.
 			if (!m_mapJongCode.Lookup(sCode, strIndex))
 			{
 				return;
 			}
 
-			//ÀÌÅ» Á¾¸ñ »èÁ¦.
+			//ì´íƒˆ ì¢…ëª© ì‚­ì œ.
 			m_grdRealAdd.DeleteRow(_ttoi(strIndex));
 
-			//ÀÌÅ»µÈ Á¾¸ñÀÇ ½Ã¼¼¸¦ ¹ŞÁö ¾ÊÀ»·Á¸é »ç¿ëÇÑ´Ù.
+			//ì´íƒˆëœ ì¢…ëª©ì˜ ì‹œì„¸ë¥¼ ë°›ì§€ ì•Šì„ë ¤ë©´ ì‚¬ìš©í•œë‹¤.
 			theApp.m_khOpenApi.SetRealRemove(m_strScrNo, sCode);
 
-			//ÇÏ´Ü ¸Ş¼¼Áö º¸ÀÌ±â
-			//¸Ş¼¼Áö 5ÁÙ¸¸ ³ÑÀ¸·Î Å¬¸®¾îÇÏ±â.
+			//í•˜ë‹¨ ë©”ì„¸ì§€ ë³´ì´ê¸°
+			//ë©”ì„¸ì§€ 5ì¤„ë§Œ ë„˜ìœ¼ë¡œ í´ë¦¬ì–´í•˜ê¸°.
 			if (m_listCtl_Delete.GetCount() > 5)
 			{
 				m_listCtl_Delete.ResetContent();
 			}
 
-			strMsg.Format(_T("[%s] Á¾¸ñÀÌ ÀÌÅ»µÇ¾ú½À´Ï´Ù."), sCode);
+			strMsg.Format(_T("[%s] ì¢…ëª©ì´ ì´íƒˆë˜ì—ˆìŠµë‹ˆë‹¤."), sCode);
 			m_listCtl_Delete.AddString(strMsg);
 		}
 
@@ -415,12 +415,12 @@ void CRealAddDlg::OnReceiveRealCondition(LPCTSTR strCode, LPCTSTR strType, LPCTS
 
 //*******************************************************************/
 //! Function Name	: OnReceiveTrCondition
-//! Function			: Á¶°Ç°Ë»ö Á¾¸ñ¸®½ºÆ® Á¶È¸ÀÀ´ä
-//! Param				: LPCTSTR sScrNo					- È­¸é¹øÈ£
-//!						: PCTSTR strCodeList				- Á¾¸ñ¸®½ºÆ®
-//!						: LPCTSTR strConditionName	- Á¶°Ç¸í
-//!						: int nIndex								- Á¶°Ç¸í ÀÎµ¦½º¹øÈ£
-//!						: int nNext								- ¿¬¼ÓÁ¶È¸(2:¿¬¼ÓÁ¶È¸, 0:¿¬¼ÓÁ¶È¸¾øÀ½)
+//! Function			: ì¡°ê±´ê²€ìƒ‰ ì¢…ëª©ë¦¬ìŠ¤íŠ¸ ì¡°íšŒì‘ë‹µ
+//! Param				: LPCTSTR sScrNo					- í™”ë©´ë²ˆí˜¸
+//!						: PCTSTR strCodeList				- ì¢…ëª©ë¦¬ìŠ¤íŠ¸
+//!						: LPCTSTR strConditionName	- ì¡°ê±´ëª…
+//!						: int nIndex								- ì¡°ê±´ëª… ì¸ë±ìŠ¤ë²ˆí˜¸
+//!						: int nNext								- ì—°ì†ì¡°íšŒ(2:ì—°ì†ì¡°íšŒ, 0:ì—°ì†ì¡°íšŒì—†ìŒ)
 //! Return        : void
 //! Create        : , 2015/04/01
 //! Comment       : 
@@ -428,15 +428,15 @@ void CRealAddDlg::OnReceiveRealCondition(LPCTSTR strCode, LPCTSTR strType, LPCTS
 void CRealAddDlg::OnReceiveTrCondition(LPCTSTR sScrNo,PCTSTR strCodeList, LPCTSTR strConditionName, int nIndex, int nNext)
 {
 	CString strCndName, sConditionName;
-	m_cmbCon.GetLBText(m_cmbCon.GetCurSel(), strCndName);	//¼±ÅÃµÈ Á¶°Ç¸í
+	m_cmbCon.GetLBText(m_cmbCon.GetCurSel(), strCndName);	//ì„ íƒëœ ì¡°ê±´ëª…
 
-	if (strConditionName == strCndName)	//ÇöÀç Á¶°Ç¸í°ú Á¶È¸ÀÀ´äÀ¸·Î µé¾î¿Â Á¶°Ç¸íÀÌ °°À»¶§¸¸ Ã³¸®.
+	if (strConditionName == strCndName)	//í˜„ì¬ ì¡°ê±´ëª…ê³¼ ì¡°íšŒì‘ë‹µìœ¼ë¡œ ë“¤ì–´ì˜¨ ì¡°ê±´ëª…ì´ ê°™ì„ë•Œë§Œ ì²˜ë¦¬.
 	{
 		if (strCodeList != "")
 		{
 			int nIndex(0);
 			CString strConditionCode;
-			m_mapJongCode.RemoveAll();		// Á¾¸ñÄÚµå ÃÊ±âÈ­
+			m_mapJongCode.RemoveAll();		// ì¢…ëª©ì½”ë“œ ì´ˆê¸°í™”
 			m_grdRealAdd.SetRowCount(1);
 
 			while ( AfxExtractSubString( strConditionCode, strCodeList, nIndex++, _T(';')) )
@@ -451,10 +451,10 @@ void CRealAddDlg::OnReceiveTrCondition(LPCTSTR sScrNo,PCTSTR strCodeList, LPCTST
 			{
 				if (strConditionCode != "")
 				{
-					m_grdRealAdd.SetRowHeight(nIndex, 20);		// ÇàÀÇ ³ôÀÌ ¼³Á¤
+					m_grdRealAdd.SetRowHeight(nIndex, 20);		// í–‰ì˜ ë†’ì´ ì„¤ì •
 					m_grdRealAdd.SetItemText(nIndex, 0, strConditionCode);
 
-					// Á¾¸ñ¸í
+					// ì¢…ëª©ëª…
 					CString strCodeName;
 					strCodeName = theApp.m_khOpenApi.GetMasterCodeName(strConditionCode);
 					m_grdRealAdd.SetItemText(nIndex, 1, strCodeName);
@@ -469,9 +469,9 @@ void CRealAddDlg::OnReceiveTrCondition(LPCTSTR sScrNo,PCTSTR strCodeList, LPCTST
 
 //*******************************************************************/
 //! Function Name	: OnReceiveConditionVer
-//! Function			: »ç¿ëÀÚ Á¶°Ç½Ä Á¶È¸ÀÀ´ä
-//! Param				: BOOL bRet							- ¼º°ø(TRUE), ½ÇÆĞ(FALSE)
-//!						: LPCTSTR sMsg					- ¸Ş¼¼Áö(reserved)
+//! Function			: ì‚¬ìš©ì ì¡°ê±´ì‹ ì¡°íšŒì‘ë‹µ
+//! Param				: BOOL bRet							- ì„±ê³µ(TRUE), ì‹¤íŒ¨(FALSE)
+//!						: LPCTSTR sMsg					- ë©”ì„¸ì§€(reserved)
 //! Return        : void
 //! Create        : , 2015/04/01
 //! Comment       : 
@@ -481,11 +481,11 @@ void CRealAddDlg::OnReceiveConditionVer(long lRet, LPCTSTR sMsg)
 	CString strMsg(sMsg);
 	if (lRet == 1)
 	{
-		//Á¶°Ç°Ë»ö¸í ¸®½ºÆ®¸¦ ºÒ·¯¿Â´Ù.
+		//ì¡°ê±´ê²€ìƒ‰ëª… ë¦¬ìŠ¤íŠ¸ë¥¼ ë¶ˆëŸ¬ì˜¨ë‹¤.
 		CString strCondition, strConditionName, strIndex;
 		CString strConditionNameList = theApp.m_khOpenApi.GetConditionNameList();
 
-		//¹Ş¾Æ¿Â Á¶°Ç°Ë»ö¸íÀ» ÄŞº¸¿¡ ³Ö´Â´Ù.
+		//ë°›ì•„ì˜¨ ì¡°ê±´ê²€ìƒ‰ëª…ì„ ì½¤ë³´ì— ë„£ëŠ”ë‹¤.
 		m_cmbCon.ResetContent();
 
 		int i(0);
@@ -505,19 +505,19 @@ void CRealAddDlg::OnReceiveConditionVer(long lRet, LPCTSTR sMsg)
 		}
 
 		m_cmbCon.SetCurSel(0);
-		BOOL bRet = theApp.m_khOpenApi.SendCondition(m_strScrNo, "»õÁ¶°Ç¸í1", 0, 1);
+		BOOL bRet = theApp.m_khOpenApi.SendCondition(m_strScrNo, "ìƒˆì¡°ê±´ëª…1", 0, 1);
 	}
 	else
 	{
 		CString		strErr;
-		strErr.Format(_T("»ç¿ëÀÚ Á¶°ÇÀĞ±â ½ÇÆĞ \r\n\r\n[%s]"), strMsg);
+		strErr.Format(_T("ì‚¬ìš©ì ì¡°ê±´ì½ê¸° ì‹¤íŒ¨ \r\n\r\n[%s]"), strMsg);
 		AfxMessageBox(strErr);
 	}
 }
 
 //*******************************************************************/
 //! Function Name : SetDataRealAddGrid
-//! Function      : ±×¸®µå µ¥ÀÌÅ¸ ¼³Á¤(°ü½ÉÁ¾¸ñÁ¤º¸ ¼³Á¤)
+//! Function      : ê·¸ë¦¬ë“œ ë°ì´íƒ€ ì„¤ì •(ê´€ì‹¬ì¢…ëª©ì •ë³´ ì„¤ì •)
 //! Param         : CStringArray &arrData, CString strRealType/* = ""*/
 //! Return        : void
 //! Create        : , 2015/04/01
@@ -525,7 +525,7 @@ void CRealAddDlg::OnReceiveConditionVer(long lRet, LPCTSTR sMsg)
 //******************************************************************/
 void CRealAddDlg::SetDataRealAddGrid(CStringArray &arrData, CString strRealType/* = ""*/)
 {
-	// Á¾¸ñÄÚµå¿¡ ¸Â´Â Çà Ã£±â
+	// ì¢…ëª©ì½”ë“œì— ë§ëŠ” í–‰ ì°¾ê¸°
 	CString strData, strTemp;
 	strData = arrData.GetAt(0);
 	if (!m_mapJongCode.Lookup(strData, strTemp))
@@ -535,13 +535,13 @@ void CRealAddDlg::SetDataRealAddGrid(CStringArray &arrData, CString strRealType/
 
 	int i, nRow = atol(strTemp), nCnt = arrData.GetSize();
 
-	// µ¥ÀÌÅ¸ ¼³Á¤
+	// ë°ì´íƒ€ ì„¤ì •
 	CString strTempData;
 	for (i = 1; i < nCnt; i++)
 	{
 		strData = arrData.GetAt(i);
 		/////////////////////////////////////////////
-		// º¯°æ µÈ µ¥ÀÌÅÍ ¼±ÅÃ Ã³¸®¡é¡é¡é¡é¡é¡é¡é¡é¡é
+		// ë³€ê²½ ëœ ë°ì´í„° ì„ íƒ ì²˜ë¦¬â†“â†“â†“â†“â†“â†“â†“â†“â†“
 		if (strRealType != "" && (i == 2 || i == 4 || i == 5))
 		{
 			strTempData = strData;
@@ -558,16 +558,16 @@ void CRealAddDlg::SetDataRealAddGrid(CStringArray &arrData, CString strRealType/
 				m_grdRealAdd.Invalidate();
 			}
 		}
-		// º¯°æ µÈ µ¥ÀÌÅÍ ¼±ÅÃ Ã³¸®¡è¡è¡è¡è¡è¡è¡è¡è¡è
+		// ë³€ê²½ ëœ ë°ì´í„° ì„ íƒ ì²˜ë¦¬â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘
 		/////////////////////////////////////////////
 		if (lstOPTSBFID[i].bTextColor)
 		{
 			strTemp = arrData.GetAt(3);
-			if (strTemp == "1" || strTemp == "2")	// ºÎÈ£¿¡ µû¶ó »ö»óº¯°æ
+			if (strTemp == "1" || strTemp == "2")	// ë¶€í˜¸ì— ë”°ë¼ ìƒ‰ìƒë³€ê²½
 			{
 				strTemp = "1";
 			}
-			else if (strTemp == "4" || strTemp == "5")	// ºÎÈ£¿¡ µû¶ó »ö»óº¯°æ
+			else if (strTemp == "4" || strTemp == "5")	// ë¶€í˜¸ì— ë”°ë¼ ìƒ‰ìƒë³€ê²½
 			{
 				strTemp = "-1";
 			}
@@ -600,7 +600,7 @@ void CRealAddDlg::SetDataRealAddGrid(CStringArray &arrData, CString strRealType/
 
 //*******************************************************************/
 //! Function Name : OnBtnClose
-//! Function      : ÀüÈ­¸é ½Ç½Ã°£ µî·Ï ÇØÁ¦
+//! Function      : ì „í™”ë©´ ì‹¤ì‹œê°„ ë“±ë¡ í•´ì œ
 //! Param         : void
 //! Return        : void
 //! Create        : , 2015/04/01
@@ -608,13 +608,13 @@ void CRealAddDlg::SetDataRealAddGrid(CStringArray &arrData, CString strRealType/
 //******************************************************************/
 void CRealAddDlg::OnBnClickedBtnAllcancel()
 {
-	// TODO: ¿©±â¿¡ ÄÁÆ®·Ñ ¾Ë¸² Ã³¸®±â ÄÚµå¸¦ Ãß°¡ÇÕ´Ï´Ù.
+	// TODO: ì—¬ê¸°ì— ì»¨íŠ¸ë¡¤ ì•Œë¦¼ ì²˜ë¦¬ê¸° ì½”ë“œë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
 	theApp.m_khOpenApi.SetRealRemove(_T("ALL"), _T("ALL"));
 }
 
 //*******************************************************************/
 //! Function Name : OnBnClickedBtnCondi
-//! Function      : Á¶°Ç¸í ¸®½ºÆ®¸¦ ºÒ·¯¿Í¼­ ÄŞº¸¿¡ ÀúÀå.
+//! Function      : ì¡°ê±´ëª… ë¦¬ìŠ¤íŠ¸ë¥¼ ë¶ˆëŸ¬ì™€ì„œ ì½¤ë³´ì— ì €ì¥.
 //! Param         : void
 //! Return        : void
 //! Create        : , 2015/04/22
@@ -624,10 +624,10 @@ void CRealAddDlg::OnBnClickedBtnCondi()
 {
 	CString strConditionName = _T(""), strConditionNameList = _T(""), strCondition = _T(""), strIndex = _T("");
 
-	//Á¶°Ç°Ë»ö¸í ¸®½ºÆ®¸¦ ºÒ·¯¿Â´Ù.
+	//ì¡°ê±´ê²€ìƒ‰ëª… ë¦¬ìŠ¤íŠ¸ë¥¼ ë¶ˆëŸ¬ì˜¨ë‹¤.
 	strConditionNameList = theApp.m_khOpenApi.GetConditionNameList();
 
-	//¹Ş¾Æ¿Â Á¶°Ç°Ë»ö¸íÀ» ÄŞº¸¿¡ ³Ö´Â´Ù.
+	//ë°›ì•„ì˜¨ ì¡°ê±´ê²€ìƒ‰ëª…ì„ ì½¤ë³´ì— ë„£ëŠ”ë‹¤.
 	m_cmbCon.ResetContent();
 
 	int i(0);
@@ -652,7 +652,7 @@ void CRealAddDlg::OnBnClickedBtnCondi()
 
 //*******************************************************************/
 //! Function Name : OnBnClickedBtnCondi
-//! Function      : ÄŞº¸¿¡¼­ Á¶°Ç¸í¼±ÅÃ½Ã Á¶°Ç½Ä¿¡ ¸Â´Â Á¾¸ñ¸®½ºÆ®¸¦ È£ÃâÇÑ´Ù.
+//! Function      : ì½¤ë³´ì—ì„œ ì¡°ê±´ëª…ì„ íƒì‹œ ì¡°ê±´ì‹ì— ë§ëŠ” ì¢…ëª©ë¦¬ìŠ¤íŠ¸ë¥¼ í˜¸ì¶œí•œë‹¤.
 //! Param         : void
 //! Return        : void
 //! Create        : , 2015/04/22
@@ -662,43 +662,43 @@ void CRealAddDlg::OnCbnSelchangeCmbCon()
 {
 	CString strConditionCodeList = _T(""), strConditionName = _T(""), strIndex;
 
-	//¼±ÅÃÇÑ Á¶°Ç¸íÀÇ °Ë»öµÈ Á¾¸ñ¸®½ºÆ®¸¦ ºÒ·¯¿Â´Ù.
+	//ì„ íƒí•œ ì¡°ê±´ëª…ì˜ ê²€ìƒ‰ëœ ì¢…ëª©ë¦¬ìŠ¤íŠ¸ë¥¼ ë¶ˆëŸ¬ì˜¨ë‹¤.
  	m_cmbCon.GetLBText(m_cmbCon.GetCurSel(), strConditionName);
 
 	if (strConditionName != "")
 	{
-		//¼±ÅÃÇÑ Á¶°Ç¸íÀÇ °Ë»öµÈ Á¾¸ñ¸®½ºÆ®¸¦ ºÒ·¯¿Â´Ù.
+		//ì„ íƒí•œ ì¡°ê±´ëª…ì˜ ê²€ìƒ‰ëœ ì¢…ëª©ë¦¬ìŠ¤íŠ¸ë¥¼ ë¶ˆëŸ¬ì˜¨ë‹¤.
 		m_cmbCon.GetLBText(m_cmbCon.GetCurSel(), m_strConditionName);
 		m_mapNameList.Lookup(m_strConditionName, strIndex);
 		m_nConditionIndex = _ttoi(strIndex);
-		//Á¾¸ñÆíÀÔ, ÀÌÅ» ·Î±× »èÁ¦
+		//ì¢…ëª©í¸ì…, ì´íƒˆ ë¡œê·¸ ì‚­ì œ
 		m_listCtl_Insert.ResetContent();
 		m_listCtl_Delete.ResetContent();
 
-		//Á¶°Ç½Ä¿¡ ¸Â´Â Á¾¸ñÀ» ¹Ş±âÀ§ÇØ È£ÃâÇÑ´Ù.
-		//Á¾¸ñ¸®½ºÆ®´Â OnReceiveTrCondition()À» ÅëÇÏ¿© µé¾î¿Â´Ù.
-		//ÀÏ¹İ Á¶°Ç °Ë»ö Á¶È¸ÀÌ¸é ¸¶Áö¸· ÆÄ¶ó¸ŞÅÍ¿¡ 0À¸·Î ÇØÁØ´Ù.
+		//ì¡°ê±´ì‹ì— ë§ëŠ” ì¢…ëª©ì„ ë°›ê¸°ìœ„í•´ í˜¸ì¶œí•œë‹¤.
+		//ì¢…ëª©ë¦¬ìŠ¤íŠ¸ëŠ” OnReceiveTrCondition()ì„ í†µí•˜ì—¬ ë“¤ì–´ì˜¨ë‹¤.
+		//ì¼ë°˜ ì¡°ê±´ ê²€ìƒ‰ ì¡°íšŒì´ë©´ ë§ˆì§€ë§‰ íŒŒë¼ë©”í„°ì— 0ìœ¼ë¡œ í•´ì¤€ë‹¤.
 		BOOL bRet = theApp.m_khOpenApi.SendCondition(m_strScrNo, strConditionName, m_nConditionIndex, 0);
 
 		if (bRet == FALSE)
 		{
-			//¿¡·¯
+			//ì—ëŸ¬
 			return;
 		}
 	}
 }
 
-//Á¶°Ç °Ë»ö ½Ç½Ã°£ Á¶È¸
+//ì¡°ê±´ ê²€ìƒ‰ ì‹¤ì‹œê°„ ì¡°íšŒ
 void CRealAddDlg::OnBnClickedButton1()
 {
 	CString strConditionCodeList = _T(""), strIndex;
 
-	//¼±ÅÃÇÑ Á¶°Ç¸íÀÇ °Ë»öµÈ Á¾¸ñ¸®½ºÆ®¸¦ ºÒ·¯¿Â´Ù.
+	//ì„ íƒí•œ ì¡°ê±´ëª…ì˜ ê²€ìƒ‰ëœ ì¢…ëª©ë¦¬ìŠ¤íŠ¸ë¥¼ ë¶ˆëŸ¬ì˜¨ë‹¤.
 	m_cmbCon.GetLBText(m_cmbCon.GetCurSel(), m_strConditionName);
 	m_mapNameList.Lookup(m_strConditionName, strIndex);
 	m_nConditionIndex = _ttoi(strIndex);
 
-	//¼±ÅÃÇÑ Á¶°Ç¸íÀÌ ÀÌÀü°ú °°Àº Á¶°Ç¸íÀÌ¸é ¸®ÅÏ.
+	//ì„ íƒí•œ ì¡°ê±´ëª…ì´ ì´ì „ê³¼ ê°™ì€ ì¡°ê±´ëª…ì´ë©´ ë¦¬í„´.
 	if (m_strPreConditionName == m_strConditionName)
 	{
 		return;
@@ -707,18 +707,18 @@ void CRealAddDlg::OnBnClickedButton1()
 	m_strPreConditionName = m_strConditionName;
 	m_nPreConditionIndex = m_nConditionIndex;
 
-	//Á¾¸ñÆíÀÔ, ÀÌÅ» ·Î±× »èÁ¦
+	//ì¢…ëª©í¸ì…, ì´íƒˆ ë¡œê·¸ ì‚­ì œ
 	m_listCtl_Insert.ResetContent();
 	m_listCtl_Delete.ResetContent();
 
-	//Á¶°Ë°Ë»ö ½Ç½Ã°£ Á¶È¸
-	//Á¾¸ñ¸®½ºÆ®´Â OnReceiveTrCondition()À» ÅëÇÏ¿© µé¾î¿Â´Ù.
-	//½Ç½Ã°£ Á¶°Ç °Ë»öÀ» ÇÏ°í ½ÍÀ¸¸é ¸¶Áö¸· ÆÄ¶ó¸ŞÅÍ¿¡ 1·Î ÁØ´Ù.
+	//ì¡°ê²€ê²€ìƒ‰ ì‹¤ì‹œê°„ ì¡°íšŒ
+	//ì¢…ëª©ë¦¬ìŠ¤íŠ¸ëŠ” OnReceiveTrCondition()ì„ í†µí•˜ì—¬ ë“¤ì–´ì˜¨ë‹¤.
+	//ì‹¤ì‹œê°„ ì¡°ê±´ ê²€ìƒ‰ì„ í•˜ê³  ì‹¶ìœ¼ë©´ ë§ˆì§€ë§‰ íŒŒë¼ë©”í„°ì— 1ë¡œ ì¤€ë‹¤.
 	BOOL bRet = theApp.m_khOpenApi.SendCondition(m_strScrNo, m_strConditionName, m_nConditionIndex, 1);
 
 	if (bRet == FALSE)
 	{
-		//¿¡·¯
+		//ì—ëŸ¬
 		return;
 	}
 }
@@ -726,7 +726,7 @@ void CRealAddDlg::OnBnClickedButton1()
 
 void CRealAddDlg::OnBnClickedButton2()
 {
-	//Á¶°ÇÁßÁö
+	//ì¡°ê±´ì¤‘ì§€
 	m_strPreConditionName = "";
  	CString strConditionName, strIndex;
  	m_cmbCon.GetLBText(m_cmbCon.GetCurSel(), strConditionName);

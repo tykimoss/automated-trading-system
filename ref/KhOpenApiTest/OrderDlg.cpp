@@ -1,15 +1,15 @@
+ï»¿//******************************************************************/
 //******************************************************************/
-//******************************************************************/
-//! All Rights Reserved. Copyright(c)   2014 (ÁÖ)ÇÑ±¹¼Ò¸®¸¶Ä¡        /
+//! All Rights Reserved. Copyright(c)   2014 (ì£¼)í•œêµ­ì†Œë¦¬ë§ˆì¹˜        /
 //******************************************************************/
 //! File Name     : OrderDlg.cpp
-//! Function      : ÁÖ¹® ´ÙÀÌ¾ó·Î±×
-//! System Name   : Å°¿ò ¿ÀÇÂAPI Å×½ºÆ®
+//! Function      : ì£¼ë¬¸ ë‹¤ì´ì–¼ë¡œê·¸
+//! System Name   : í‚¤ì›€ ì˜¤í”ˆAPI í…ŒìŠ¤íŠ¸
 //! Create        : , 2014/06/02
 //! Update        : 
 //! Comment       : 
 //******************************************************************/
-// OrderDlg.cpp : ±¸Çö ÆÄÀÏ
+// OrderDlg.cpp : êµ¬í˜„ íŒŒì¼
 //
 
 #include "stdafx.h"
@@ -21,10 +21,10 @@
 #define new DEBUG_NEW
 #endif
 
-// COrderDlg ´ëÈ­ »óÀÚ
+// COrderDlg ëŒ€í™” ìƒì
 //*******************************************************************/
 //! Function Name : COrderDlg::COrderDlg(CWnd* pParent /*=NULL*/) : CDialogEx(COrderDlg::IDD, pParent)
-//! Function      : »ı¼º ÃÊ±â Ã³¸®
+//! Function      : ìƒì„± ì´ˆê¸° ì²˜ë¦¬
 //! Param         : HANDLE hBitmap, int bits
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -41,13 +41,13 @@ COrderDlg::COrderDlg(CWnd* pParent /*=NULL*/)
 
 //*******************************************************************/
 // Function Name : DoDataExchange
-// Function      : DDX/DDV¿¡ °ü·Ã µÈ ÇÔ¼ö È£Ãâ
+// Function      : DDX/DDVì— ê´€ë ¨ ëœ í•¨ìˆ˜ í˜¸ì¶œ
 // Param         : CDataExchange*	pDX
 // Return        : void
 // Create        : , 2014/06/02
-// Comment       : DDX - ÄÁÆ®·Ñ°ú ¸â¹öº¯¼ö»çÀÌ¿¡ Á¤º¸¸¦ ±³È¯ÇÏ´Â ¿ªÇÒ
-//				 : DDV - ¸â¹öº¯¼ö¿¡ ÀúÀå µÉ °ªÀÇ À¯È¿¼º Ã¼Å©
-//				 : UapdateData()ÇÔ¼ö·Î °£Á¢ È£Ãâ ÇÒ ¼ö ÀÖÀ½
+// Comment       : DDX - ì»¨íŠ¸ë¡¤ê³¼ ë©¤ë²„ë³€ìˆ˜ì‚¬ì´ì— ì •ë³´ë¥¼ êµí™˜í•˜ëŠ” ì—­í• 
+//				 : DDV - ë©¤ë²„ë³€ìˆ˜ì— ì €ì¥ ë  ê°’ì˜ ìœ íš¨ì„± ì²´í¬
+//				 : UapdateData()í•¨ìˆ˜ë¡œ ê°„ì ‘ í˜¸ì¶œ í•  ìˆ˜ ìˆìŒ
 //*******************************************************************/
 void COrderDlg::DoDataExchange(CDataExchange* pDX)
 {
@@ -75,47 +75,47 @@ END_MESSAGE_MAP()
 
 //*******************************************************************/
 //! Function Name : OnInitDialog
-//! Function      : »ı¼º ÃÊ±â Ã³¸®
+//! Function      : ìƒì„± ì´ˆê¸° ì²˜ë¦¬
 //! Param         : void
 //! Return        : BOOL
 //! Create        : , 2014/06/02
-//! Comment       : COrderDlg ¸Ş½ÃÁö Ã³¸®±â
+//! Comment       : COrderDlg ë©”ì‹œì§€ ì²˜ë¦¬ê¸°
 //******************************************************************/
 BOOL COrderDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	// ÀÌ ´ëÈ­ »óÀÚÀÇ ¾ÆÀÌÄÜÀ» ¼³Á¤ÇÕ´Ï´Ù. ÀÀ¿ë ÇÁ·Î±×·¥ÀÇ ÁÖ Ã¢ÀÌ ´ëÈ­ »óÀÚ°¡ ¾Æ´Ò °æ¿ì¿¡´Â
-	//  ÇÁ·¹ÀÓ¿öÅ©°¡ ÀÌ ÀÛ¾÷À» ÀÚµ¿À¸·Î ¼öÇàÇÕ´Ï´Ù.
-	SetIcon(m_hIcon, TRUE);			// Å« ¾ÆÀÌÄÜÀ» ¼³Á¤ÇÕ´Ï´Ù.
-	SetIcon(m_hIcon, FALSE);		// ÀÛÀº ¾ÆÀÌÄÜÀ» ¼³Á¤ÇÕ´Ï´Ù.
+	// ì´ ëŒ€í™” ìƒìì˜ ì•„ì´ì½˜ì„ ì„¤ì •í•©ë‹ˆë‹¤. ì‘ìš© í”„ë¡œê·¸ë¨ì˜ ì£¼ ì°½ì´ ëŒ€í™” ìƒìê°€ ì•„ë‹ ê²½ìš°ì—ëŠ”
+	//  í”„ë ˆì„ì›Œí¬ê°€ ì´ ì‘ì—…ì„ ìë™ìœ¼ë¡œ ìˆ˜í–‰í•©ë‹ˆë‹¤.
+	SetIcon(m_hIcon, TRUE);			// í° ì•„ì´ì½˜ì„ ì„¤ì •í•©ë‹ˆë‹¤.
+	SetIcon(m_hIcon, FALSE);		// ì‘ì€ ì•„ì´ì½˜ì„ ì„¤ì •í•©ë‹ˆë‹¤.
 
-	// TODO: ¿©±â¿¡ Ãß°¡ ÃÊ±âÈ­ ÀÛ¾÷À» Ãß°¡ÇÕ´Ï´Ù.
-	((CEdit*)GetDlgItem(IDC_EDT_ACCNO))->SetLimitText(10);		// °èÁÂ¹øÈ£ ÃÖ´ë±æÀÌ ¼³Á¤
-	((CEdit*)GetDlgItem(IDC_EDT_JONGCODE))->SetLimitText(6);	// Á¾¸ñÄÚµå ÃÖ´ë±æÀÌ ¼³Á¤
+	// TODO: ì—¬ê¸°ì— ì¶”ê°€ ì´ˆê¸°í™” ì‘ì—…ì„ ì¶”ê°€í•©ë‹ˆë‹¤.
+	((CEdit*)GetDlgItem(IDC_EDT_ACCNO))->SetLimitText(10);		// ê³„ì¢Œë²ˆí˜¸ ìµœëŒ€ê¸¸ì´ ì„¤ì •
+	((CEdit*)GetDlgItem(IDC_EDT_JONGCODE))->SetLimitText(6);	// ì¢…ëª©ì½”ë“œ ìµœëŒ€ê¸¸ì´ ì„¤ì •
 
-	// ÁÖ¹®ÀÔ·Â ÄŞº¸ ÀÎµ¦½º ÃÊ±âÈ­
+	// ì£¼ë¬¸ì…ë ¥ ì½¤ë³´ ì¸ë±ìŠ¤ ì´ˆê¸°í™”
 	((CComboBox*)GetDlgItem(IDC_COM_TRTP))->SetCurSel(0);
 	((CComboBox*)GetDlgItem(IDC_COM_SBTP))->SetCurSel(0);
 
-	// °Å·¡±¸ºĞ µ¥ÀÌÅÍ ¼¼ÆÃ
-	// 0:ÁöÁ¤°¡, 3:½ÃÀå°¡, 5:Á¶°ÇºÎÁöÁ¤°¡, 6:ÃÖÀ¯¸®ÁöÁ¤°¡, 7:ÃÖ¿ì¼±ÁöÁ¤°¡, 
-	// 10:ÁöÁ¤°¡IOC, 13:½ÃÀå°¡IOC, 16:ÃÖÀ¯¸®IOC, 20:ÁöÁ¤°¡FOK, 23:½ÃÀå°¡FOK, 
-	// 26:ÃÖÀ¯¸®FOK, 61:Àå°³½ÃÀü½Ã°£¿Ü, 62:½Ã°£¿Ü´ÜÀÏ°¡¸Å¸Å, 81:½Ã°£¿ÜÁ¾°¡
+	// ê±°ë˜êµ¬ë¶„ ë°ì´í„° ì„¸íŒ…
+	// 0:ì§€ì •ê°€, 3:ì‹œì¥ê°€, 5:ì¡°ê±´ë¶€ì§€ì •ê°€, 6:ìµœìœ ë¦¬ì§€ì •ê°€, 7:ìµœìš°ì„ ì§€ì •ê°€, 
+	// 10:ì§€ì •ê°€IOC, 13:ì‹œì¥ê°€IOC, 16:ìµœìœ ë¦¬IOC, 20:ì§€ì •ê°€FOK, 23:ì‹œì¥ê°€FOK, 
+	// 26:ìµœìœ ë¦¬FOK, 61:ì¥ê°œì‹œì „ì‹œê°„ì™¸, 62:ì‹œê°„ì™¸ë‹¨ì¼ê°€ë§¤ë§¤, 81:ì‹œê°„ì™¸ì¢…ê°€
 	int nTrTpCode[] = {0, 3, 5, 6, 7, 10, 13, 16, 20, 23, 26, 61, 62, 81};
-	int i, nCnt = sizeof(nTrTpCode) / sizeof(*nTrTpCode);		// ÀüÃ¼Å©±â / ¿ø¼ÒÅ©±â = ¿ø¼Ò°³¼ö
+	int i, nCnt = sizeof(nTrTpCode) / sizeof(*nTrTpCode);		// ì „ì²´í¬ê¸° / ì›ì†Œí¬ê¸° = ì›ì†Œê°œìˆ˜
 	for (i = 0; i < nCnt; i++)
 	{
 		((CComboBox*)GetDlgItem(IDC_COM_TRTP))->SetItemData(i, nTrTpCode[i]);
 	}
 
-	/// ½Å¿ëÁÖ¹®
+	/// ì‹ ìš©ì£¼ë¬¸
 	GetDlgItem(IDC_EDT_ACCNO)->SetWindowText(_T(""));
-	/// Çö±İÁÖ¹®À» ±âº»°ªÀ¸·Î...
+	/// í˜„ê¸ˆì£¼ë¬¸ì„ ê¸°ë³¸ê°’ìœ¼ë¡œ...
 	((CButton*)GetDlgItem(IDC_ORDERTYPE_DEFAULT))->SetCheck(TRUE);
 	OnBnClickedOrdertypeDefault();
 	
-	/// ½Å±Ô¸Å¼ö¸¦ ±âº»°ªÀ¸·Î...
+	/// ì‹ ê·œë§¤ìˆ˜ë¥¼ ê¸°ë³¸ê°’ìœ¼ë¡œ...
 	SetCreditType(0);
 
 	InitFIDName();
@@ -124,23 +124,23 @@ BOOL COrderDlg::OnInitDialog()
 
 //*******************************************************************/
 //! Function Name : OnPaint
-//! Function      : ±×¸®±â Ã³¸®
+//! Function      : ê·¸ë¦¬ê¸° ì²˜ë¦¬
 //! Param         : void
 //! Return        : void
 //! Create        : , 2014/06/02
-//! Comment       : ´ëÈ­ »óÀÚ¿¡ ÃÖ¼ÒÈ­ ´ÜÃß¸¦ Ãß°¡ÇÒ °æ¿ì ¾ÆÀÌÄÜÀ» ±×¸®·Á¸é
-//!               : ¾Æ·¡ ÄÚµå°¡ ÇÊ¿äÇÕ´Ï´Ù. ¹®¼­/ºä ¸ğµ¨À» »ç¿ëÇÏ´Â MFC ÀÀ¿ë ÇÁ·Î±×·¥ÀÇ °æ¿ì¿¡´Â
-//!               : ÇÁ·¹ÀÓ¿öÅ©¿¡¼­ ÀÌ ÀÛ¾÷À» ÀÚµ¿À¸·Î ¼öÇàÇÕ´Ï´Ù.
+//! Comment       : ëŒ€í™” ìƒìì— ìµœì†Œí™” ë‹¨ì¶”ë¥¼ ì¶”ê°€í•  ê²½ìš° ì•„ì´ì½˜ì„ ê·¸ë¦¬ë ¤ë©´
+//!               : ì•„ë˜ ì½”ë“œê°€ í•„ìš”í•©ë‹ˆë‹¤. ë¬¸ì„œ/ë·° ëª¨ë¸ì„ ì‚¬ìš©í•˜ëŠ” MFC ì‘ìš© í”„ë¡œê·¸ë¨ì˜ ê²½ìš°ì—ëŠ”
+//!               : í”„ë ˆì„ì›Œí¬ì—ì„œ ì´ ì‘ì—…ì„ ìë™ìœ¼ë¡œ ìˆ˜í–‰í•©ë‹ˆë‹¤.
 //******************************************************************/
 void COrderDlg::OnPaint()
 {
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // ±×¸®±â¸¦ À§ÇÑ µğ¹ÙÀÌ½º ÄÁÅØ½ºÆ®ÀÔ´Ï´Ù.
+		CPaintDC dc(this); // ê·¸ë¦¬ê¸°ë¥¼ ìœ„í•œ ë””ë°”ì´ìŠ¤ ì»¨í…ìŠ¤íŠ¸ì…ë‹ˆë‹¤.
 
 		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
-		// Å¬¶óÀÌ¾ğÆ® »ç°¢Çü¿¡¼­ ¾ÆÀÌÄÜÀ» °¡¿îµ¥¿¡ ¸ÂÃä´Ï´Ù.
+		// í´ë¼ì´ì–¸íŠ¸ ì‚¬ê°í˜•ì—ì„œ ì•„ì´ì½˜ì„ ê°€ìš´ë°ì— ë§ì¶¥ë‹ˆë‹¤.
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
@@ -148,7 +148,7 @@ void COrderDlg::OnPaint()
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
 
-		// ¾ÆÀÌÄÜÀ» ±×¸³´Ï´Ù.
+		// ì•„ì´ì½˜ì„ ê·¸ë¦½ë‹ˆë‹¤.
 		dc.DrawIcon(x, y, m_hIcon);
 	}
 	else
@@ -159,7 +159,7 @@ void COrderDlg::OnPaint()
 
 //*******************************************************************/
 //! Function Name : OnClose
-//! Function      : ÆÄ±«ÀÚ
+//! Function      : íŒŒê´´ì
 //! Param         : void
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -167,7 +167,7 @@ void COrderDlg::OnPaint()
 //******************************************************************/
 void COrderDlg::OnClose()
 {
-	// È­¸é ´İÀ» ¶§ ºÎ¸ğÀ©µµ¿ì¿¡°Ô Åëº¸(È­¸é °ü¸® À§ÇØ)
+	// í™”ë©´ ë‹«ì„ ë•Œ ë¶€ëª¨ìœˆë„ìš°ì—ê²Œ í†µë³´(í™”ë©´ ê´€ë¦¬ ìœ„í•´)
 	if (m_pParent)
 	{
 		int nLen = m_strScrNo.GetLength();
@@ -182,12 +182,12 @@ void COrderDlg::OnClose()
 
 //*******************************************************************/
 //! Function Name : OnQueryDragIcon
-//! Function      : µå·¡±× ¾ÆÀÌÄÜ Ã³¸®
+//! Function      : ë“œë˜ê·¸ ì•„ì´ì½˜ ì²˜ë¦¬
 //! Param         : void
 //! Return        : HCURSOR
 //! Create        : , 2014/06/02
-//! Comment       : »ç¿ëÀÚ°¡ ÃÖ¼ÒÈ­µÈ Ã¢À» ²ô´Â µ¿¾È¿¡ Ä¿¼­°¡ Ç¥½ÃµÇµµ·Ï ½Ã½ºÅÛ¿¡¼­ 
-//!               : ÀÌ ÇÔ¼ö¸¦ È£ÃâÇÕ´Ï´Ù.
+//! Comment       : ì‚¬ìš©ìê°€ ìµœì†Œí™”ëœ ì°½ì„ ë„ëŠ” ë™ì•ˆì— ì»¤ì„œê°€ í‘œì‹œë˜ë„ë¡ ì‹œìŠ¤í…œì—ì„œ 
+//!               : ì´ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•©ë‹ˆë‹¤.
 //******************************************************************/
 HCURSOR COrderDlg::OnQueryDragIcon()
 {
@@ -196,7 +196,7 @@ HCURSOR COrderDlg::OnQueryDragIcon()
 
 //*******************************************************************/
 //! Function Name : OnBtnOrder
-//! Function      : ÁÖ¹® ¹öÆ°
+//! Function      : ì£¼ë¬¸ ë²„íŠ¼
 //! Param         : void
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -204,94 +204,94 @@ HCURSOR COrderDlg::OnQueryDragIcon()
 //******************************************************************/
 void COrderDlg::OnBtnOrder()
 {
-	// °èÁÂ¹øÈ£ ÀÔ·Â ¿©ºÎ
+	// ê³„ì¢Œë²ˆí˜¸ ì…ë ¥ ì—¬ë¶€
 	CString strAccNo;
 	((CEdit*)GetDlgItem(IDC_EDT_ACCNO))->GetWindowText(strAccNo);
 	if (strAccNo.GetLength() != 10)
 	{
-		AfxMessageBox("°èÁÂ¹øÈ£ 10ÀÚ¸¦ ÀÔ·Â ÇØ ÁÖ¼¼¿ä~!");
+		AfxMessageBox("ê³„ì¢Œë²ˆí˜¸ 10ìë¥¼ ì…ë ¥ í•´ ì£¼ì„¸ìš”~!");
 		((CEdit*)GetDlgItem(IDC_EDT_ACCNO))->SetFocus();
 		return;
 	}
 
-	// Á¾¸ñÄÚµå ÀÔ·Â ¿©ºÎ
+	// ì¢…ëª©ì½”ë“œ ì…ë ¥ ì—¬ë¶€
 	((CEdit*)GetDlgItem(IDC_EDT_JONGCODE))->GetWindowText(m_strJongCode);
 	if (m_strJongCode.GetLength() != 6)
 	{
-		AfxMessageBox("Á¾¸ñÄÚµå 6ÀÚ¸¦ ÀÔ·Â ÇØ ÁÖ¼¼¿ä~!");
+		AfxMessageBox("ì¢…ëª©ì½”ë“œ 6ìë¥¼ ì…ë ¥ í•´ ì£¼ì„¸ìš”~!");
 		((CEdit*)GetDlgItem(IDC_EDT_JONGCODE))->SetFocus();
 		return;
 	}
 
-	// ÁÖ¹®¼ö·® ÀÔ·Â ¿©ºÎ
+	// ì£¼ë¬¸ìˆ˜ëŸ‰ ì…ë ¥ ì—¬ë¶€
 	CString strQty;
 	((CEdit*)GetDlgItem(IDC_EDT_QUANTITY))->GetWindowText(strQty);
 	int lQty = atol(strQty);
 	if (lQty < 1)
 	{
-		AfxMessageBox("ÁÖ¹®¼ö·®À» 0º¸´Ù Å« ¼ö·Î ÀÔ·Â ÇØ ÁÖ¼¼¿ä~!");
+		AfxMessageBox("ì£¼ë¬¸ìˆ˜ëŸ‰ì„ 0ë³´ë‹¤ í° ìˆ˜ë¡œ ì…ë ¥ í•´ ì£¼ì„¸ìš”~!");
 		((CEdit*)GetDlgItem(IDC_EDT_QUANTITY))->SetFocus();
 		return;
 	}
 
-	// °Å·¡±¸ºĞ Ãëµæ
-	// 0:ÁöÁ¤°¡, 3:½ÃÀå°¡, 5:Á¶°ÇºÎÁöÁ¤°¡, 6:ÃÖÀ¯¸®ÁöÁ¤°¡, 7:ÃÖ¿ì¼±ÁöÁ¤°¡, 
-	// 10:ÁöÁ¤°¡IOC, 13:½ÃÀå°¡IOC, 16:ÃÖÀ¯¸®IOC, 20:ÁöÁ¤°¡FOK, 23:½ÃÀå°¡FOK, 
-	// 26:ÃÖÀ¯¸®FOK, 61:Àå°³½ÃÀü½Ã°£¿Ü, 62:½Ã°£¿Ü´ÜÀÏ°¡¸Å¸Å, 81:ÀåÈÄ½Ã°£¿ÜÁ¾°¡
+	// ê±°ë˜êµ¬ë¶„ ì·¨ë“
+	// 0:ì§€ì •ê°€, 3:ì‹œì¥ê°€, 5:ì¡°ê±´ë¶€ì§€ì •ê°€, 6:ìµœìœ ë¦¬ì§€ì •ê°€, 7:ìµœìš°ì„ ì§€ì •ê°€, 
+	// 10:ì§€ì •ê°€IOC, 13:ì‹œì¥ê°€IOC, 16:ìµœìœ ë¦¬IOC, 20:ì§€ì •ê°€FOK, 23:ì‹œì¥ê°€FOK, 
+	// 26:ìµœìœ ë¦¬FOK, 61:ì¥ê°œì‹œì „ì‹œê°„ì™¸, 62:ì‹œê°„ì™¸ë‹¨ì¼ê°€ë§¤ë§¤, 81:ì¥í›„ì‹œê°„ì™¸ì¢…ê°€
 	CString strHogaGb;
 	int		nIndex = ((CComboBox*)GetDlgItem(IDC_COM_TRTP))->GetCurSel();
 	DWORD	dwData = ((CComboBox*)GetDlgItem(IDC_COM_TRTP))->GetItemData(nIndex);
 	strHogaGb.Format(_T("%02d"), dwData);
 
-	// ÁÖ¹®°¡°İ ÀÔ·Â ¿©ºÎ
+	// ì£¼ë¬¸ê°€ê²© ì…ë ¥ ì—¬ë¶€
 	CString strPrice;
 	((CEdit*)GetDlgItem(IDC_EDT_PRICE))->GetWindowText(strPrice);
 	long lPrice = atoi(strPrice);
 	if (dwData != 3 && dwData != 13 && dwData != 23 && lPrice < 1)
 	{
-		AfxMessageBox("ÁÖ¹®°¡°İÀ» 0º¸´Ù Å« ¼ö·Î ÀÔ·Â ÇØ ÁÖ¼¼¿ä~!");
+		AfxMessageBox("ì£¼ë¬¸ê°€ê²©ì„ 0ë³´ë‹¤ í° ìˆ˜ë¡œ ì…ë ¥ í•´ ì£¼ì„¸ìš”~!");
 		((CEdit*)GetDlgItem(IDC_EDT_PRICE))->SetFocus();
 		return;
 	}
 
-	// ¸Å¸Å±¸ºĞ Ãëµæ(1:½Å±Ô¸Å¼ö, 2:½Å±Ô¸Åµµ 3:¸Å¼öÃë¼Ò, 4:¸ÅµµÃë¼Ò, 5:¸Å¼öÁ¤Á¤, 6:¸ÅµµÁ¤Á¤)
+	// ë§¤ë§¤êµ¬ë¶„ ì·¨ë“(1:ì‹ ê·œë§¤ìˆ˜, 2:ì‹ ê·œë§¤ë„ 3:ë§¤ìˆ˜ì·¨ì†Œ, 4:ë§¤ë„ì·¨ì†Œ, 5:ë§¤ìˆ˜ì •ì •, 6:ë§¤ë„ì •ì •)
 	long lOrderType = ((CComboBox*)GetDlgItem(IDC_COM_SBTP))->GetCurSel() + 1;
 
-	// ¿øÁÖ¹®¹øÈ£ ÀÔ·Â ¿©ºÎ
+	// ì›ì£¼ë¬¸ë²ˆí˜¸ ì…ë ¥ ì—¬ë¶€
 	CString strOrgNo;
 	((CEdit*)GetDlgItem(IDC_EDT_ORGNO))->GetWindowText(strOrgNo);
 	if (lOrderType > 2 && strOrgNo.GetLength() < 1)
 	{
-		AfxMessageBox("¿øÁÖ¹®¹øÈ£¸¦ ÀÔ·Â ÇØ ÁÖ¼¼¿ä~!");
+		AfxMessageBox("ì›ì£¼ë¬¸ë²ˆí˜¸ë¥¼ ì…ë ¥ í•´ ì£¼ì„¸ìš”~!");
 		((CEdit*)GetDlgItem(IDC_EDT_ORGNO))->SetFocus();
 		return;
 	}
 
-	/// Çö±İ(Çö¹°)ÁÖ¹®ÀÎÁö ½Å¿ëÁÖ¹®ÀÎÁö Ã¼Å©...
+	/// í˜„ê¸ˆ(í˜„ë¬¼)ì£¼ë¬¸ì¸ì§€ ì‹ ìš©ì£¼ë¬¸ì¸ì§€ ì²´í¬...
 	int	nCheckedOrder = GetCheckedRadioButton(IDC_ORDERTYPE_DEFAULT, IDC_ORDERTYPE_MARGIN);
 
-	CString strRQName = _T("ÁÖ½ÄÁÖ¹®");
+	CString strRQName = _T("ì£¼ì‹ì£¼ë¬¸");
 	int i;
 	long lRet;
 //	for (i = 0; i < 10; i++)
 	{
-		// ÁÖ¹®Àü¼Û °úºÎÇÏ ½Ã ÁÖ¹®Àü¼Û °¡´É ÇÒ ¶§±îÁö °è¼Ó ³»µµ·Ï Ã³¸®.
+		// ì£¼ë¬¸ì „ì†¡ ê³¼ë¶€í•˜ ì‹œ ì£¼ë¬¸ì „ì†¡ ê°€ëŠ¥ í•  ë•Œê¹Œì§€ ê³„ì† ë‚´ë„ë¡ ì²˜ë¦¬.
 		lRet = OP_ERR_ORD_OVERFLOW;
 	//	while (lRet == OP_ERR_ORD_OVERFLOW)
 		{
 			if(nCheckedOrder == IDC_ORDERTYPE_DEFAULT)
-			{/// Çö±İ(Çö¹°)ÁÖ¹®ÀÌ¸é...
+			{/// í˜„ê¸ˆ(í˜„ë¬¼)ì£¼ë¬¸ì´ë©´...
 				lRet = theApp.m_khOpenApi.SendOrder(strRQName, m_strScrNo, strAccNo, lOrderType, m_strJongCode, lQty, lPrice, strHogaGb, strOrgNo);
 			}
 			else if(nCheckedOrder == IDC_ORDERTYPE_MARGIN)
-			{/// ½Å¿ëÁÖ¹®ÀÌ¸é...
-				/// ½Å¿ë±¸ºĞ °ª À¯Çü(¸Å¼ö, ¸Åµµ)º° ½Å¿ë±¸ºĞ°ªÀº ´ÙÀ½°ú °°´Ù...
-				/// ½Å¿ë¸Å¼ö : ÀÚ±âÀ¶ÀÚ (03)
-				/// ½Å¿ë¸Åµµ : ÀÚ±âÀ¶ÀÚ (33), ÀÚ±âÀ¶ÀÚÇÕ(99)
+			{/// ì‹ ìš©ì£¼ë¬¸ì´ë©´...
+				/// ì‹ ìš©êµ¬ë¶„ ê°’ ìœ í˜•(ë§¤ìˆ˜, ë§¤ë„)ë³„ ì‹ ìš©êµ¬ë¶„ê°’ì€ ë‹¤ìŒê³¼ ê°™ë‹¤...
+				/// ì‹ ìš©ë§¤ìˆ˜ : ìê¸°ìœµì (03)
+				/// ì‹ ìš©ë§¤ë„ : ìê¸°ìœµì (33), ìê¸°ìœµìí•©(99)
 				CString		strCreditType(GetLoanType());
 
-				/// ´ëÃâÀÏ 
-				/// ½Å¿ë¸Åµµ ÀÚ±âÀ¶ÀÚ(33)ÀÏ¶§¸¸ Á¤È®ÇÑ ´ëÃâÀÏ ÇÊ¿ä
+				/// ëŒ€ì¶œì¼ 
+				/// ì‹ ìš©ë§¤ë„ ìê¸°ìœµì(33)ì¼ë•Œë§Œ ì •í™•í•œ ëŒ€ì¶œì¼ í•„ìš”
 				CString		strLoandDate(GetLoanDate());
 				lRet = theApp.m_khOpenApi.SendOrderCredit(strRQName, m_strScrNo, strAccNo, lOrderType, m_strJongCode, lQty, lPrice, strHogaGb, strCreditType, strLoandDate, strOrgNo);
 			}
@@ -310,7 +310,7 @@ void COrderDlg::OnBtnOrder()
 
 //*******************************************************************/
 //! Function Name : OnReceiveTrDataKhopenapictrl
-//! Function      : Á¶È¸ ÀÀ´ä Ã³¸®
+//! Function      : ì¡°íšŒ ì‘ë‹µ ì²˜ë¦¬
 //! Param         : LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrcode, LPCTSTR sRecordName, LPCTSTR sPrevNext, long nDataLength, LPCTSTR sErrorCode, LPCTSTR sMessage, LPCTSTR sSplmMsg
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -319,29 +319,29 @@ void COrderDlg::OnBtnOrder()
 void COrderDlg::OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrcode, LPCTSTR sRecordName, LPCTSTR sPrevNext, long nDataLength, LPCTSTR sErrorCode, LPCTSTR sMessage, LPCTSTR sSplmMsg)
 {
 	CString strRQName = sRQName;
-	if (strRQName == _T("ÁÖ½ÄÁÖ¹®"))		// ÁÖ½Ä±âº»Á¤º¸ ¼³Á¤
+	if (strRQName == _T("ì£¼ì‹ì£¼ë¬¸"))		// ì£¼ì‹ê¸°ë³¸ì •ë³´ ì„¤ì •
 	{
-		// ÁÖ¹® ¹øÈ£
-		CString strData = theApp.m_khOpenApi.GetCommData(sTrcode, sRQName, 0, _T("ÁÖ¹®¹øÈ£"));	strData.Trim();
+		// ì£¼ë¬¸ ë²ˆí˜¸
+		CString strData = theApp.m_khOpenApi.GetCommData(sTrcode, sRQName, 0, _T("ì£¼ë¬¸ë²ˆí˜¸"));	strData.Trim();
 		((CEdit*)GetDlgItem(IDC_EDT_ORGNO))->SetWindowText(strData);
 	}
-	else if(strRQName == _T("´ëÃâÀÏÁ¶È¸"))
+	else if(strRQName == _T("ëŒ€ì¶œì¼ì¡°íšŒ"))
 	{/// 
 		CString		strTRCode(sTrcode);
 		int		nCnt = theApp.m_khOpenApi.GetRepeatCnt(strTRCode, _T(""));
 		
 		if(nCnt < 1)
 		{
-			m_listCtl.AddString(_T("´ëÃâÀÏ Á¶È¸ ¹İº¹µ¥ÀÌÅÍ ¾øÀ½."));
+			m_listCtl.AddString(_T("ëŒ€ì¶œì¼ ì¡°íšŒ ë°˜ë³µë°ì´í„° ì—†ìŒ."));
 			return;
 		}
 
 		CString		strSymbol, strSymbolName, strLoanDate, strText;
 		for(int nIdx = 0; nIdx < nCnt; nIdx++)
 		{
-			strSymbol		= theApp.m_khOpenApi.CommGetData(strTRCode, _T(""), _T(""), nIdx, _T("Á¾¸ñ¹øÈ£"));
-			strSymbolName	= theApp.m_khOpenApi.CommGetData(strTRCode, _T(""), _T(""), nIdx, _T("Á¾¸ñ¸í"));
-			strLoanDate		= theApp.m_khOpenApi.CommGetData(strTRCode, _T(""), _T(""), nIdx, _T("´ëÃâÀÏ"));
+			strSymbol		= theApp.m_khOpenApi.CommGetData(strTRCode, _T(""), _T(""), nIdx, _T("ì¢…ëª©ë²ˆí˜¸"));
+			strSymbolName	= theApp.m_khOpenApi.CommGetData(strTRCode, _T(""), _T(""), nIdx, _T("ì¢…ëª©ëª…"));
+			strLoanDate		= theApp.m_khOpenApi.CommGetData(strTRCode, _T(""), _T(""), nIdx, _T("ëŒ€ì¶œì¼"));
 
 			strSymbol.Trim();
 			if(!strSymbol.IsEmpty())
@@ -350,7 +350,7 @@ void COrderDlg::OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LP
 			}
 			strSymbolName.Trim();
 			strLoanDate.Trim();
-			strText.Format(_T("´ëÃâÀÏ[%s]    Á¾¸ñ¹øÈ£[%s]    Á¾¸ñ¸í[%s] \n"), strLoanDate, strSymbol, strSymbolName);
+			strText.Format(_T("ëŒ€ì¶œì¼[%s]    ì¢…ëª©ë²ˆí˜¸[%s]    ì¢…ëª©ëª…[%s] \n"), strLoanDate, strSymbol, strSymbolName);
 			m_listCtl.AddString(strText);
 		}
 	}
@@ -358,7 +358,7 @@ void COrderDlg::OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LP
 
 //*******************************************************************/
 //! Function Name : OnReceiveMsgKhopenapictrl
-//! Function      : Á¶È¸ ¿¡·¯ Ã³¸®
+//! Function      : ì¡°íšŒ ì—ëŸ¬ ì²˜ë¦¬
 //! Param         : LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrCode, LPCTSTR sMsg
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -371,7 +371,7 @@ void COrderDlg::OnReceiveMsgKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LPCTS
 
 //*******************************************************************/
 //! Function Name : OnReceiveRealDataKhopenapictrl
-//! Function      : ½Ç½Ã°£ Ã³¸®
+//! Function      : ì‹¤ì‹œê°„ ì²˜ë¦¬
 //! Param         : LPCTSTR sJongmokCode, LPCTSTR sRealType, LPCTSTR sRealData
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -383,59 +383,59 @@ void COrderDlg::OnReceiveRealDataKhopenapictrl(LPCTSTR sJongmokCode, LPCTSTR sRe
 
 void COrderDlg::InitFIDName()
 {
-	m_mapFIDName.SetAt(_T("9201")	, _T("°èÁÂ¹øÈ£"));
-	m_mapFIDName.SetAt(_T("9203")	, _T("ÁÖ¹®¹øÈ£"));
-	m_mapFIDName.SetAt(_T("9001")	, _T("Á¾¸ñÄÚµå"));
-	m_mapFIDName.SetAt(_T("913")	, _T("ÁÖ¹®»óÅÂ"));
-	m_mapFIDName.SetAt(_T("302")	, _T("Á¾¸ñ¸í"));
-	m_mapFIDName.SetAt(_T("900")	, _T("ÁÖ¹®¼ö·®"));
-	m_mapFIDName.SetAt(_T("901")	, _T("ÁÖ¹®°¡°İ"));
-	m_mapFIDName.SetAt(_T("902")	, _T("¹ÌÃ¼°á¼ö·®"));
-	m_mapFIDName.SetAt(_T("903")	, _T("Ã¼°á´©°è±İ¾×"));
-	m_mapFIDName.SetAt(_T("904")	, _T("¿øÁÖ¹®¹øÈ£"));
-	m_mapFIDName.SetAt(_T("905")	, _T("ÁÖ¹®±¸ºĞ"));
-	m_mapFIDName.SetAt(_T("906")	, _T("¸Å¸Å±¸ºĞ"));
-	m_mapFIDName.SetAt(_T("907")	, _T("¸Åµµ¼ö±¸ºĞ"));
-	m_mapFIDName.SetAt(_T("908")	, _T("ÁÖ¹®/Ã¼°á½Ã°£"));
-	m_mapFIDName.SetAt(_T("909")	, _T("Ã¼°á¹øÈ£"));
-	m_mapFIDName.SetAt(_T("910")	, _T("Ã¼°á°¡"));
-	m_mapFIDName.SetAt(_T("911")	, _T("Ã¼°á·®"));
-	m_mapFIDName.SetAt(_T("10")		, _T("ÇöÀç°¡"));
-	m_mapFIDName.SetAt(_T("27")		, _T("(ÃÖ¿ì¼±)¸ÅµµÈ£°¡"));
-	m_mapFIDName.SetAt(_T("28")		, _T("(ÃÖ¿ì¼±)¸Å¼öÈ£°¡"));
-	m_mapFIDName.SetAt(_T("914")	, _T("´ÜÀ§Ã¼°á°¡"));
-	m_mapFIDName.SetAt(_T("915")	, _T("´ÜÀ§Ã¼°á·®"));
-	m_mapFIDName.SetAt(_T("919")	, _T("°ÅºÎ»çÀ¯"));
-	m_mapFIDName.SetAt(_T("920")	, _T("È­¸é¹øÈ£"));
+	m_mapFIDName.SetAt(_T("9201")	, _T("ê³„ì¢Œë²ˆí˜¸"));
+	m_mapFIDName.SetAt(_T("9203")	, _T("ì£¼ë¬¸ë²ˆí˜¸"));
+	m_mapFIDName.SetAt(_T("9001")	, _T("ì¢…ëª©ì½”ë“œ"));
+	m_mapFIDName.SetAt(_T("913")	, _T("ì£¼ë¬¸ìƒíƒœ"));
+	m_mapFIDName.SetAt(_T("302")	, _T("ì¢…ëª©ëª…"));
+	m_mapFIDName.SetAt(_T("900")	, _T("ì£¼ë¬¸ìˆ˜ëŸ‰"));
+	m_mapFIDName.SetAt(_T("901")	, _T("ì£¼ë¬¸ê°€ê²©"));
+	m_mapFIDName.SetAt(_T("902")	, _T("ë¯¸ì²´ê²°ìˆ˜ëŸ‰"));
+	m_mapFIDName.SetAt(_T("903")	, _T("ì²´ê²°ëˆ„ê³„ê¸ˆì•¡"));
+	m_mapFIDName.SetAt(_T("904")	, _T("ì›ì£¼ë¬¸ë²ˆí˜¸"));
+	m_mapFIDName.SetAt(_T("905")	, _T("ì£¼ë¬¸êµ¬ë¶„"));
+	m_mapFIDName.SetAt(_T("906")	, _T("ë§¤ë§¤êµ¬ë¶„"));
+	m_mapFIDName.SetAt(_T("907")	, _T("ë§¤ë„ìˆ˜êµ¬ë¶„"));
+	m_mapFIDName.SetAt(_T("908")	, _T("ì£¼ë¬¸/ì²´ê²°ì‹œê°„"));
+	m_mapFIDName.SetAt(_T("909")	, _T("ì²´ê²°ë²ˆí˜¸"));
+	m_mapFIDName.SetAt(_T("910")	, _T("ì²´ê²°ê°€"));
+	m_mapFIDName.SetAt(_T("911")	, _T("ì²´ê²°ëŸ‰"));
+	m_mapFIDName.SetAt(_T("10")		, _T("í˜„ì¬ê°€"));
+	m_mapFIDName.SetAt(_T("27")		, _T("(ìµœìš°ì„ )ë§¤ë„í˜¸ê°€"));
+	m_mapFIDName.SetAt(_T("28")		, _T("(ìµœìš°ì„ )ë§¤ìˆ˜í˜¸ê°€"));
+	m_mapFIDName.SetAt(_T("914")	, _T("ë‹¨ìœ„ì²´ê²°ê°€"));
+	m_mapFIDName.SetAt(_T("915")	, _T("ë‹¨ìœ„ì²´ê²°ëŸ‰"));
+	m_mapFIDName.SetAt(_T("919")	, _T("ê±°ë¶€ì‚¬ìœ "));
+	m_mapFIDName.SetAt(_T("920")	, _T("í™”ë©´ë²ˆí˜¸"));
 
-	m_mapFIDName.SetAt(_T("917")	, _T("½Å¿ë±¸ºĞ"));
-	m_mapFIDName.SetAt(_T("916")	, _T("´ëÃâÀÏ"));
-	m_mapFIDName.SetAt(_T("930")	, _T("º¸À¯¼ö·®"));
-	m_mapFIDName.SetAt(_T("931")	, _T("¸ÅÀÔ´Ü°¡"));
-	m_mapFIDName.SetAt(_T("932")	, _T("ÃÑ¸ÅÀÔ°¡"));
-	m_mapFIDName.SetAt(_T("933")	, _T("ÁÖ¹®°¡´É¼ö·®"));
-	m_mapFIDName.SetAt(_T("945")	, _T("´çÀÏ¼ø¸Å¼ö¼ö·®"));
-	m_mapFIDName.SetAt(_T("946")	, _T("¸Åµµ/¸Å¼ö±¸ºĞ"));
-	m_mapFIDName.SetAt(_T("950")	, _T("´çÀÏÃÑ¸Åµµ¼ÕÀÏ"));
-	m_mapFIDName.SetAt(_T("951")	, _T("¿¹¼ö±İ"));
-	m_mapFIDName.SetAt(_T("307")	, _T("±âÁØ°¡"));
-	m_mapFIDName.SetAt(_T("8019")	, _T("¼ÕÀÍÀ²"));
-	m_mapFIDName.SetAt(_T("957")	, _T("½Å¿ë±İ¾×"));
-	m_mapFIDName.SetAt(_T("958")	, _T("½Å¿ëÀÌÀÚ"));
-	m_mapFIDName.SetAt(_T("918")	, _T("¸¸±âÀÏ"));
-	m_mapFIDName.SetAt(_T("990")	, _T("´çÀÏ½ÇÇö¼ÕÀÍ(À¯°¡"));
-	m_mapFIDName.SetAt(_T("991")	, _T("´çÀÏ½ÇÇö¼ÕÀÍ·ü(À¯°¡"));
-	m_mapFIDName.SetAt(_T("992")	, _T("´çÀÏ½ÇÇö¼ÕÀÍ(½Å¿ë"));
-	m_mapFIDName.SetAt(_T("993")	, _T("´çÀÏ½ÇÇö¼ÕÀÍ·ü(½Å¿ë"));
+	m_mapFIDName.SetAt(_T("917")	, _T("ì‹ ìš©êµ¬ë¶„"));
+	m_mapFIDName.SetAt(_T("916")	, _T("ëŒ€ì¶œì¼"));
+	m_mapFIDName.SetAt(_T("930")	, _T("ë³´ìœ ìˆ˜ëŸ‰"));
+	m_mapFIDName.SetAt(_T("931")	, _T("ë§¤ì…ë‹¨ê°€"));
+	m_mapFIDName.SetAt(_T("932")	, _T("ì´ë§¤ì…ê°€"));
+	m_mapFIDName.SetAt(_T("933")	, _T("ì£¼ë¬¸ê°€ëŠ¥ìˆ˜ëŸ‰"));
+	m_mapFIDName.SetAt(_T("945")	, _T("ë‹¹ì¼ìˆœë§¤ìˆ˜ìˆ˜ëŸ‰"));
+	m_mapFIDName.SetAt(_T("946")	, _T("ë§¤ë„/ë§¤ìˆ˜êµ¬ë¶„"));
+	m_mapFIDName.SetAt(_T("950")	, _T("ë‹¹ì¼ì´ë§¤ë„ì†ì¼"));
+	m_mapFIDName.SetAt(_T("951")	, _T("ì˜ˆìˆ˜ê¸ˆ"));
+	m_mapFIDName.SetAt(_T("307")	, _T("ê¸°ì¤€ê°€"));
+	m_mapFIDName.SetAt(_T("8019")	, _T("ì†ìµìœ¨"));
+	m_mapFIDName.SetAt(_T("957")	, _T("ì‹ ìš©ê¸ˆì•¡"));
+	m_mapFIDName.SetAt(_T("958")	, _T("ì‹ ìš©ì´ì"));
+	m_mapFIDName.SetAt(_T("918")	, _T("ë§Œê¸°ì¼"));
+	m_mapFIDName.SetAt(_T("990")	, _T("ë‹¹ì¼ì‹¤í˜„ì†ìµ(ìœ ê°€"));
+	m_mapFIDName.SetAt(_T("991")	, _T("ë‹¹ì¼ì‹¤í˜„ì†ìµë¥ (ìœ ê°€"));
+	m_mapFIDName.SetAt(_T("992")	, _T("ë‹¹ì¼ì‹¤í˜„ì†ìµ(ì‹ ìš©"));
+	m_mapFIDName.SetAt(_T("993")	, _T("ë‹¹ì¼ì‹¤í˜„ì†ìµë¥ (ì‹ ìš©"));
 
-	m_mapFIDName.SetAt(_T("397")	, _T("ÆÄ»ı»óÇ°°Å·¡´ÜÀ§"));
-	m_mapFIDName.SetAt(_T("305")	, _T("»óÇÑ°¡"));
-	m_mapFIDName.SetAt(_T("306")	, _T("ÇÏÇÑ°¡"));
+	m_mapFIDName.SetAt(_T("397")	, _T("íŒŒìƒìƒí’ˆê±°ë˜ë‹¨ìœ„"));
+	m_mapFIDName.SetAt(_T("305")	, _T("ìƒí•œê°€"));
+	m_mapFIDName.SetAt(_T("306")	, _T("í•˜í•œê°€"));
 }
 
 //*******************************************************************/
 //! Function Name : OnReceiveChejanData
-//! Function      : Ã¼°áÀÜ°í ½Ç½Ã°£ Ã³¸®
+//! Function      : ì²´ê²°ì”ê³  ì‹¤ì‹œê°„ ì²˜ë¦¬
 //! Param         : LPCTSTR sGubun, LONG nItemCnt, LPCTSTR sFidList
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -458,25 +458,25 @@ void COrderDlg::OnReceiveChejanData(LPCTSTR sGubun, LONG nItemCnt, LPCTSTR sFidL
 
 		strOneData = theApp.m_khOpenApi.GetChejanData(atoi(strFID)).Trim();
 		
-		strText.Format(_T("±¸ºĞ[%s] FID[%4s:%s] = [%s]"),strGubun, strFID, strFIDName, strOneData);
+		strText.Format(_T("êµ¬ë¶„[%s] FID[%4s:%s] = [%s]"),strGubun, strFID, strFIDName, strOneData);
 		m_listCtl.AddString(strText);
 		strFIDName.Empty();
 	}
 }
 
 ///////////////////////////////////////////////////////////
-///////////////////// ½Å¿ëÁÖ¹®°ü·Ã Ã³¸®. /////////////////////
+///////////////////// ì‹ ìš©ì£¼ë¬¸ê´€ë ¨ ì²˜ë¦¬. /////////////////////
 ///////////////////////////////////////////////////////////
 void COrderDlg::OnBnClickedOrdertypeDefault()
-{/// Çö±İ(Çö¹°)ÁÖ¹® ¼±ÅÃ......
-	/// ½Å¿ëÁÖ¹®°ü·Ã ÄÁÆ®·ÑÀ» ºñÈ°¼º ½ÃÅ²´Ù...
+{/// í˜„ê¸ˆ(í˜„ë¬¼)ì£¼ë¬¸ ì„ íƒ......
+	/// ì‹ ìš©ì£¼ë¬¸ê´€ë ¨ ì»¨íŠ¸ë¡¤ì„ ë¹„í™œì„± ì‹œí‚¨ë‹¤...
 	EnableCreditOrderControl(FALSE);
 	((CComboBox*)(GetDlgItem(IDC_COM_CREDIT_TP)))->SetCurSel(0);	
 }
 
 void COrderDlg::OnBnClickedOrdertypeMargin()
-{/// ½Å¿ëÁÖ¹® ¼±ÅÃ....
-	/// ½Å¿ëÁÖ¹®°ü·Ã ÄÁÆ®·ÑÀ» È°¼º ½ÃÅ²´Ù...
+{/// ì‹ ìš©ì£¼ë¬¸ ì„ íƒ....
+	/// ì‹ ìš©ì£¼ë¬¸ê´€ë ¨ ì»¨íŠ¸ë¡¤ì„ í™œì„± ì‹œí‚¨ë‹¤...
 	EnableCreditOrderControl(TRUE);
 	((CComboBox*)(GetDlgItem(IDC_COM_CREDIT_TP)))->SetCurSel(0);
 
@@ -484,27 +484,27 @@ void COrderDlg::OnBnClickedOrdertypeMargin()
 }
 
 void COrderDlg::EnableCreditOrderControl(BOOL bEnable)
-{/// ½Å¿ëÁÖ¹® °ü·Ã ÄÁÆ®·Ñ È°¼º/ºñÈ°¼º
+{/// ì‹ ìš©ì£¼ë¬¸ ê´€ë ¨ ì»¨íŠ¸ë¡¤ í™œì„±/ë¹„í™œì„±
 	GetDlgItem(IDC_STATIC_CREDIT)->EnableWindow(bEnable);
-	GetDlgItem(IDC_COM_CREDIT_TP)->EnableWindow(bEnable);		/// ½Å¿ë±¸ºĞ
+	GetDlgItem(IDC_COM_CREDIT_TP)->EnableWindow(bEnable);		/// ì‹ ìš©êµ¬ë¶„
 	GetDlgItem(IDC_STATIC_LOAN_DATE)->EnableWindow(bEnable);
-	GetDlgItem(IDC_LOAN_DATE)->EnableWindow(bEnable);			/// ´ëÃâÀÏ
-	GetDlgItem(IDC_STATIC_LOAN)->EnableWindow(bEnable);			/// À¶ÀÚ±¸ºĞ
-	GetDlgItem(IDC_COM_LOAN_TP)->EnableWindow(bEnable);			/// À¶ÀÚÄŞº¸
-	GetDlgItem(IDC_BTN_QRY_LOAN_DATE)->EnableWindow(bEnable);	/// ´ëÃâÀÏ
+	GetDlgItem(IDC_LOAN_DATE)->EnableWindow(bEnable);			/// ëŒ€ì¶œì¼
+	GetDlgItem(IDC_STATIC_LOAN)->EnableWindow(bEnable);			/// ìœµìêµ¬ë¶„
+	GetDlgItem(IDC_COM_LOAN_TP)->EnableWindow(bEnable);			/// ìœµìì½¤ë³´
+	GetDlgItem(IDC_BTN_QRY_LOAN_DATE)->EnableWindow(bEnable);	/// ëŒ€ì¶œì¼
 }
 
 void COrderDlg::OnSelchangeComSbtp()
-{/// ¸Å¸ÅÀ¯Çü º¯°æ½Ã...
+{/// ë§¤ë§¤ìœ í˜• ë³€ê²½ì‹œ...
 
 	int	nChecked = GetCheckedRadioButton(IDC_ORDERTYPE_DEFAULT, IDC_ORDERTYPE_MARGIN);
 	if(nChecked == IDC_ORDERTYPE_DEFAULT)
-	{/// Çö±İ(Çö¹°)ÁÖ¹®ÀÎ °æ¿ì...
+	{/// í˜„ê¸ˆ(í˜„ë¬¼)ì£¼ë¬¸ì¸ ê²½ìš°...
 		EnableCreditOrderControl(FALSE);
 		return;
 	}
 
-	/// ½Å¿ëÁÖ¹®ÀÏ¶§¸¸....	
+	/// ì‹ ìš©ì£¼ë¬¸ì¼ë•Œë§Œ....	
 	EnableCreditOrderControl(TRUE);
 
 	int	nCurSel = ((CComboBox*)(GetDlgItem(IDC_COM_SBTP)))->GetCurSel();
@@ -512,10 +512,10 @@ void COrderDlg::OnSelchangeComSbtp()
 }
 
 void COrderDlg::SetCreditType(int nIndex)
-{/// ¸Å¸ÅÀ¯Çü¿¡ µû¶ó ½Å¿ë±¸ºĞ°ªÀ» ¼³Á¤ÇÑ´Ù.
+{/// ë§¤ë§¤ìœ í˜•ì— ë”°ë¼ ì‹ ìš©êµ¬ë¶„ê°’ì„ ì„¤ì •í•œë‹¤.
 
-	/// ½Å¿ë¸Å¼ö : ÀÚ±âÀ¶ÀÚ¸Å¼ö (03)
-	/// ½Å¿ë¸Åµµ : ÀÚ±âÀ¶ÀÚ»óÈ¯ (33), ÀÚ±âÀ¶ÀÚÇÕ»ê(99)
+	/// ì‹ ìš©ë§¤ìˆ˜ : ìê¸°ìœµìë§¤ìˆ˜ (03)
+	/// ì‹ ìš©ë§¤ë„ : ìê¸°ìœµììƒí™˜ (33), ìê¸°ìœµìí•©ì‚°(99)
 	CComboBox	*pCreditGb	= ((CComboBox*)(GetDlgItem(IDC_COM_CREDIT_TP)));
 	CComboBox	*pLoanGb	= ((CComboBox*)(GetDlgItem(IDC_COM_LOAN_TP)));
 	
@@ -530,21 +530,21 @@ void COrderDlg::SetCreditType(int nIndex)
 
 	BOOL	bEnable = FALSE;
 	if(nIndex == 0)
-	{/// ½Å±Ô¸Å¼ö ÁÖ¹®
-		pCreditGb->AddString(_T("ÀÚ±âÀ¶ÀÚ¸Å¼ö   (03)"));
-		pLoanGb->AddString(_T("À¶ÀÚ            (03)"));
-		/// ½Å¿ë¸Å¼ö ÁÖ¹®½Ã ´ëÃâÀÏÀº ºñÈ°¼º...
-		/// ½Å¿ë¸Å¼ö ÁÖ¹®½Ã ´ëÃâÀÏ Á¶È¸´Â ºñÈ°¼º
+	{/// ì‹ ê·œë§¤ìˆ˜ ì£¼ë¬¸
+		pCreditGb->AddString(_T("ìê¸°ìœµìë§¤ìˆ˜   (03)"));
+		pLoanGb->AddString(_T("ìœµì            (03)"));
+		/// ì‹ ìš©ë§¤ìˆ˜ ì£¼ë¬¸ì‹œ ëŒ€ì¶œì¼ì€ ë¹„í™œì„±...
+		/// ì‹ ìš©ë§¤ìˆ˜ ì£¼ë¬¸ì‹œ ëŒ€ì¶œì¼ ì¡°íšŒëŠ” ë¹„í™œì„±
 		bEnable = FALSE;
 	}
 	else if(nIndex == 1)
-	{/// ½Å±Ô¸Åµµ ÁÖ¹®
-		pCreditGb->AddString(_T("ÀÚ±âÀ¶ÀÚ»óÈ¯   (33)"));
-		pLoanGb->AddString(_T("À¶ÀÚ            (33)"));
-		pLoanGb->AddString(_T("À¶ÀÚÇÕ           (99)"));
+	{/// ì‹ ê·œë§¤ë„ ì£¼ë¬¸
+		pCreditGb->AddString(_T("ìê¸°ìœµììƒí™˜   (33)"));
+		pLoanGb->AddString(_T("ìœµì            (33)"));
+		pLoanGb->AddString(_T("ìœµìí•©           (99)"));
 		
-		/// ½Å¿ë¸Åµµ ÁÖ¹®½Ã ´ëÃâÀÏÀº È°¼º...
-		/// ½Å¿ë¸Åµµ ÁÖ¹®½Ã ´ëÃâÀÏ Á¶È¸´Â È°¼º
+		/// ì‹ ìš©ë§¤ë„ ì£¼ë¬¸ì‹œ ëŒ€ì¶œì¼ì€ í™œì„±...
+		/// ì‹ ìš©ë§¤ë„ ì£¼ë¬¸ì‹œ ëŒ€ì¶œì¼ ì¡°íšŒëŠ” í™œì„±
 		bEnable = TRUE;
 	}
 	else
@@ -560,17 +560,17 @@ void COrderDlg::SetCreditType(int nIndex)
 }
 
 void COrderDlg::OnSelchangeComLoanTP()
-{/// ½Å¿ë¸Åµµ ÁÖ¹® "À¶ÀÚ(33)"ÀÏ¶§¸¸ ´ëÃâÀÏÀ» È°¼ºÈ­...
+{/// ì‹ ìš©ë§¤ë„ ì£¼ë¬¸ "ìœµì(33)"ì¼ë•Œë§Œ ëŒ€ì¶œì¼ì„ í™œì„±í™”...
 	CComboBox	*pLoanGb = ((CComboBox*)(GetDlgItem(IDC_COM_LOAN_TP)));
 	
 	BOOL	bEnable = TRUE;
-	/// "À¶ÀÚ"ÀÏ¶§¸¸ ...
+	/// "ìœµì"ì¼ë•Œë§Œ ...
 	if(pLoanGb->GetCurSel() == 1)
-	{/// À¶ÀÚÇÕ(99)ÀÌ¸é ºñÈ°¼º½ÃÅ²´Ù.
+	{/// ìœµìí•©(99)ì´ë©´ ë¹„í™œì„±ì‹œí‚¨ë‹¤.
 		bEnable = FALSE;
 	}
 	else
-	{/// À¶ÀÚ(33)ÀÏ¶§´Â È°¼ºÈ­
+	{/// ìœµì(33)ì¼ë•ŒëŠ” í™œì„±í™”
 		bEnable	= TRUE;
 	}
 
@@ -579,24 +579,24 @@ void COrderDlg::OnSelchangeComLoanTP()
 }
 
 CString	COrderDlg::GetLoanType()
-{/// ½Å¿ë±¸ºĞ°ªÀ» ¾ò´Â´Ù....
+{/// ì‹ ìš©êµ¬ë¶„ê°’ì„ ì–»ëŠ”ë‹¤....
 	CString		strLoanType (_T("03"));
-	/// ½Å¿ëÁÖ¹® À¯Çü(¸Å¼ö, ¸Åµµ)º° ½Å¿ë±¸ºĞ°ªÀº ´ÙÀ½°ú °°´Ù...
-	/// ½Å¿ë¸Å¼ö : ÀÚ±âÀ¶ÀÚ (03)
-	/// ½Å¿ë¸Åµµ : ÀÚ±âÀ¶ÀÚ (33), ÀÚ±âÀ¶ÀÚÇÕ(99)
+	/// ì‹ ìš©ì£¼ë¬¸ ìœ í˜•(ë§¤ìˆ˜, ë§¤ë„)ë³„ ì‹ ìš©êµ¬ë¶„ê°’ì€ ë‹¤ìŒê³¼ ê°™ë‹¤...
+	/// ì‹ ìš©ë§¤ìˆ˜ : ìê¸°ìœµì (03)
+	/// ì‹ ìš©ë§¤ë„ : ìê¸°ìœµì (33), ìê¸°ìœµìí•©(99)
 
-	/// ¸Å¼öÁÖ¹®ÀÎÁö, ¸ÅµµÁÖ¹®ÀÎÁö ¾ò´Â´Ù....
+	/// ë§¤ìˆ˜ì£¼ë¬¸ì¸ì§€, ë§¤ë„ì£¼ë¬¸ì¸ì§€ ì–»ëŠ”ë‹¤....
 	int	nOrderType = ((CComboBox*)(GetDlgItem(IDC_COM_SBTP)))->GetCurSel();
 	if(nOrderType == 1)	
-	{/// ¸ÅµµÁÖ¹®ÀÌ¸é
-		/// À¶ÀÚÀÎÁö, À¶ÀÚÇÕÀÎÁö Ã£´Â´Ù...
+	{/// ë§¤ë„ì£¼ë¬¸ì´ë©´
+		/// ìœµìì¸ì§€, ìœµìí•©ì¸ì§€ ì°¾ëŠ”ë‹¤...
 		int nIdx = ((CComboBox*)GetDlgItem(IDC_COM_LOAN_TP))->GetCurSel();
 
-		if(		nIdx == 0)	strLoanType = _T("33");	/// À¶ÀÚ
-		else if(nIdx == 1)	strLoanType = _T("99");	/// À¶ÀÚÇÕ
+		if(		nIdx == 0)	strLoanType = _T("33");	/// ìœµì
+		else if(nIdx == 1)	strLoanType = _T("99");	/// ìœµìí•©
 	}
 	else if(nOrderType == 0)
-	{/// ¸Å¼öÁÖ¹®ÀÌ¸é...
+	{/// ë§¤ìˆ˜ì£¼ë¬¸ì´ë©´...
 		strLoanType = _T("03");
 	}
 
@@ -604,17 +604,17 @@ CString	COrderDlg::GetLoanType()
 }
 
 CString	COrderDlg::GetLoanDate()
-{/// ´ëÃâÀÏÀ» ¾ò´Â´Ù...
-	/// ´ëÃâÀÏ Çü½ÄÀº YYYYMMDD, Áï 20150101 ÀÌ·¸°Ô ÀÔ·ÂÇØ¾ß ÇÑ´Ù.
-	/// ½Å¿ë¸Åµµ½Ã À¶ÀÚ(33)ÀÏ¶§ Á¾¸ñº° ´ëÃâÀÏÀ» ÀÔ·Â.
-	/// ½Å¿ë¸Åµµ½Ã À¶ÀÚÇÕ(99)À¸·Î ¼³Á¤ÇÏ¸é ¿øÀå¿¡¼­ Ã³¸®
+{/// ëŒ€ì¶œì¼ì„ ì–»ëŠ”ë‹¤...
+	/// ëŒ€ì¶œì¼ í˜•ì‹ì€ YYYYMMDD, ì¦‰ 20150101 ì´ë ‡ê²Œ ì…ë ¥í•´ì•¼ í•œë‹¤.
+	/// ì‹ ìš©ë§¤ë„ì‹œ ìœµì(33)ì¼ë•Œ ì¢…ëª©ë³„ ëŒ€ì¶œì¼ì„ ì…ë ¥.
+	/// ì‹ ìš©ë§¤ë„ì‹œ ìœµìí•©(99)ìœ¼ë¡œ ì„¤ì •í•˜ë©´ ì›ì¥ì—ì„œ ì²˜ë¦¬
 	int	nOrderType = ((CComboBox*)(GetDlgItem(IDC_COM_SBTP)))->GetCurSel();
 	if(nOrderType == 0)
-	{/// ½Å¿ë¸Å¼ö ½Å±ÔÁÖ¹®ÀÏ¶© ´ëÃâÀÏÀº °ø¹éÀ¸·ÎÃ³¸®.
+	{/// ì‹ ìš©ë§¤ìˆ˜ ì‹ ê·œì£¼ë¬¸ì¼ë• ëŒ€ì¶œì¼ì€ ê³µë°±ìœ¼ë¡œì²˜ë¦¬.
 		return _T("");
 	}
 	else if(nOrderType == 1)
-	{/// ½Å¿ë¸Åµµ À¶ÀÚÇÕ(99) ÀÏ°ı¸Åµµ´Â "99991231"·Î ¸ÅÃâÀÏÁ¤ÀÇÇÔ...
+	{/// ì‹ ìš©ë§¤ë„ ìœµìí•©(99) ì¼ê´„ë§¤ë„ëŠ” "99991231"ë¡œ ë§¤ì¶œì¼ì •ì˜í•¨...
 		CString		strCreditType(GetLoanType());
 		if(strCreditType == _T("99"))	return	_T("99991231");
 	}
@@ -626,29 +626,29 @@ CString	COrderDlg::GetLoanDate()
 }
 
 void COrderDlg::OnBnClickedQryLoanDate()
-{/// ´ëÃâÀÏ Á¶È¸...
-	/// ´ëÃâÀÏ Á¶È¸´Â ½Å¿ë¸Åµµ »óÈ²(À¶ÀÚ 33)ÀÏ¶§¸¸ Ã³¸®.
+{/// ëŒ€ì¶œì¼ ì¡°íšŒ...
+	/// ëŒ€ì¶œì¼ ì¡°íšŒëŠ” ì‹ ìš©ë§¤ë„ ìƒí™©(ìœµì 33)ì¼ë•Œë§Œ ì²˜ë¦¬.
 	int nIdx = ((CComboBox*)GetDlgItem(IDC_COM_LOAN_TP))->GetCurSel();
 	if(	nIdx != 0)	return;
 
-	/// TR : OPW00005 Ã¼°áÀÜ°í¿äÃ»
-	/// °èÁÂ¹øÈ£ : ½Å¿ë°èÁÂ¹øÈ£
-	/// ºñ¹Ğ¹øÈ£ : °ø¹é
-	/// ºñ¹Ğ¹øÈ£ÀÔ·Â¸ÅÃ¼±¸ºĞ : 00
+	/// TR : OPW00005 ì²´ê²°ì”ê³ ìš”ì²­
+	/// ê³„ì¢Œë²ˆí˜¸ : ì‹ ìš©ê³„ì¢Œë²ˆí˜¸
+	/// ë¹„ë°€ë²ˆí˜¸ : ê³µë°±
+	/// ë¹„ë°€ë²ˆí˜¸ì…ë ¥ë§¤ì²´êµ¬ë¶„ : 00
 
 	CString strAccNo;
 	((CEdit*)GetDlgItem(IDC_EDT_ACCNO))->GetWindowText(strAccNo);
 	if (strAccNo.GetLength() != 10)
 	{
-		AfxMessageBox("°èÁÂ¹øÈ£ 10ÀÚ¸¦ ÀÔ·Â ÇØ ÁÖ¼¼¿ä~!");
+		AfxMessageBox("ê³„ì¢Œë²ˆí˜¸ 10ìë¥¼ ì…ë ¥ í•´ ì£¼ì„¸ìš”~!");
 		((CEdit*)GetDlgItem(IDC_EDT_ACCNO))->SetFocus();
 		return;
 	}
-	theApp.m_khOpenApi.SetInputValue("°èÁÂ¹øÈ£"			, strAccNo);
-	theApp.m_khOpenApi.SetInputValue("ºñ¹Ğ¹øÈ£"			, _T(""));
-	theApp.m_khOpenApi.SetInputValue("ºñ¹Ğ¹øÈ£ÀÔ·Â¸ÅÃ¼±¸ºĞ"	, _T("00"));
+	theApp.m_khOpenApi.SetInputValue("ê³„ì¢Œë²ˆí˜¸"			, strAccNo);
+	theApp.m_khOpenApi.SetInputValue("ë¹„ë°€ë²ˆí˜¸"			, _T(""));
+	theApp.m_khOpenApi.SetInputValue("ë¹„ë°€ë²ˆí˜¸ì…ë ¥ë§¤ì²´êµ¬ë¶„"	, _T("00"));
 
-	LONG lRet = theApp.m_khOpenApi.CommRqData(_T("´ëÃâÀÏÁ¶È¸"), _T("OPW00005"), 0, m_strScrNo);
+	LONG lRet = theApp.m_khOpenApi.CommRqData(_T("ëŒ€ì¶œì¼ì¡°íšŒ"), _T("OPW00005"), 0, m_strScrNo);
 
 	if (!theApp.IsError(lRet))
 	{
@@ -657,6 +657,6 @@ void COrderDlg::OnBnClickedQryLoanDate()
 }
 
 void COrderDlg::OnBnClickedBtnClear()
-{/// ÁÖ¹®°á°ú »èÁ¦
+{/// ì£¼ë¬¸ê²°ê³¼ ì‚­ì œ
 	m_listCtl.ResetContent();
 }

@@ -1,42 +1,42 @@
+ï»¿//******************************************************************/
 //******************************************************************/
-//******************************************************************/
-//! All Rights Reserved. Copyright(c)   2014 (ÁÖ)ÇÑ±¹¼Ò¸®¸¶Ä¡        /
+//! All Rights Reserved. Copyright(c)   2014 (ì£¼)í•œêµ­ì†Œë¦¬ë§ˆì¹˜        /
 //******************************************************************/
 //! File Name     : KwanSimDlg.h
-//! Function      : °ü½É ´ÙÀÌ¾ó·Î±×
-//! System Name   : Å°¿ò ¿ÀÇÂAPI Å×½ºÆ®
+//! Function      : ê´€ì‹¬ ë‹¤ì´ì–¼ë¡œê·¸
+//! System Name   : í‚¤ì›€ ì˜¤í”ˆAPI í…ŒìŠ¤íŠ¸
 //! Create        : , 2014/06/02
 //! Update        : 
 //! Comment       : 
 //******************************************************************/
-// KwanSimDlg.h : Çì´õ ÆÄÀÏ
+// KwanSimDlg.h : í—¤ë” íŒŒì¼
 //
 
 #pragma once
 
-// CKwanSimDlg ´ëÈ­ »óÀÚ
+// CKwanSimDlg ëŒ€í™” ìƒì
 class CKwanSimDlg : public CDialogEx
 {
-// »ı¼ºÀÔ´Ï´Ù.
+// ìƒì„±ì…ë‹ˆë‹¤.
 public:
-	CKwanSimDlg(CWnd* pParent = NULL);	// Ç¥ÁØ »ı¼ºÀÚÀÔ´Ï´Ù.
+	CKwanSimDlg(CWnd* pParent = NULL);	// í‘œì¤€ ìƒì„±ìì…ë‹ˆë‹¤.
 
-// ´ëÈ­ »óÀÚ µ¥ÀÌÅÍÀÔ´Ï´Ù.
+// ëŒ€í™” ìƒì ë°ì´í„°ì…ë‹ˆë‹¤.
 	enum { IDD = IDD_KWANSIM_DLG };
 
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV Áö¿øÀÔ´Ï´Ù.
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ì§€ì›ì…ë‹ˆë‹¤.
 
 public:
 	CWnd*					m_pParent;
 	CString					m_strScrNo;
-	CMapStringToString		m_mapJongCode;		// °ü½ÉÁ¾¸ñ
+	CMapStringToString		m_mapJongCode;		// ê´€ì‹¬ì¢…ëª©
 
-	CCellID					m_cellSelect;		// °ü½É ±×¸®µå ¼±ÅÃ Çà
-	CGridCtrl				m_grdKwanSim;		// °ü½É ±×¸®µå
-	void InitKwanSimGrid();						// °ü½É ±×¸®µå ÃÊ±â Ã³¸®
-	void SetKwanSimJong();						// °ü½É ±×¸®µå¿¡ Á¾¸ñ ¼³Á¤ Ã³¸®
-	// Á¾¸ñ Á¶È¸ ¿äÃ»
+	CCellID					m_cellSelect;		// ê´€ì‹¬ ê·¸ë¦¬ë“œ ì„ íƒ í–‰
+	CGridCtrl				m_grdKwanSim;		// ê´€ì‹¬ ê·¸ë¦¬ë“œ
+	void InitKwanSimGrid();						// ê´€ì‹¬ ê·¸ë¦¬ë“œ ì´ˆê¸° ì²˜ë¦¬
+	void SetKwanSimJong();						// ê´€ì‹¬ ê·¸ë¦¬ë“œì— ì¢…ëª© ì„¤ì • ì²˜ë¦¬
+	// ì¢…ëª© ì¡°íšŒ ìš”ì²­
 	void SendJongSearch(int nCodeCount = 0, CString strCodeList = "", int nAddType = 0);
 
 	void OnReceiveTrDataKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrcode, LPCTSTR sRecordName, LPCTSTR sPrevNext, long nDataLength, LPCTSTR sErrorCode, LPCTSTR sMessage, LPCTSTR sSplmMsg);
@@ -44,14 +44,14 @@ public:
 	void OnReceiveMsgKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrCode, LPCTSTR sMsg);
 	void OnReceiveChejanData(LPCTSTR sGubun, LONG nItemCnt, LPCTSTR sFidList);
 
-	// ±×¸®µå µ¥ÀÌÅ¸ ¼³Á¤(ÁÖ½Ä±âº»Á¤º¸ ¼³Á¤)
+	// ê·¸ë¦¬ë“œ ë°ì´íƒ€ ì„¤ì •(ì£¼ì‹ê¸°ë³¸ì •ë³´ ì„¤ì •)
 	void SetDataKwanSimGrid(CStringArray &arrData, CString strRealType = "");
 
-// ±¸ÇöÀÔ´Ï´Ù.
+// êµ¬í˜„ì…ë‹ˆë‹¤.
 protected:
 	HICON m_hIcon;
 
-	// »ı¼ºµÈ ¸Ş½ÃÁö ¸Ê ÇÔ¼ö
+	// ìƒì„±ëœ ë©”ì‹œì§€ ë§µ í•¨ìˆ˜
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
 	afx_msg void OnClose();

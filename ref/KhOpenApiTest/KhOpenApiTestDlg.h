@@ -1,31 +1,31 @@
+ï»¿//******************************************************************/
 //******************************************************************/
-//******************************************************************/
-//! All Rights Reserved. Copyright(c)   2014 (ÁÖ)ÇÑ±¹¼Ò¸®¸¶Ä¡        /
+//! All Rights Reserved. Copyright(c)   2014 (ì£¼)í•œêµ­ì†Œë¦¬ë§ˆì¹˜        /
 //******************************************************************/
 //! File Name     : KhOpenApiTestDlg.h
-//! Function      : Å°¿ò ¿ÀÇÂAPI Å×½ºÆ® ´ÙÀÌ¾ó·Î±×
-//! System Name   : Å°¿ò ¿ÀÇÂAPI Å×½ºÆ®
+//! Function      : í‚¤ì›€ ì˜¤í”ˆAPI í…ŒìŠ¤íŠ¸ ë‹¤ì´ì–¼ë¡œê·¸
+//! System Name   : í‚¤ì›€ ì˜¤í”ˆAPI í…ŒìŠ¤íŠ¸
 //! Create        : , 2014/06/02
 //! Update        : 
 //! Comment       : 
 //******************************************************************/
-// KhOpenApiTestDlg.h : Çì´õ ÆÄÀÏ
+// KhOpenApiTestDlg.h : í—¤ë” íŒŒì¼
 //
 
 #pragma once
 
-// CKhOpenApiTestDlg ´ëÈ­ »óÀÚ
+// CKhOpenApiTestDlg ëŒ€í™” ìƒì
 class CKhOpenApiTestDlg : public CDialogEx
 {
-// »ı¼ºÀÔ´Ï´Ù.
+// ìƒì„±ì…ë‹ˆë‹¤.
 public:
-	CKhOpenApiTestDlg(CWnd* pParent = NULL);	// Ç¥ÁØ »ı¼ºÀÚÀÔ´Ï´Ù.
+	CKhOpenApiTestDlg(CWnd* pParent = NULL);	// í‘œì¤€ ìƒì„±ìì…ë‹ˆë‹¤.
 
-// ´ëÈ­ »óÀÚ µ¥ÀÌÅÍÀÔ´Ï´Ù.
+// ëŒ€í™” ìƒì ë°ì´í„°ì…ë‹ˆë‹¤.
 	enum { IDD = IDD_KHOPENAPITEST_DLG };
 
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV Áö¿øÀÔ´Ï´Ù.
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV ì§€ì›ì…ë‹ˆë‹¤.
 
 public:
 	CMapStringToPtr m_mapScreen;
@@ -38,11 +38,11 @@ public:
 	CWnd *m_pRealAddDlg;
 protected:
 
-	// ±¸ÇöÀÔ´Ï´Ù.
+	// êµ¬í˜„ì…ë‹ˆë‹¤.
 protected:
 	HICON m_hIcon;
 
-	// »ı¼ºµÈ ¸Ş½ÃÁö ¸Ê ÇÔ¼ö
+	// ìƒì„±ëœ ë©”ì‹œì§€ ë§µ í•¨ìˆ˜
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
 	afx_msg void OnDestroy();
@@ -59,8 +59,8 @@ protected:
 	void OnReceiveMsgKhopenapictrl(LPCTSTR sScrNo, LPCTSTR sRQName, LPCTSTR sTrCode, LPCTSTR sMsg);
 	void OnReceiveChejanData(LPCTSTR sGubun, LONG nItemCnt, LPCTSTR sFidList);
 	void OnEventConnect(LONG nItemCnt);
-	void OnReceiveRealCondition(LPCTSTR strCode, LPCTSTR strType, LPCTSTR strConditionName, LPCTSTR strConditionIndex);			//Á¶°Ç°Ë»ö ½Ç½Ã°£ »ğÀÔ,»èÁ¦µÇ´Â Á¾¸ñÀ» ¹Ş´Â´Ù
-	void OnReceiveTrCondition(LPCTSTR sScrNo, LPCTSTR strCodeList, LPCTSTR strConditionName, int nIndex, int nNext);	//Á¶°Ç°Ë»ö Á¾¸ñ¸®½ºÆ®¸¦ ¹Ş´Â´Ù.
+	void OnReceiveRealCondition(LPCTSTR strCode, LPCTSTR strType, LPCTSTR strConditionName, LPCTSTR strConditionIndex);			//ì¡°ê±´ê²€ìƒ‰ ì‹¤ì‹œê°„ ì‚½ì…,ì‚­ì œë˜ëŠ” ì¢…ëª©ì„ ë°›ëŠ”ë‹¤
+	void OnReceiveTrCondition(LPCTSTR sScrNo, LPCTSTR strCodeList, LPCTSTR strConditionName, int nIndex, int nNext);	//ì¡°ê±´ê²€ìƒ‰ ì¢…ëª©ë¦¬ìŠ¤íŠ¸ë¥¼ ë°›ëŠ”ë‹¤.
 	void OnReceiveConditionVer(long lRet, LPCTSTR sMsg);
 	DECLARE_EVENTSINK_MAP()
 public:

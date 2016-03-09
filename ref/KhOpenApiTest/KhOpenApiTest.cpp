@@ -1,15 +1,15 @@
+ï»¿//******************************************************************/
 //******************************************************************/
-//******************************************************************/
-//! All Rights Reserved. Copyright(c)   2014 (ÁÖ)ÇÑ±¹¼Ò¸®¸¶Ä¡        /
+//! All Rights Reserved. Copyright(c)   2014 (ì£¼)í•œêµ­ì†Œë¦¬ë§ˆì¹˜        /
 //******************************************************************/
 //! File Name     : KhOpenApiTest.cpp
-//! Function      : Å°¿ò ¿ÀÇÂAPI Å×½ºÆ®
-//! System Name   : Å°¿ò ¿ÀÇÂAPI Å×½ºÆ®
+//! Function      : í‚¤ì›€ ì˜¤í”ˆAPI í…ŒìŠ¤íŠ¸
+//! System Name   : í‚¤ì›€ ì˜¤í”ˆAPI í…ŒìŠ¤íŠ¸
 //! Create        : , 2014/06/02
 //! Update        : 
 //! Comment       : 
 //******************************************************************/
-// KhOpenApiTest.cpp : ÀÀ¿ë ÇÁ·Î±×·¥¿¡ ´ëÇÑ Å¬·¡½º µ¿ÀÛÀ» Á¤ÀÇÇÕ´Ï´Ù.
+// KhOpenApiTest.cpp : ì‘ìš© í”„ë¡œê·¸ëž¨ì— ëŒ€í•œ í´ëž˜ìŠ¤ ë™ìž‘ì„ ì •ì˜í•©ë‹ˆë‹¤.
 //
 
 #include "stdafx.h"
@@ -31,10 +31,10 @@ BEGIN_MESSAGE_MAP(CKhOpenApiTestApp, CWinApp)
 END_MESSAGE_MAP()
 
 
-// CKhOpenApiTestApp »ý¼º
+// CKhOpenApiTestApp ìƒì„±
 //*******************************************************************/
 //! Function Name : CKhOpenApiTestApp
-//! Function      : »ý¼º Ã³¸®
+//! Function      : ìƒì„± ì²˜ë¦¬
 //! Param         : void
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -42,34 +42,34 @@ END_MESSAGE_MAP()
 //******************************************************************/
 CKhOpenApiTestApp::CKhOpenApiTestApp()
 {
-	// ´Ù½Ã ½ÃÀÛ °ü¸®ÀÚ Áö¿ø
+	// ë‹¤ì‹œ ì‹œìž‘ ê´€ë¦¬ìž ì§€ì›
 	m_dwRestartManagerSupportFlags = AFX_RESTART_MANAGER_SUPPORT_RESTART;
 
-	// TODO: ¿©±â¿¡ »ý¼º ÄÚµå¸¦ Ãß°¡ÇÕ´Ï´Ù.
-	// InitInstance¿¡ ¸ðµç Áß¿äÇÑ ÃÊ±âÈ­ ÀÛ¾÷À» ¹èÄ¡ÇÕ´Ï´Ù.
+	// TODO: ì—¬ê¸°ì— ìƒì„± ì½”ë“œë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
+	// InitInstanceì— ëª¨ë“  ì¤‘ìš”í•œ ì´ˆê¸°í™” ìž‘ì—…ì„ ë°°ì¹˜í•©ë‹ˆë‹¤.
 }
 
 
-// À¯ÀÏÇÑ CKhOpenApiTestApp °³Ã¼ÀÔ´Ï´Ù.
+// ìœ ì¼í•œ CKhOpenApiTestApp ê°œì²´ìž…ë‹ˆë‹¤.
 CKhOpenApiTestApp theApp;
 
 //*******************************************************************/
 //! Function Name : InitInstance
-//! Function      : ÃÊ±âÈ­
+//! Function      : ì´ˆê¸°í™”
 //! Param         : void
 //! Return        : BOOL
 //! Create        : , 2014/06/02
-//! Comment       : CKhOpenApiTestApp ÃÊ±âÈ­
+//! Comment       : CKhOpenApiTestApp ì´ˆê¸°í™”
 //******************************************************************/
 BOOL CKhOpenApiTestApp::InitInstance()
 {
-	// ÀÀ¿ë ÇÁ·Î±×·¥ ¸Å´ÏÆä½ºÆ®°¡ ComCtl32.dll ¹öÀü 6 ÀÌ»óÀ» »ç¿ëÇÏ¿© ºñÁÖ¾ó ½ºÅ¸ÀÏÀ»
-	// »ç¿ëÇÏµµ·Ï ÁöÁ¤ÇÏ´Â °æ¿ì, Windows XP »ó¿¡¼­ ¹Ýµå½Ã InitCommonControlsEx()°¡ ÇÊ¿äÇÕ´Ï´Ù.
-	// InitCommonControlsEx()¸¦ »ç¿ëÇÏÁö ¾ÊÀ¸¸é Ã¢À» ¸¸µé ¼ö ¾ø½À´Ï´Ù.
+	// ì‘ìš© í”„ë¡œê·¸ëž¨ ë§¤ë‹ˆíŽ˜ìŠ¤íŠ¸ê°€ ComCtl32.dll ë²„ì „ 6 ì´ìƒì„ ì‚¬ìš©í•˜ì—¬ ë¹„ì£¼ì–¼ ìŠ¤íƒ€ì¼ì„
+	// ì‚¬ìš©í•˜ë„ë¡ ì§€ì •í•˜ëŠ” ê²½ìš°, Windows XP ìƒì—ì„œ ë°˜ë“œì‹œ InitCommonControlsEx()ê°€ í•„ìš”í•©ë‹ˆë‹¤.
+	// InitCommonControlsEx()ë¥¼ ì‚¬ìš©í•˜ì§€ ì•Šìœ¼ë©´ ì°½ì„ ë§Œë“¤ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 	INITCOMMONCONTROLSEX InitCtrls;
 	InitCtrls.dwSize = sizeof(InitCtrls);
-	// ÀÀ¿ë ÇÁ·Î±×·¥¿¡¼­ »ç¿ëÇÒ ¸ðµç °ø¿ë ÄÁÆ®·Ñ Å¬·¡½º¸¦ Æ÷ÇÔÇÏµµ·Ï
-	// ÀÌ Ç×¸ñÀ» ¼³Á¤ÇÏ½Ê½Ã¿À.
+	// ì‘ìš© í”„ë¡œê·¸ëž¨ì—ì„œ ì‚¬ìš©í•  ëª¨ë“  ê³µìš© ì»¨íŠ¸ë¡¤ í´ëž˜ìŠ¤ë¥¼ í¬í•¨í•˜ë„ë¡
+	// ì´ í•­ëª©ì„ ì„¤ì •í•˜ì‹­ì‹œì˜¤.
 	InitCtrls.dwICC = ICC_WIN95_CLASSES;
 	InitCommonControlsEx(&InitCtrls);
 
@@ -78,28 +78,28 @@ BOOL CKhOpenApiTestApp::InitInstance()
 
 	AfxEnableControlContainer();
 
-	// ´ëÈ­ »óÀÚ¿¡ ¼Ð Æ®¸® ºä ¶Ç´Â
-	// ¼Ð ¸ñ·Ï ºä ÄÁÆ®·ÑÀÌ Æ÷ÇÔµÇ¾î ÀÖ´Â °æ¿ì ¼Ð °ü¸®ÀÚ¸¦ ¸¸µì´Ï´Ù.
+	// ëŒ€í™” ìƒìžì— ì…¸ íŠ¸ë¦¬ ë·° ë˜ëŠ”
+	// ì…¸ ëª©ë¡ ë·° ì»¨íŠ¸ë¡¤ì´ í¬í•¨ë˜ì–´ ìžˆëŠ” ê²½ìš° ì…¸ ê´€ë¦¬ìžë¥¼ ë§Œë“­ë‹ˆë‹¤.
 	CShellManager *pShellManager = new CShellManager;
 
-	// Ç¥ÁØ ÃÊ±âÈ­
-	// ÀÌµé ±â´ÉÀ» »ç¿ëÇÏÁö ¾Ê°í ÃÖÁ¾ ½ÇÇà ÆÄÀÏÀÇ Å©±â¸¦ ÁÙÀÌ·Á¸é
-	// ¾Æ·¡¿¡¼­ ÇÊ¿ä ¾ø´Â Æ¯Á¤ ÃÊ±âÈ­
-	// ·çÆ¾À» Á¦°ÅÇØ¾ß ÇÕ´Ï´Ù.
-	// ÇØ´ç ¼³Á¤ÀÌ ÀúÀåµÈ ·¹Áö½ºÆ®¸® Å°¸¦ º¯°æÇÏ½Ê½Ã¿À.
-	// TODO: ÀÌ ¹®ÀÚ¿­À» È¸»ç ¶Ç´Â Á¶Á÷ÀÇ ÀÌ¸§°ú °°Àº
-	// ÀûÀýÇÑ ³»¿ëÀ¸·Î ¼öÁ¤ÇØ¾ß ÇÕ´Ï´Ù.
-	SetRegistryKey(_T("·ÎÄÃ ÀÀ¿ë ÇÁ·Î±×·¥ ¸¶¹ý»ç¿¡¼­ »ý¼ºµÈ ÀÀ¿ë ÇÁ·Î±×·¥"));
+	// í‘œì¤€ ì´ˆê¸°í™”
+	// ì´ë“¤ ê¸°ëŠ¥ì„ ì‚¬ìš©í•˜ì§€ ì•Šê³  ìµœì¢… ì‹¤í–‰ íŒŒì¼ì˜ í¬ê¸°ë¥¼ ì¤„ì´ë ¤ë©´
+	// ì•„ëž˜ì—ì„œ í•„ìš” ì—†ëŠ” íŠ¹ì • ì´ˆê¸°í™”
+	// ë£¨í‹´ì„ ì œê±°í•´ì•¼ í•©ë‹ˆë‹¤.
+	// í•´ë‹¹ ì„¤ì •ì´ ì €ìž¥ëœ ë ˆì§€ìŠ¤íŠ¸ë¦¬ í‚¤ë¥¼ ë³€ê²½í•˜ì‹­ì‹œì˜¤.
+	// TODO: ì´ ë¬¸ìžì—´ì„ íšŒì‚¬ ë˜ëŠ” ì¡°ì§ì˜ ì´ë¦„ê³¼ ê°™ì€
+	// ì ì ˆí•œ ë‚´ìš©ìœ¼ë¡œ ìˆ˜ì •í•´ì•¼ í•©ë‹ˆë‹¤.
+	SetRegistryKey(_T("ë¡œì»¬ ì‘ìš© í”„ë¡œê·¸ëž¨ ë§ˆë²•ì‚¬ì—ì„œ ìƒì„±ëœ ì‘ìš© í”„ë¡œê·¸ëž¨"));
 
 	//////////////////////////////////////////////////////////////////
-	// ½ÇÇàÆÄÀÏÀÇ ÆÐ½º¸¦ ÀúÀåÇÑ´Ù.
+	// ì‹¤í–‰íŒŒì¼ì˜ íŒ¨ìŠ¤ë¥¼ ì €ìž¥í•œë‹¤.
 	char szPath[MAX_PATH];
 	GetModuleFileName(AfxGetInstanceHandle(), szPath, MAX_PATH);
 	*strrchr(szPath,'\\') = '\0';
 	m_sAppPath = szPath;
 
 	CString strFileName = m_sAppPath + "/data";
-	if (!::PathIsDirectory(strFileName))		// Æú´õ°¡ ¾ø´Ù¸é
+	if (!::PathIsDirectory(strFileName))		// í´ë”ê°€ ì—†ë‹¤ë©´
 	{
 		::CreateDirectory(strFileName, NULL);
 	}
@@ -109,29 +109,29 @@ BOOL CKhOpenApiTestApp::InitInstance()
 	INT_PTR nResponse = dlg.DoModal();
 //	if (nResponse == IDOK)
 //	{
-//		// TODO: ¿©±â¿¡ [È®ÀÎ]À» Å¬¸¯ÇÏ¿© ´ëÈ­ »óÀÚ°¡ ¾ø¾îÁú ¶§ Ã³¸®ÇÒ
-//		//  ÄÚµå¸¦ ¹èÄ¡ÇÕ´Ï´Ù.
+//		// TODO: ì—¬ê¸°ì— [í™•ì¸]ì„ í´ë¦­í•˜ì—¬ ëŒ€í™” ìƒìžê°€ ì—†ì–´ì§ˆ ë•Œ ì²˜ë¦¬í• 
+//		//  ì½”ë“œë¥¼ ë°°ì¹˜í•©ë‹ˆë‹¤.
 //	}
 //	else if (nResponse == IDCANCEL)
 //	{
-//		// TODO: ¿©±â¿¡ [Ãë¼Ò]¸¦ Å¬¸¯ÇÏ¿© ´ëÈ­ »óÀÚ°¡ ¾ø¾îÁú ¶§ Ã³¸®ÇÒ
-//		//  ÄÚµå¸¦ ¹èÄ¡ÇÕ´Ï´Ù.
+//		// TODO: ì—¬ê¸°ì— [ì·¨ì†Œ]ë¥¼ í´ë¦­í•˜ì—¬ ëŒ€í™” ìƒìžê°€ ì—†ì–´ì§ˆ ë•Œ ì²˜ë¦¬í• 
+//		//  ì½”ë“œë¥¼ ë°°ì¹˜í•©ë‹ˆë‹¤.
 //	}
 
-	// À§¿¡¼­ ¸¸µç ¼Ð °ü¸®ÀÚ¸¦ »èÁ¦ÇÕ´Ï´Ù.
+	// ìœ„ì—ì„œ ë§Œë“  ì…¸ ê´€ë¦¬ìžë¥¼ ì‚­ì œí•©ë‹ˆë‹¤.
 	if (pShellManager != NULL)
 	{
 		delete pShellManager;
 	}
 
-	// ´ëÈ­ »óÀÚ°¡ ´ÝÇûÀ¸¹Ç·Î ÀÀ¿ë ÇÁ·Î±×·¥ÀÇ ¸Þ½ÃÁö ÆßÇÁ¸¦ ½ÃÀÛÇÏÁö ¾Ê°í  ÀÀ¿ë ÇÁ·Î±×·¥À» ³¡³¾ ¼ö ÀÖµµ·Ï FALSE¸¦
-	// ¹ÝÈ¯ÇÕ´Ï´Ù.
+	// ëŒ€í™” ìƒìžê°€ ë‹«í˜”ìœ¼ë¯€ë¡œ ì‘ìš© í”„ë¡œê·¸ëž¨ì˜ ë©”ì‹œì§€ íŽŒí”„ë¥¼ ì‹œìž‘í•˜ì§€ ì•Šê³   ì‘ìš© í”„ë¡œê·¸ëž¨ì„ ëë‚¼ ìˆ˜ ìžˆë„ë¡ FALSEë¥¼
+	// ë°˜í™˜í•©ë‹ˆë‹¤.
 	return FALSE;
 }
 
 //*******************************************************************/
 //! Function Name : ConvDataFormat
-//! Function      : ¹®ÀÚ¿­ Æ÷¸ä ¼³Á¤
+//! Function      : ë¬¸ìžì—´ í¬ë©§ ì„¤ì •
 //! Param         : int nType, LPCTSTR szData, LPCTSTR szBeforeData/* = ""*/, LPCTSTR szAfterData/* = ""*/
 //! Return        : CString
 //! Create        : , 2014/06/02
@@ -142,7 +142,7 @@ CString CKhOpenApiTestApp::ConvDataFormat(int nType, LPCTSTR szData, LPCTSTR szB
 	CString strReturn, strData, strTemp = strData = szData;
 	switch (nType)
 	{
-		case DT_DATE:			// ÀÏÀÚ
+		case DT_DATE:			// ì¼ìž
 			{
 				if (strTemp.GetLength() == 6)
 				{
@@ -154,7 +154,7 @@ CString CKhOpenApiTestApp::ConvDataFormat(int nType, LPCTSTR szData, LPCTSTR szB
 				}
 			}
 			break;
-		case DT_TIME:			// ½Ã°£
+		case DT_TIME:			// ì‹œê°„
 			{
 				if (strTemp.GetLength() == 6)
 				{
@@ -166,8 +166,8 @@ CString CKhOpenApiTestApp::ConvDataFormat(int nType, LPCTSTR szData, LPCTSTR szB
 				}
 			}
 			break;
-		case DT_NUMBER:			// ¼ýÀÚ
-		case DT_ZERO_NUMBER:	// ¼ýÀÚ(0Ç¥½Ã)
+		case DT_NUMBER:			// ìˆ«ìž
+		case DT_ZERO_NUMBER:	// ìˆ«ìž(0í‘œì‹œ)
 			{
 				strTemp.Replace("+", "");
 				if (atof(strTemp) == 0.00)
@@ -210,7 +210,7 @@ CString CKhOpenApiTestApp::ConvDataFormat(int nType, LPCTSTR szData, LPCTSTR szB
 
 //*******************************************************************/
 //! Function Name : SetSignData
-//! Function      : ±×¸®µå ¼¿ ¹®ÀÚ»ö º¯°æ ¹× ±âÈ£ µ¥ÀÌÅÍ ¼³Á¤
+//! Function      : ê·¸ë¦¬ë“œ ì…€ ë¬¸ìžìƒ‰ ë³€ê²½ ë° ê¸°í˜¸ ë°ì´í„° ì„¤ì •
 //! Param         : CGridCtrl *pGrid, int nRow, int nCol, LPCTSTR szData
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -222,21 +222,21 @@ void CKhOpenApiTestApp::SetSignData(CGridCtrl *pGrid, int nRow, int nCol, LPCTST
 	switch (atoi(strData))
 	{
 		case 1:
-			strData = "¡è";
-			pGrid->SetItemFgColour(nRow, nCol, RGB(255, 0, 0));	// ÁöÁ¤µÈ ¼¿ÀÇ ÅØ½ºÆ® »ö»ó ¼³Á¤
+			strData = "â†‘";
+			pGrid->SetItemFgColour(nRow, nCol, RGB(255, 0, 0));	// ì§€ì •ëœ ì…€ì˜ í…ìŠ¤íŠ¸ ìƒ‰ìƒ ì„¤ì •
 			break;
 		case 2:
-			strData = "¡ã";
-			pGrid->SetItemFgColour(nRow, nCol, RGB(255, 0, 0));	// ÁöÁ¤µÈ ¼¿ÀÇ ÅØ½ºÆ® »ö»ó ¼³Á¤
+			strData = "â–²";
+			pGrid->SetItemFgColour(nRow, nCol, RGB(255, 0, 0));	// ì§€ì •ëœ ì…€ì˜ í…ìŠ¤íŠ¸ ìƒ‰ìƒ ì„¤ì •
 			break;
 		case 3:	strData = "";		break;
 		case 4:
-			strData = "¡é";
-			pGrid->SetItemFgColour(nRow, nCol, RGB(0, 0, 255));	// ÁöÁ¤µÈ ¼¿ÀÇ ÅØ½ºÆ® »ö»ó ¼³Á¤
+			strData = "â†“";
+			pGrid->SetItemFgColour(nRow, nCol, RGB(0, 0, 255));	// ì§€ì •ëœ ì…€ì˜ í…ìŠ¤íŠ¸ ìƒ‰ìƒ ì„¤ì •
 			break;
 		case 5:
-			strData = "¡å";	
-			pGrid->SetItemFgColour(nRow, nCol, RGB(0, 0, 255));	// ÁöÁ¤µÈ ¼¿ÀÇ ÅØ½ºÆ® »ö»ó ¼³Á¤
+			strData = "â–¼";	
+			pGrid->SetItemFgColour(nRow, nCol, RGB(0, 0, 255));	// ì§€ì •ëœ ì…€ì˜ í…ìŠ¤íŠ¸ ìƒ‰ìƒ ì„¤ì •
 			break;
 	}
 	pGrid->SetItemText(nRow, nCol, strData);
@@ -244,7 +244,7 @@ void CKhOpenApiTestApp::SetSignData(CGridCtrl *pGrid, int nRow, int nCol, LPCTST
 
 //*******************************************************************/
 //! Function Name : SetDataFgColour
-//! Function      : ±×¸®µå ¼¿ ¹®ÀÚ»ö º¯°æ
+//! Function      : ê·¸ë¦¬ë“œ ì…€ ë¬¸ìžìƒ‰ ë³€ê²½
 //! Param         : CGridCtrl *pGrid, int nRow, int nCol, LPCTSTR szData
 //! Return        : void
 //! Create        : , 2014/06/02
@@ -255,17 +255,17 @@ void CKhOpenApiTestApp::SetDataFgColour(CGridCtrl *pGrid, int nRow, int nCol, LP
 	CString strData = szData;
 	if (atof(strData) > 0)
 	{
-		pGrid->SetItemFgColour(nRow, nCol, RGB(255, 0, 0));	// ÁöÁ¤µÈ ¼¿ÀÇ ÅØ½ºÆ® »ö»ó ¼³Á¤
+		pGrid->SetItemFgColour(nRow, nCol, RGB(255, 0, 0));	// ì§€ì •ëœ ì…€ì˜ í…ìŠ¤íŠ¸ ìƒ‰ìƒ ì„¤ì •
 	}
 	else if (atof(strData) < 0)
 	{
-		pGrid->SetItemFgColour(nRow, nCol, RGB(0, 0, 255));	// ÁöÁ¤µÈ ¼¿ÀÇ ÅØ½ºÆ® »ö»ó ¼³Á¤
+		pGrid->SetItemFgColour(nRow, nCol, RGB(0, 0, 255));	// ì§€ì •ëœ ì…€ì˜ í…ìŠ¤íŠ¸ ìƒ‰ìƒ ì„¤ì •
 	}
 }
 
 //*******************************************************************/
 //! Function Name : IsError
-//! Function      : ¿À·ù ¿©ºÎ
+//! Function      : ì˜¤ë¥˜ ì—¬ë¶€
 //! Param         : long lErrCode
 //! Return        : BOOL
 //! Create        : , 2014/06/02
@@ -277,58 +277,58 @@ BOOL CKhOpenApiTestApp::IsError(long lErrCode)
 	switch (lErrCode)
 	{
 		////////////////////////////
-		// ÀÏ¹Ý Á¶È¸ ¿À·ù Ã³¸®
-		case OP_ERR_SISE_OVERFLOW:		// ½Ã¼¼Á¶È¸ °úºÎÇÏ
-			strMsg = "½Ã¼¼Á¶È¸ °úºÎÇÏ";
+		// ì¼ë°˜ ì¡°íšŒ ì˜¤ë¥˜ ì²˜ë¦¬
+		case OP_ERR_SISE_OVERFLOW:		// ì‹œì„¸ì¡°íšŒ ê³¼ë¶€í•˜
+			strMsg = "ì‹œì„¸ì¡°íšŒ ê³¼ë¶€í•˜";
 			break;
 		case OP_ERR_RQ_STRUCT_FAIL:		// REQUEST_INPUT_st Failed
 			strMsg = "REQUEST_INPUT_st Failed";
 			break;
-		case OP_ERR_RQ_STRING_FAIL:		// ¿äÃ» Àü¹® ÀÛ¼º ½ÇÆÐ
-			strMsg = "¿äÃ» Àü¹® ÀÛ¼º ½ÇÆÐ";
+		case OP_ERR_RQ_STRING_FAIL:		// ìš”ì²­ ì „ë¬¸ ìž‘ì„± ì‹¤íŒ¨
+			strMsg = "ìš”ì²­ ì „ë¬¸ ìž‘ì„± ì‹¤íŒ¨";
 			break;
-		case OP_ERR_NO_DATA:			// µ¥ÀÌÅÍ°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.
-			strMsg = "µ¥ÀÌÅÍ°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.";
-			break;
-
-		////////////////////////////
-		// º¹¼ö Á¾¸ñ Á¶È¸ ¿À·ù Ã³¸®
-		case OP_ERR_OVER_MAX_DATA:			// ÇÑ¹ø¿¡ Á¶È¸ °¡´ÉÇÑ Á¾¸ñ°³¼ö´Â ÃÖ´ë 100Á¾¸ñ ÀÔ´Ï´Ù.
-			strMsg = "ÇÑ¹ø¿¡ Á¶È¸ °¡´ÉÇÑ Á¾¸ñ°³¼ö´Â ÃÖ´ë 100Á¾¸ñ ÀÔ´Ï´Ù.";
+		case OP_ERR_NO_DATA:			// ë°ì´í„°ê°€ ì¡´ìž¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
+			strMsg = "ë°ì´í„°ê°€ ì¡´ìž¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.";
 			break;
 
 		////////////////////////////
-		// ÁÖ¹® ¿À·ù Ã³¸®
-		case OP_ERR_ORD_WRONG_INPUT:		// ÀÔ·Â°ª ¿À·ù
-			strMsg = "ÀÔ·Â°ª ¿À·ù";
+		// ë³µìˆ˜ ì¢…ëª© ì¡°íšŒ ì˜¤ë¥˜ ì²˜ë¦¬
+		case OP_ERR_OVER_MAX_DATA:			// í•œë²ˆì— ì¡°íšŒ ê°€ëŠ¥í•œ ì¢…ëª©ê°œìˆ˜ëŠ” ìµœëŒ€ 100ì¢…ëª© ìž…ë‹ˆë‹¤.
+			strMsg = "í•œë²ˆì— ì¡°íšŒ ê°€ëŠ¥í•œ ì¢…ëª©ê°œìˆ˜ëŠ” ìµœëŒ€ 100ì¢…ëª© ìž…ë‹ˆë‹¤.";
 			break;
-		case OP_ERR_ORD_WRONG_ACCNO:		// °èÁÂºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇÏ½Ê½Ã¿À.
-			strMsg = "°èÁÂºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇÏ½Ê½Ã¿À.";
+
+		////////////////////////////
+		// ì£¼ë¬¸ ì˜¤ë¥˜ ì²˜ë¦¬
+		case OP_ERR_ORD_WRONG_INPUT:		// ìž…ë ¥ê°’ ì˜¤ë¥˜
+			strMsg = "ìž…ë ¥ê°’ ì˜¤ë¥˜";
 			break;
-		case OP_ERR_OTHER_ACC_USE:			// Å¸ÀÎ°èÁÂ´Â »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.
-			strMsg = "Å¸ÀÎ°èÁÂ´Â »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.";
+		case OP_ERR_ORD_WRONG_ACCNO:		// ê³„ì¢Œë¹„ë°€ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì‹­ì‹œì˜¤.
+			strMsg = "ê³„ì¢Œë¹„ë°€ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì‹­ì‹œì˜¤.";
 			break;
-		case OP_ERR_MIS_2BILL_EXC:			// ÁÖ¹®°¡°ÝÀÌ 20¾ï¿øÀ» ÃÊ°úÇÕ´Ï´Ù.
-			strMsg = "ÁÖ¹®°¡°ÝÀÌ 20¾ï¿øÀ» ÃÊ°úÇÕ´Ï´Ù.";
+		case OP_ERR_OTHER_ACC_USE:			// íƒ€ì¸ê³„ì¢ŒëŠ” ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+			strMsg = "íƒ€ì¸ê³„ì¢ŒëŠ” ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.";
 			break;
-		case OP_ERR_MIS_5BILL_EXC:			// ÁÖ¹®°¡°ÝÀÌ 50¾ï¿øÀ» ÃÊ°úÇÕ´Ï´Ù.
-			strMsg = "ÁÖ¹®°¡°ÝÀÌ 50¾ï¿øÀ» ÃÊ°úÇÕ´Ï´Ù.";
+		case OP_ERR_MIS_2BILL_EXC:			// ì£¼ë¬¸ê°€ê²©ì´ 20ì–µì›ì„ ì´ˆê³¼í•©ë‹ˆë‹¤.
+			strMsg = "ì£¼ë¬¸ê°€ê²©ì´ 20ì–µì›ì„ ì´ˆê³¼í•©ë‹ˆë‹¤.";
 			break;
-		case OP_ERR_MIS_1PER_EXC:			// ÁÖ¹®¼ö·®ÀÌ ÃÑ¹ßÇàÁÖ¼öÀÇ 1%¸¦ ÃÊ°úÇÕ´Ï´Ù.
-			strMsg = "ÁÖ¹®¼ö·®ÀÌ ÃÑ¹ßÇàÁÖ¼öÀÇ 1%¸¦ ÃÊ°úÇÕ´Ï´Ù.";
+		case OP_ERR_MIS_5BILL_EXC:			// ì£¼ë¬¸ê°€ê²©ì´ 50ì–µì›ì„ ì´ˆê³¼í•©ë‹ˆë‹¤.
+			strMsg = "ì£¼ë¬¸ê°€ê²©ì´ 50ì–µì›ì„ ì´ˆê³¼í•©ë‹ˆë‹¤.";
 			break;
-		case OP_ERR_MIS_3PER_EXC:			// ÁÖ¹®¼ö·®Àº ÃÑ¹ßÇàÁÖ¼öÀÇ 3%¸¦ ÃÊ°úÇÒ ¼ö ¾ø½À´Ï´Ù.
-			strMsg = "ÁÖ¹®¼ö·®Àº ÃÑ¹ßÇàÁÖ¼öÀÇ 3%¸¦ ÃÊ°úÇÒ ¼ö ¾ø½À´Ï´Ù.";
+		case OP_ERR_MIS_1PER_EXC:			// ì£¼ë¬¸ìˆ˜ëŸ‰ì´ ì´ë°œí–‰ì£¼ìˆ˜ì˜ 1%ë¥¼ ì´ˆê³¼í•©ë‹ˆë‹¤.
+			strMsg = "ì£¼ë¬¸ìˆ˜ëŸ‰ì´ ì´ë°œí–‰ì£¼ìˆ˜ì˜ 1%ë¥¼ ì´ˆê³¼í•©ë‹ˆë‹¤.";
 			break;
-		case OP_ERR_SEND_FAIL:				// ÁÖ¹®Àü¼Û½ÇÆÐ
-			strMsg = "ÁÖ¹®Àü¼Û¿¡ ½ÇÆÐÇÏ¿´½À´Ï´Ù..";
+		case OP_ERR_MIS_3PER_EXC:			// ì£¼ë¬¸ìˆ˜ëŸ‰ì€ ì´ë°œí–‰ì£¼ìˆ˜ì˜ 3%ë¥¼ ì´ˆê³¼í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+			strMsg = "ì£¼ë¬¸ìˆ˜ëŸ‰ì€ ì´ë°œí–‰ì£¼ìˆ˜ì˜ 3%ë¥¼ ì´ˆê³¼í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.";
 			break;
-		case OP_ERR_ORD_OVERFLOW:			// ÁÖ¹®Àü¼Û °úºÎÇÏ
-			strMsg = "ÁÖ¹®Àü¼Û °úºÎÇÏ ÀÔ´Ï´Ù. Àá½Ã ÈÄ ´Ù½Ã ÁÖ¹®ÇÏ¿© ÁÖ¼¼¿ä.";
+		case OP_ERR_SEND_FAIL:				// ì£¼ë¬¸ì „ì†¡ì‹¤íŒ¨
+			strMsg = "ì£¼ë¬¸ì „ì†¡ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤..";
+			break;
+		case OP_ERR_ORD_OVERFLOW:			// ì£¼ë¬¸ì „ì†¡ ê³¼ë¶€í•˜
+			strMsg = "ì£¼ë¬¸ì „ì†¡ ê³¼ë¶€í•˜ ìž…ë‹ˆë‹¤. ìž ì‹œ í›„ ë‹¤ì‹œ ì£¼ë¬¸í•˜ì—¬ ì£¼ì„¸ìš”.";
 			break;
 	}
 
-	// ¿¡·¯ ¸Þ¼¼Áö Ã³¸®
+	// ì—ëŸ¬ ë©”ì„¸ì§€ ì²˜ë¦¬
 	if (!strMsg.IsEmpty())
 	{
 		AfxMessageBox(strMsg);

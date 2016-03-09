@@ -1,43 +1,43 @@
+ï»¿//******************************************************************/
 //******************************************************************/
-//******************************************************************/
-//! All Rights Reserved. Copyright(c)   2014 (ÁÖ)ÇÑ±¹¼Ò¸®¸¶Ä¡        /
+//! All Rights Reserved. Copyright(c)   2014 (ì£¼)í•œêµ­ì†Œë¦¬ë§ˆì¹˜        /
 //******************************************************************/
 //! File Name     : KhOpenApiTest.h
-//! Function      : Å°¿ò ¿ÀÇÂAPI Å×½ºÆ®
-//! System Name   : Å°¿ò ¿ÀÇÂAPI Å×½ºÆ®
+//! Function      : í‚¤ì›€ ì˜¤í”ˆAPI í…ŒìŠ¤íŠ¸
+//! System Name   : í‚¤ì›€ ì˜¤í”ˆAPI í…ŒìŠ¤íŠ¸
 //! Create        : , 2014/06/02
 //! Update        : 
 //! Comment       : 
 //******************************************************************/
-// KhOpenApiTest.h : PROJECT_NAME ÀÀ¿ë ÇÁ·Î±×·¥¿¡ ´ëÇÑ ÁÖ Çì´õ ÆÄÀÏÀÔ´Ï´Ù.
+// KhOpenApiTest.h : PROJECT_NAME ì‘ìš© í”„ë¡œê·¸ë¨ì— ëŒ€í•œ ì£¼ í—¤ë” íŒŒì¼ì…ë‹ˆë‹¤.
 //
 
 #pragma once
 
 #ifndef __AFXWIN_H__
-	#error "PCH¿¡ ´ëÇØ ÀÌ ÆÄÀÏÀ» Æ÷ÇÔÇÏ±â Àü¿¡ 'stdafx.h'¸¦ Æ÷ÇÔÇÕ´Ï´Ù."
+	#error "PCHì— ëŒ€í•´ ì´ íŒŒì¼ì„ í¬í•¨í•˜ê¸° ì „ì— 'stdafx.h'ë¥¼ í¬í•¨í•©ë‹ˆë‹¤."
 #endif
 
-#include "resource.h"		// ÁÖ ±âÈ£ÀÔ´Ï´Ù.
+#include "resource.h"		// ì£¼ ê¸°í˜¸ì…ë‹ˆë‹¤.
 #include "KHOpenAPICtrl.h"
 #include "GridCtrl\GridCtrl.h"
 
-#define OP_ERR_SISE_OVERFLOW	-200			//"½Ã¼¼Á¶È¸ °úºÎÇÏ"
+#define OP_ERR_SISE_OVERFLOW	-200			//"ì‹œì„¸ì¡°íšŒ ê³¼ë¶€í•˜"
 #define OP_ERR_RQ_STRUCT_FAIL	-201			//"REQUEST_INPUT_st Failed"
-#define OP_ERR_RQ_STRING_FAIL	-202			//"¿äÃ» Àü¹® ÀÛ¼º ½ÇÆĞ"
-#define OP_ERR_NO_DATA			-203			//"µ¥ÀÌÅÍ°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù."
-#define OP_ERR_OVER_MAX_DATA	-204			//"ÇÑ¹ø¿¡ Á¶È¸ °¡´ÉÇÑ Á¾¸ñ°³¼ö´Â ÃÖ´ë 100Á¾¸ñ ÀÔ´Ï´Ù."
+#define OP_ERR_RQ_STRING_FAIL	-202			//"ìš”ì²­ ì „ë¬¸ ì‘ì„± ì‹¤íŒ¨"
+#define OP_ERR_NO_DATA			-203			//"ë°ì´í„°ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤."
+#define OP_ERR_OVER_MAX_DATA	-204			//"í•œë²ˆì— ì¡°íšŒ ê°€ëŠ¥í•œ ì¢…ëª©ê°œìˆ˜ëŠ” ìµœëŒ€ 100ì¢…ëª© ì…ë‹ˆë‹¤."
 
 
-#define OP_ERR_ORD_WRONG_INPUT	-300			//"ÀÔ·Â°ª ¿À·ù"
-#define OP_ERR_ORD_WRONG_ACCNO	-301			//"°èÁÂºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ½Ê½Ã¿À."
-#define OP_ERR_OTHER_ACC_USE	-302			//"Å¸ÀÎ°èÁÂ´Â »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
-#define OP_ERR_MIS_2BILL_EXC	-303			//"ÁÖ¹®°¡°İÀÌ 20¾ï¿øÀ» ÃÊ°úÇÕ´Ï´Ù."
-#define OP_ERR_MIS_5BILL_EXC	-304			//"ÁÖ¹®°¡°İÀÌ 50¾ï¿øÀ» ÃÊ°úÇÕ´Ï´Ù."
-#define OP_ERR_MIS_1PER_EXC		-305			//"ÁÖ¹®¼ö·®ÀÌ ÃÑ¹ßÇàÁÖ¼öÀÇ 1%¸¦ ÃÊ°úÇÕ´Ï´Ù."
-#define OP_ERR_MIS_3PER_EXC		-306			//"ÁÖ¹®¼ö·®Àº ÃÑ¹ßÇàÁÖ¼öÀÇ 3%¸¦ ÃÊ°úÇÒ ¼ö ¾ø½À´Ï´Ù."
-#define OP_ERR_SEND_FAIL		-307			//"ÁÖ¹®Àü¼Û½ÇÆĞ"
-#define OP_ERR_ORD_OVERFLOW		-308			//"ÁÖ¹®Àü¼Û °úºÎÇÏ"
+#define OP_ERR_ORD_WRONG_INPUT	-300			//"ì…ë ¥ê°’ ì˜¤ë¥˜"
+#define OP_ERR_ORD_WRONG_ACCNO	-301			//"ê³„ì¢Œë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì‹­ì‹œì˜¤."
+#define OP_ERR_OTHER_ACC_USE	-302			//"íƒ€ì¸ê³„ì¢ŒëŠ” ì‚¬ìš©í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤."
+#define OP_ERR_MIS_2BILL_EXC	-303			//"ì£¼ë¬¸ê°€ê²©ì´ 20ì–µì›ì„ ì´ˆê³¼í•©ë‹ˆë‹¤."
+#define OP_ERR_MIS_5BILL_EXC	-304			//"ì£¼ë¬¸ê°€ê²©ì´ 50ì–µì›ì„ ì´ˆê³¼í•©ë‹ˆë‹¤."
+#define OP_ERR_MIS_1PER_EXC		-305			//"ì£¼ë¬¸ìˆ˜ëŸ‰ì´ ì´ë°œí–‰ì£¼ìˆ˜ì˜ 1%ë¥¼ ì´ˆê³¼í•©ë‹ˆë‹¤."
+#define OP_ERR_MIS_3PER_EXC		-306			//"ì£¼ë¬¸ìˆ˜ëŸ‰ì€ ì´ë°œí–‰ì£¼ìˆ˜ì˜ 3%ë¥¼ ì´ˆê³¼í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤."
+#define OP_ERR_SEND_FAIL		-307			//"ì£¼ë¬¸ì „ì†¡ì‹¤íŒ¨"
+#define OP_ERR_ORD_OVERFLOW		-308			//"ì£¼ë¬¸ì „ì†¡ ê³¼ë¶€í•˜"
 
 #define UM_SCRENN_CLOSE		1000
 
@@ -47,30 +47,30 @@
 #define TR_OPT10080		"OPT10080"
 #define TR_OPT10081		"OPT10081"
 
-#define DT_NONE			0		// ±âº»¹®ÀÚ Çü½Ä
-#define DT_DATE			1		// ÀÏÀÚ Çü½Ä
-#define DT_TIME			2		// ½Ã°£ Çü½Ä
-#define DT_NUMBER		3		// ÄŞÆÄ ¼ıÀÚ Çü½Ä
-#define DT_ZERO_NUMBER	4		// ÄŞÆÄ ¼ıÀÚ(0Ç¥½Ã) Çü½Ä
-#define DT_SIGN			5		// ´ëºñ±âÈ£ Çü½Ä
+#define DT_NONE			0		// ê¸°ë³¸ë¬¸ì í˜•ì‹
+#define DT_DATE			1		// ì¼ì í˜•ì‹
+#define DT_TIME			2		// ì‹œê°„ í˜•ì‹
+#define DT_NUMBER		3		// ì½¤íŒŒ ìˆ«ì í˜•ì‹
+#define DT_ZERO_NUMBER	4		// ì½¤íŒŒ ìˆ«ì(0í‘œì‹œ) í˜•ì‹
+#define DT_SIGN			5		// ëŒ€ë¹„ê¸°í˜¸ í˜•ì‹
 
 #define		SAMPLE_VERSION				_T(" ver 2.5")
 
 typedef struct
 {
-   CString	strKey;				// Á¶È¸ Å°
-   CString	strRealKey;			// ¸®¾ó Å°
-   int		nRow;				// ±×¸®µå Çà
-   int		nCol;				// ±×¸®µå ¿­
-   int		nDataType;			// µ¥ÀÌÅ¸ Å¸ÀÔ(0:±âº»¹®ÀÚ, 1:ÀÏÀÚ, 2:½Ã°£, 3:ÄŞÆÄ ¼ıÀÚ, 4:ÄŞÆÄ ¼ıÀÚ(0Ç¥½Ã), 5:´ëºñ±âÈ£)
-   BOOL		bTextColor;			// ¹®ÀÚ¿­ »ö º¯°æ(»ó½Â, ÇÏ¶ô»ö)
-   UINT		nAlign;				// ¹®ÀÚ¿­ Á¤·Ä(DT_LEFT, DT_CENTER, DT_RIGHT)
-   CString	strBeforeData;		// ¹®ÀÚ¿­ ¾Õ ¹®ÀÚ ³Ö±â
-   CString	strAfterData;		// ¹®ÀÚ¿­ µÚ ¹®ÀÚ ³Ö±â
+   CString	strKey;				// ì¡°íšŒ í‚¤
+   CString	strRealKey;			// ë¦¬ì–¼ í‚¤
+   int		nRow;				// ê·¸ë¦¬ë“œ í–‰
+   int		nCol;				// ê·¸ë¦¬ë“œ ì—´
+   int		nDataType;			// ë°ì´íƒ€ íƒ€ì…(0:ê¸°ë³¸ë¬¸ì, 1:ì¼ì, 2:ì‹œê°„, 3:ì½¤íŒŒ ìˆ«ì, 4:ì½¤íŒŒ ìˆ«ì(0í‘œì‹œ), 5:ëŒ€ë¹„ê¸°í˜¸)
+   BOOL		bTextColor;			// ë¬¸ìì—´ ìƒ‰ ë³€ê²½(ìƒìŠ¹, í•˜ë½ìƒ‰)
+   UINT		nAlign;				// ë¬¸ìì—´ ì •ë ¬(DT_LEFT, DT_CENTER, DT_RIGHT)
+   CString	strBeforeData;		// ë¬¸ìì—´ ì• ë¬¸ì ë„£ê¸°
+   CString	strAfterData;		// ë¬¸ìì—´ ë’¤ ë¬¸ì ë„£ê¸°
 } stGRID;
 
 // CKhOpenApiTestApp:
-// ÀÌ Å¬·¡½ºÀÇ ±¸Çö¿¡ ´ëÇØ¼­´Â KhOpenApiTest.cppÀ» ÂüÁ¶ÇÏ½Ê½Ã¿À.
+// ì´ í´ë˜ìŠ¤ì˜ êµ¬í˜„ì— ëŒ€í•´ì„œëŠ” KhOpenApiTest.cppì„ ì°¸ì¡°í•˜ì‹­ì‹œì˜¤.
 //
 class CKhOpenApiTestApp : public CWinApp
 {
@@ -81,19 +81,19 @@ public:
 	//CKhopenapictrl1 m_khOpenApi;
 	CKHOpenAPI	m_khOpenApi;
 
-// ÀçÁ¤ÀÇÀÔ´Ï´Ù.
+// ì¬ì •ì˜ì…ë‹ˆë‹¤.
 public:
 	virtual BOOL InitInstance();
 
 public:
-	CString	m_sAppPath;		// ½ÇÇà ÆÄÀÏ ÆĞ½º
+	CString	m_sAppPath;		// ì‹¤í–‰ íŒŒì¼ íŒ¨ìŠ¤
 
 	CString ConvDataFormat(int nType, LPCTSTR szData, LPCTSTR szBeforeData = "", LPCTSTR szAfterData = "");
 	void SetSignData(CGridCtrl *pGrid, int nRow, int nCol, LPCTSTR szData);
-	void SetDataFgColour(CGridCtrl *pGrid, int nRow, int nCol, LPCTSTR szData);		// ±×¸®µå ¼¿ ¹®ÀÚ»ö º¯°æ
-	BOOL IsError(long lErrCode);		// ¿À·ù ¿©ºÎ
+	void SetDataFgColour(CGridCtrl *pGrid, int nRow, int nCol, LPCTSTR szData);		// ê·¸ë¦¬ë“œ ì…€ ë¬¸ììƒ‰ ë³€ê²½
+	BOOL IsError(long lErrCode);		// ì˜¤ë¥˜ ì—¬ë¶€
 
-// ±¸ÇöÀÔ´Ï´Ù.
+// êµ¬í˜„ì…ë‹ˆë‹¤.
 
 	DECLARE_MESSAGE_MAP()
 };
